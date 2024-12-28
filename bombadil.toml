@@ -1,0 +1,37 @@
+dotfiles_dir = "dotfiles"
+
+# gpg_user_id = ...
+
+[settings]
+vars = ["vars.toml"]
+
+# pre/post-hook commands which run before/after `bombadil link`
+# prehooks = [...]
+# posthooks = [...]
+
+[settings.dots]
+
+bash_logout = { source = "shells/bash/bash_logout", target = ".bash_logout" }
+bash_profile = { source = "shells/bash/bash_profile", target = ".bash_profile" }
+bashrc = { source = "shells/bash/bashrc", target = ".bashrc" }
+
+conda = { source = "conda/condarc", target = ".condarc" }
+
+gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
+
+mkshrc = { source = "shells/mksh/mkshrc", target = ".mkshrc" }
+
+nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
+
+nvim = { source = "editors/nvim", target = ".config/nvim" }
+
+prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
+prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
+
+shell_profile = { source = "shells/profile", target = ".profile" }
+
+wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
+
+zlogin = { source = "shells/zsh/zlogin", target = ".zlogin" }
+zshenv = { source = "shells/zsh/zshenv", target = ".zshenv" }
+zshrc = { source = "shells/zsh/zshrc", target = ".zshrc" }

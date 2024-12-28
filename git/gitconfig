@@ -1,0 +1,34 @@
+[user]
+	name = Jesse Hamer
+	email = jhamer90811@gmail.com
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[core]
+	autocrlf = input
+	pager = delta
+
+[init]
+	defautBranch = main
+	defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true    # use n and N to move between diff sections
+  features = catppuccin-macchiato
+
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
+
+[merge]
+  conflictstyle = diff3
+
+[include]
+	path = ~/catppuccin/delta/catppuccin.gitconfig
+
+[pull]
+	rebase = false
