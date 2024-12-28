@@ -63,7 +63,7 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/.config/oh-my-zsh/
+ZSH_CUSTOM=$HOME/.config/oh-my-zsh/
 
 # Some plugins need to be configured prior to OMZ loading them
 zstyle ':omz:plugins:eza' 'icons' yes

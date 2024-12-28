@@ -11,26 +11,53 @@ vars = ["vars.toml"]
 
 [settings.dots]
 
+aws = { source = "aws", target = ".aws" }
+
 bash_logout = { source = "shells/bash/bash_logout", target = ".bash_logout" }
 bash_profile = { source = "shells/bash/bash_profile", target = ".bash_profile" }
 bashrc = { source = "shells/bash/bashrc", target = ".bashrc" }
+
+bat = { source = "bat", target = ".config/bat" }
+
+bottom = { source = "bottom", target = ".config/bottom" }
 
 conda = { source = "conda/condarc", target = ".condarc" }
 
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 
+github-cli = { source = "gh/config.yml", target = ".config/gh/config.yml" }
+
+glow = { source = "glow", target = ".config/glow" }
+
+ipython-default = { source = "python/ipython/profile_default/ipython_config.py", target = ".ipython/profile_default/ipython_config.py" }
+ipython-kernel-default = { source = "python/ipython/profile_default/ipython_kernel_config.py", target = ".ipython/profile_default/ipython_kernel_config.py" }
+
+lazygit = { source = "lazygit", target = ".config/lazygit" }
+
 mkshrc = { source = "shells/mksh/mkshrc", target = ".mkshrc" }
+
+neofetch = { source = "neofetch", target = ".config/neofetch" }
 
 nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
 
 nvim = { source = "editors/nvim", target = ".config/nvim" }
+
+oh-my-zsh = { source = "shells/zsh/oh-my-zsh", target = ".config/oh-my-zsh" }
 
 prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
 prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
 
 shell_profile = { source = "shells/profile", target = ".profile" }
 
+starship = { source = "shells/starship.toml", target = ".config/starship.toml" }
+
+tealdeer = { source = "tealdeer", target = ".config/tealdeer" }
+
+weathercrab = { source = "weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
+
 wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
+
+yazi = { source = "yazi", target = ".config/yazi" }
 
 zlogin = { source = "shells/zsh/zlogin", target = ".zlogin" }
 zshenv = { source = "shells/zsh/zshenv", target = ".zshenv" }

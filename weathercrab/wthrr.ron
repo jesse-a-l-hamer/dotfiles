@@ -1,0 +1,24 @@
+(
+    address: "iowa-city,iowa",
+    language: "en_US",
+    forecast: [
+        week,
+        day,
+    ],
+    units: (
+        temperature: celsius,
+        speed: kmh,
+        time: military,
+        precipitation: probability,
+    ),
+    gui: (
+        border: rounded,
+        color: default,
+        graph: (
+            style: dotted,
+            rowspan: double,
+            time_indicator: true,
+        ),
+        greeting: true,
+    ),
+)
