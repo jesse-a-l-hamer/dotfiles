@@ -1,0 +1,28 @@
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+
+  # oh-my-zsh plugins
+  aliases
+  gh
+  git
+  starship
+  zoxide
+  cp
+  uv
+  rclone
+  eza
+  rvm
+  rust
+  golang
+  procs
+
+  fdellwing/zsh-bat
+
+  zdharma-continuum/fast-syntax-highlighting
+  
+  zsh-users/zsh-completions
+
+EOBUNDLES
+
+antigen apply

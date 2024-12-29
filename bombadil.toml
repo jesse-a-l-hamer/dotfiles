@@ -11,6 +11,8 @@ vars = ["vars.toml"]
 
 [settings.dots]
 
+antigen = { source = "shells/zsh/antigenrc", target = ".antigenrc" }
+
 aws = { source = "aws", target = ".aws" }
 
 bash_logout = { source = "shells/bash/bash_logout", target = ".bash_logout" }
@@ -42,8 +44,6 @@ nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-s
 
 nvim = { source = "editors/nvim", target = ".config/nvim" }
 
-oh-my-zsh = { source = "shells/zsh/oh-my-zsh", target = ".config/oh-my-zsh" }
-
 prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
 prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
 
@@ -59,6 +59,8 @@ wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
 
 yazi = { source = "yazi", target = ".config/yazi" }
 
+zsh = { source = "shells/zsh/custom", target = ".config/zsh" }
+zsh-fast-syntax-highlighting = { source = "shells/zsh/fsh", target = ".config/fsh" }
 zlogin = { source = "shells/zsh/zlogin", target = ".zlogin" }
 zshenv = { source = "shells/zsh/zshenv", target = ".zshenv" }
 zshrc = { source = "shells/zsh/zshrc", target = ".zshrc" }
