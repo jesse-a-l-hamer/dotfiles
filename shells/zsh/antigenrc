@@ -4,20 +4,30 @@ antigen bundles <<EOBUNDLES
 
   # oh-my-zsh plugins
   aliases
+  command-not-found
+  cp
+  direnv
+  eza
   gh
   git
+  golang
+  gpg-agent
+  pip
+  procs
+  python
+  rclone
+  rust
+  rvm
   starship
   zoxide
-  cp
-  uv
-  rclone
-  eza
-  rvm
-  rust
-  golang
-  procs
+  
+  # other plugins
+  
+  bilelmoussaoui/flatpak-zsh-completion
 
   fdellwing/zsh-bat
+
+  lipov3cz3k/zsh-uv --branch=main
 
   zdharma-continuum/fast-syntax-highlighting
   
