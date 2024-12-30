@@ -25,11 +25,6 @@ fast-theme XDG:catppuccin-macchiato
 
 # source zsh/custom files
 for file in $ZSH/*.zsh; do
-  if [ $file != $ZSH/rvm.zsh ]  # need to source rvm.zsh last
-  then
-    source $file
-  fi
+  source $file
 done
-
-source $ZSH/rvm.zsh
 

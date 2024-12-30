@@ -17,7 +17,6 @@ antigen bundles <<EOBUNDLES
   python
   rclone
   rust
-  rvm
   starship
   zoxide
   
