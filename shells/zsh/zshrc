@@ -20,7 +20,7 @@ source $ANTIGEN_PATH/antigen.zsh
 antigen init $HOME/.antigenrc
 
 # configure fast-syntax-highlighting theme
-fast-theme XDG:catppuccin-macchiato
+fast-theme --quiet XDG:catppuccin-macchiato
 
 
 # source zsh/custom files
