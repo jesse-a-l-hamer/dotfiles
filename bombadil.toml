@@ -36,8 +36,6 @@ ipython-kernel-default = { source = "python/ipython/profile_default/ipython_kern
 
 lazygit = { source = "lazygit", target = ".config/lazygit" }
 
-mkshrc = { source = "shells/mksh/mkshrc", target = ".mkshrc" }
-
 neofetch = { source = "neofetch", target = ".config/neofetch" }
 
 nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
