@@ -1,0 +1,2 @@
+export AWS_SESSION_TOKEN_TTL=12h
+

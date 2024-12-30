@@ -17,20 +17,19 @@ export ANTIGEN_PATH=$HOME/package-repos/antigen
 
 # source antigen and load plugins
 source $ANTIGEN_PATH/antigen.zsh
-antigen init .antigenrc
+antigen init $HOME/.antigenrc
 
 # configure fast-syntax-highlighting theme
 fast-theme XDG:catppuccin-macchiato
 
 
 # source zsh/custom files
-source $ZSH/aliases.zsh
-source $ZSH/bat.zsh
-source $ZSH/completions.zsh
-source $ZSH/exports.zsh
-source $ZSH/micromamba.zsh
+for file in $ZSH/*.zsh; do
+  if [ $file != $ZSH/rvm.zsh ]  # need to source rvm.zsh last
+  then
+    source $file
+  fi
+done
 
-source $HOME/.rvm/scripts/rvm
-source $HOME/.cargo/env
-
+source $ZSH/rvm.zsh
 
