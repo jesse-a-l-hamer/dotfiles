@@ -2,6 +2,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.config/zsh
 
+fpath=(
+  $HOME/.config/zsh/completions
+  $fpath
+)
+
 # must configure eza plugin before loading it
 zstyle ':omz:plugins:eza' 'icons' yes
 zstyle ':omz:plugins:eza' 'git-status' yes
