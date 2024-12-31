@@ -16,7 +16,6 @@ antigen bundles <<EOBUNDLES
   procs
   python
   rclone
-  rust
   starship
   zoxide
   
@@ -27,6 +26,8 @@ antigen bundles <<EOBUNDLES
   fdellwing/zsh-bat
 
   lipov3cz3k/zsh-uv --branch=main
+
+  MenkeTechnologies/zsh-cargo-completion
 
   zdharma-continuum/fast-syntax-highlighting
   
