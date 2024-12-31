@@ -1,6 +1,6 @@
 dotfiles_dir = "dotfiles"
 
-# gpg_user_id = ...
+gpg_user_id = "Jesse Hamer <jesse.a.l.hamer@gmail.com>"
 
 [settings]
 vars = ["vars.toml"]
