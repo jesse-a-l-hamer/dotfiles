@@ -8,7 +8,7 @@ local function build_config()
   -- This is where you actually apply your config choices
 
   config.enable_scroll_bar = true
-  config.font = wezterm.font("RecMonoDuotone Nerd Font")
+  config.font = wezterm.font("MonaspiceAr NFM")
 
   config.max_fps = 144
 
@@ -19,7 +19,7 @@ local function build_config()
 
   config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
   config.window_frame = {
-    font = wezterm.font("RecMonoCasual Nerd Font"),
+    font = wezterm.font("MonaspiceAr NFP"),
   }
   config.window_background_opacity = 0.75
 
