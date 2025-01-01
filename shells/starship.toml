@@ -8,7 +8,7 @@ $linebreak([│](rosewater) $jobs$battery$time$status$os$container$shell\n)\
 [╰─](rosewater)$character\
 """
 
-add_newline = true
+add_newline = false
 
 palette = "catppuccin_macchiato"
 
@@ -50,7 +50,6 @@ symbol = " "
 symbol = " "
 
 [character]
-# Note the use of Catppuccin color 'peach'
 success_symbol = "[](green)"
 error_symbol = "[](red)"
 vimcmd_symbol = "[](subtext1)" # For use with zsh-vi-mode
@@ -208,6 +207,10 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[time]
+disabled = false
+format = '[ $time]($style) '
 
 [zig]
 symbol = " "
