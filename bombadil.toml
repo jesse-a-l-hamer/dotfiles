@@ -57,6 +57,8 @@ wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
 
 yazi = { source = "yazi", target = ".config/yazi" }
 
+zen-browser = { source = "browser/zen/chrome", target = ".zen/personal/chrome" }
+
 zsh = { source = "shells/zsh/custom", target = ".config/zsh" }
 zsh-fast-syntax-highlighting = { source = "shells/zsh/fsh", target = ".config/fsh" }
 zshrc = { source = "shells/zsh/zshrc", target = ".zshrc" }
