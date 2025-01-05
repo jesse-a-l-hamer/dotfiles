@@ -1,0 +1,15 @@
+{
+    "theme": "Catppuccin Macchiato",
+    "adaptive-theme": false,
+    "preferred-light-theme": "Catppuccin Latte",
+    "preferred-dark-theme": "Catppuccin Macchiato",
+    "theme-scrollbars": true,
+    "overrides": {
+        "code-font-family": "{{ fonts.mono }}",
+        "code-font-size": null,
+        "content-font-family": "{{ fonts.propo }}",
+        "content-font-size1": null,
+        "ui-font-family": "{{ fonts.propo }}",
+        "ui-font-size1": null
+    }
+}
