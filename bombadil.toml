@@ -31,6 +31,10 @@ github-cli = { source = "gh/config.yml", target = ".config/gh/config.yml" }
 
 glow = { source = "glow", target = ".config/glow" }
 
+gtk2 = { source = "gtk/gtk-2.0", target = ".config/gtk-2.0" }
+gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
+gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
+
 ipython-default = { source = "python/ipython/profile_default/ipython_config.py", target = ".ipython/profile_default/ipython_config.py" }
 ipython-kernel-default = { source = "python/ipython/profile_default/ipython_kernel_config.py", target = ".ipython/profile_default/ipython_kernel_config.py" }
 
@@ -45,6 +49,8 @@ nvim = { source = "editors/neovim", target = ".config/nvim" }
 prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
 prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
 
+qt5ct = { source = "qt/qt5ct", target = ".config/qt5ct" }
+
 shell_profile = { source = "shells/profile", target = ".profile" }
 
 starship = { source = "shells/starship.toml", target = ".config/starship.toml" }
@@ -54,6 +60,9 @@ tealdeer = { source = "tealdeer", target = ".config/tealdeer" }
 weathercrab = { source = "weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
 
 wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
+
+xdg-dirs = { source = "xdg/user-dirs.dirs", target = ".config/user-dirs.dirs" }
+xdg-locale = { source = "xdg/user-dirs.locale", target = ".config/user-dirs.locale" }
 
 yazi = { source = "yazi", target = ".config/yazi" }
 
