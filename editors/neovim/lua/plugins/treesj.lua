@@ -1,0 +1,20 @@
+return {
+  "Wansmer/treesj",
+  cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+  dependencies = {
+    {
+      "AstroNvim/astrocore",
+      opts = {
+        mappings = {
+          n = {
+            ["<Leader>M"] = { "<Cmd>TSJToggle<CR>", desc = "Toggle Treesitter Join" },
+          },
+        },
+      },
+    },
+  },
+  opts = {
+    use_default_keymaps = false,
+    max_join_length = 88,
+  },
+}

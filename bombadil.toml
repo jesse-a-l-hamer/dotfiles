@@ -40,7 +40,7 @@ neofetch = { source = "neofetch", target = ".config/neofetch" }
 
 nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
 
-nvim = { source = "editors/nvim", target = ".config/nvim" }
+nvim = { source = "editors/neovim", target = ".config/nvim" }
 
 prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
 prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
