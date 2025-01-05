@@ -1,0 +1,16 @@
+[profiles.shell-bash.dots]
+bash_logout = { source = "shell/bash/bash_logout", target = ".bash_logout" }
+bash_profile = { source = "shell/bash/bash_profile", target = ".bash_profile" }
+bashrc = { source = "shell/bash/bashrc", target = ".bashrc" }
+
+[profiles.shell-sh.dots]
+sh_profile = { source = "shell/sh/profile", target = ".profile" }
+
+[profiles.shell-zsh.dots]
+antigen = { source = "shell/zsh/antigenrc", target = ".antigenrc" }
+zsh = { source = "shell/zsh/custom", target = ".config/zsh" }
+zsh-fast-syntax-highlighting = { source = "shell/zsh/fsh", target = ".config/fsh" }
+zshrc = { source = "shell/zsh/zshrc", target = ".zshrc" }
+
+[profiles.shell-multi.dots]
+starship = { source = "shell/starship.toml", target = ".config/starship.toml" }

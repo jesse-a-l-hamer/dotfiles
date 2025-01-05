@@ -1,0 +1,20 @@
+[profiles.cli-go.dots]
+glow = { source = "cli/glow", target = ".config/glow" }
+
+[profiles.cli-node_js.dots]
+prettierrc = { source = "cli/prettier/prettierrc", target = ".prettierrc" }
+prettierignore = { source = "cli/prettier/prettierignore", target = ".prettierignore" }
+
+[profiles.cli-rust.dots]
+bat = { source = "cli/bat", target = ".config/bat" }
+bottom = { source = "cli/bottom", target = ".config/bottom" }
+neofetch = { source = "cli/neofetch", target = ".config/neofetch" }
+tealdeer = { source = "cli/tealdeer", target = ".config/tealdeer" }
+weathercrab = { source = "cli/weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
+yazi = { source = "cli/yazi", target = ".config/yazi" }
+
+[profiles.cli-other.dots]
+aws = { source = "cli/aws", target = ".aws" }
+github-cli = { source = "cli/gh/config.yml", target = ".config/gh/config.yml" }
+lazygit = { source = "cli/lazygit", target = ".config/lazygit" }
+

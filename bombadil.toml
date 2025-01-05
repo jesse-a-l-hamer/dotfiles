@@ -2,73 +2,36 @@ dotfiles_dir = "dotfiles"
 
 gpg_user_id = "Jesse Hamer <jesse.a.l.hamer@gmail.com>"
 
+import = [
+  { path = "browser/browser.toml" },
+  { path = "cli/cli.toml" },
+  { path = "editor/editor.toml" },
+  { path = "git/git.toml" },
+  { path = "linux/linux.toml" },
+  { path = "music/music.toml" },
+  { path = "python/python.toml" },
+  { path = "shell/shell.toml" },
+  { path = "terminal/terminal.toml" },
+]
+
 [settings]
 vars = ["vars.toml"]
 
-# pre/post-hook commands which run before/after `bombadil link`
-# prehooks = [...]
-# posthooks = [...]
-
-[settings.dots]
-
-antigen = { source = "shells/zsh/antigenrc", target = ".antigenrc" }
-
-aws = { source = "aws", target = ".aws" }
-
-bash_logout = { source = "shells/bash/bash_logout", target = ".bash_logout" }
-bash_profile = { source = "shells/bash/bash_profile", target = ".bash_profile" }
-bashrc = { source = "shells/bash/bashrc", target = ".bashrc" }
-
-bat = { source = "bat", target = ".config/bat" }
-
-bottom = { source = "bottom", target = ".config/bottom" }
-
-gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
-
-github-cli = { source = "gh/config.yml", target = ".config/gh/config.yml" }
-
-glow = { source = "glow", target = ".config/glow" }
-
-gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
-gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
-
-ipython-default = { source = "python/ipython/profile_default/ipython_config.py", target = ".ipython/profile_default/ipython_config.py" }
-ipython-kernel-default = { source = "python/ipython/profile_default/ipython_kernel_config.py", target = ".ipython/profile_default/ipython_kernel_config.py" }
-
-jupyter-lab = { source = "python/jupyter/lab", target = ".jupyter/lab/user-settings" }
-
-lazygit = { source = "lazygit", target = ".config/lazygit" }
-
-neofetch = { source = "neofetch", target = ".config/neofetch" }
-
-nvidia-settings-rc = { source = "nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
-
-nvim = { source = "editors/neovim", target = ".config/nvim" }
-
-prettierrc = { source = "prettier/prettierrc", target = ".prettierrc" }
-prettierignore = { source = "prettier/prettierignore", target = ".prettierignore" }
-
-qt5ct = { source = "qt/qt5ct", target = ".config/qt5ct" }
-
-shell_profile = { source = "shells/profile", target = ".profile" }
-
-starship = { source = "shells/starship.toml", target = ".config/starship.toml" }
-
-tealdeer = { source = "tealdeer", target = ".config/tealdeer" }
-
-weathercrab = { source = "weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
-
-wezterm = { source = "terminals/wezterm", target = ".config/wezterm" }
-
-xdg-dirs = { source = "xdg/user-dirs.dirs", target = ".config/user-dirs.dirs" }
-xdg-locale = { source = "xdg/user-dirs.locale", target = ".config/user-dirs.locale" }
-
-yazi = { source = "yazi", target = ".config/yazi" }
-
-youtube-music = { source = "music/th-ch-youtube-music/config.json", target = ".config/YouTube Music/config.json" }
-
-zen-browser = { source = "browser/zen/chrome", target = ".zen/personal/chrome" }
-
-zsh = { source = "shells/zsh/custom", target = ".config/zsh" }
-zsh-fast-syntax-highlighting = { source = "shells/zsh/fsh", target = ".config/fsh" }
-zshrc = { source = "shells/zsh/zshrc", target = ".zshrc" }
+[profiles.desktop]
+extra_profiles = [
+  "browser-zen",
+  "cli-go",
+  "cli-node_js",
+  "cli-rust",
+  "cli-other",
+  "editor-astro_nvim",
+  "git",
+  "linux-pop_os",
+  "music-youtube_music",
+  "python-3_12",
+  "shell-bash",
+  "shell-sh",
+  "shell-zsh",
+  "shell-multi",
+  "terminal-wezterm",
+]

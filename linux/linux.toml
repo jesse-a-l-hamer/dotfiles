@@ -1,0 +1,8 @@
+[profiles.linux-pop_os.dots]
+gtk3 = { source = "linux/gtk/gtk-3.0", target = ".config/gtk-3.0" }
+gtk4 = { source = "linux/gtk/gtk-4.0", target = ".config/gtk-4.0" }
+nvidia-settings-rc = { source = "linux/nvidia/nvidia-settings-rc", target = ".nvidia-settings-rc" }
+qt5ct = { source = "linux/qt/qt5ct", target = ".config/qt5ct" }
+xdg-dirs = { source = "linux/xdg/user-dirs.dirs", target = ".config/user-dirs.dirs" }
+xdg-locale = { source = "linux/xdg/user-dirs.locale", target = ".config/user-dirs.locale" }
+

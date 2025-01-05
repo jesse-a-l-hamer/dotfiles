@@ -1,0 +1,2 @@
+[profiles.editor-astro_nvim.dots]
+nvim = { source = "editor/astro-nvim", target = ".config/nvim" }

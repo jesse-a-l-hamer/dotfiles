@@ -1,0 +1,2 @@
+[profiles.music-youtube_music.dots]
+youtube-music = { source = "music/th-ch-youtube-music/config.json", target = ".config/YouTube Music/config.json" }

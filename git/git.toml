@@ -1,0 +1,2 @@
+[profiles.git.dots]
+gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
