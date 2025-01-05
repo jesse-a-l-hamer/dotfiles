@@ -65,6 +65,8 @@ xdg-locale = { source = "xdg/user-dirs.locale", target = ".config/user-dirs.loca
 
 yazi = { source = "yazi", target = ".config/yazi" }
 
+youtube-music = { source = "music/th-ch-youtube-music/config.json", target = ".config/YouTube Music/config.json" }
+
 zen-browser = { source = "browser/zen/chrome", target = ".zen/personal/chrome" }
 
 zsh = { source = "shells/zsh/custom", target = ".config/zsh" }
