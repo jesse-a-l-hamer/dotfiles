@@ -31,7 +31,6 @@ github-cli = { source = "gh/config.yml", target = ".config/gh/config.yml" }
 
 glow = { source = "glow", target = ".config/glow" }
 
-gtk2 = { source = "gtk/gtk-2.0", target = ".config/gtk-2.0" }
 gtk3 = { source = "gtk/gtk-3.0", target = ".config/gtk-3.0" }
 gtk4 = { source = "gtk/gtk-4.0", target = ".config/gtk-4.0" }
 
