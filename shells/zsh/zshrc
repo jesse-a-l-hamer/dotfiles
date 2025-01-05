@@ -2,6 +2,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.config/zsh
 
+export DOTFILES=$HOME/dotfiles
+
 fpath=(
   $HOME/.config/zsh/completions
   $fpath
