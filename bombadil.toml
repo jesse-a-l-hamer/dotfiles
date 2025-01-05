@@ -23,8 +23,6 @@ bat = { source = "bat", target = ".config/bat" }
 
 bottom = { source = "bottom", target = ".config/bottom" }
 
-conda = { source = "conda/condarc", target = ".condarc" }
-
 gitconfig = { source = "git/gitconfig", target = ".gitconfig" }
 
 github-cli = { source = "gh/config.yml", target = ".config/gh/config.yml" }
