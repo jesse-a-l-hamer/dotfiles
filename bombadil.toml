@@ -25,6 +25,7 @@ extra_profiles = [
   "cli-rust",
   "cli-other",
   "editor-astro_nvim",
+  # "editor-kickstart_nvim",
   "git",
   "linux-pop_os",
   "music-youtube_music",
