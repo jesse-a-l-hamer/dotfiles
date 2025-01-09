@@ -16,6 +16,9 @@ return {
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+      -- Uncomment the following when using `mini.surround` if 'timeoutlen' is
+      -- set low enough to cause occasional usage of `s` key
+      vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
