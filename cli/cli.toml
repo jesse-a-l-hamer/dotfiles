@@ -10,7 +10,6 @@ bat = { source = "cli/bat", target = ".config/bat" }
 bottom = { source = "cli/bottom", target = ".config/bottom" }
 espanso_config = { source = "cli/espanso/config/default.yml", target = ".config/espanso/config/default.yml" }
 espanso_match = { source = "cli/espanso/match/base.yml", target = ".config/espanso/match/base.yml" }
-neofetch = { source = "cli/neofetch", target = ".config/neofetch" }
 tealdeer = { source = "cli/tealdeer", target = ".config/tealdeer" }
 weathercrab = { source = "cli/weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
 yazi = { source = "cli/yazi", target = ".config/yazi" }
@@ -19,3 +18,4 @@ yazi = { source = "cli/yazi", target = ".config/yazi" }
 aws = { source = "cli/aws", target = ".aws" }
 github-cli = { source = "cli/gh/config.yml", target = ".config/gh/config.yml" }
 lazygit = { source = "cli/lazygit", target = ".config/lazygit" }
+neofetch = { source = "cli/neofetch", target = ".config/neofetch" }
