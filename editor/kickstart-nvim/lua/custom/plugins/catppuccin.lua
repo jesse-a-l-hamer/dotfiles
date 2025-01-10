@@ -27,6 +27,7 @@ return {
         enabled = true,
         indentscope_color = "maroon",
       },
+      snacks = true,
       which_key = true,
     },
   },
