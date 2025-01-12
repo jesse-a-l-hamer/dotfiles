@@ -7,17 +7,14 @@ return {
     opts = {
       animate = { enabled = true },
       bigfile = { enabled = true },
-      bufdelete = { enabled = true },
       dashboard = { example = "advanced" },
       dim = { enabled = true },
-      git = { enabled = true },
       gitbrowse = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       lazygit = { enabled = true },
       notifier = { enabled = true },
       quickfile = { enabled = true },
-      rename = { enabled = true },
       scope = { enabled = true },
       scratch = { enabled = true },
       scroll = { enabled = true },
@@ -30,60 +27,46 @@ return {
     },
     keys = {
       {
-        "<leader>z",
-        function()
-          Snacks.zen()
-        end,
-        desc = "Toggle [Z]en Mode",
-      },
-      {
-        "<leader>Z",
-        function()
-          Snacks.zen.zoom()
-        end,
-        desc = "Toggle [Z]oom (Zen Mode)",
-      },
-      {
-        "<leader>.",
+        "<leader>bs",
         function()
           Snacks.scratch()
         end,
-        desc = "Toggle Scratch Buffer",
+        desc = "[s]cratch",
       },
       {
-        "<leader>S",
+        "<leader>bS",
         function()
           Snacks.scratch.select()
         end,
-        desc = "Select [S]cratch Buffer",
+        desc = "[S]elect scratch",
       },
       {
-        "<leader>n",
+        "<leader>nh",
         function()
           Snacks.notifier.show_history()
         end,
-        desc = "[N]otification History",
+        desc = "[h]istory",
       },
       {
         "<leader>bd",
         function()
           Snacks.bufdelete()
         end,
-        desc = "[D]elete [B]uffer",
+        desc = "[d]elete",
       },
       {
-        "<leader>cR",
+        "<leader>fr",
         function()
           Snacks.rename.rename_file()
         end,
-        desc = "[R]ename File",
+        desc = "[r]ename",
       },
       {
         "<leader>gB",
         function()
           Snacks.gitbrowse()
         end,
-        desc = "[G]it [B]rowse",
+        desc = "[B]rowse",
         mode = { "n", "v" },
       },
       {
@@ -91,14 +74,14 @@ return {
         function()
           Snacks.git.blame_line()
         end,
-        desc = "[G]it [B]lame Line",
+        desc = "[b]lame line",
       },
       {
         "<leader>gf",
         function()
           Snacks.lazygit.log_file()
         end,
-        desc = "Lazy[g]it Current [F]ile History",
+        desc = "Lazygit current [f]ile history",
       },
       {
         "<leader>gg",
@@ -112,24 +95,24 @@ return {
         function()
           Snacks.lazygit.log()
         end,
-        desc = "Lazy[g]it [L]og (cwd)",
+        desc = "Lazygit [l]og (cwd)",
       },
       {
-        "<leader>un",
+        "<leader>nd",
         function()
           Snacks.notifier.hide()
         end,
-        desc = "Dismiss All [N]otifications",
+        desc = "[d]ismiss",
       },
       {
-        "<c-/>",
+        "<leader>tt",
         function()
           Snacks.terminal()
         end,
-        desc = "Toggle Terminal",
+        desc = "[t]oggle",
       },
       {
-        "<c-_>",
+        "<c-/>",
         function()
           Snacks.terminal()
         end,
@@ -169,6 +152,13 @@ return {
           }
         end,
       },
+      {
+        "<leader>D",
+        function()
+          Snacks.dashboard { example = "advanced" }
+        end,
+        desc = "[D]ashboard",
+      },
     },
     init = function()
       vim.api.nvim_create_autocmd("User", {
@@ -184,17 +174,19 @@ return {
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
-          Snacks.toggle.option("spell", { name = "Spelling" }):map "<leader>us"
-          Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
-          Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
-          Snacks.toggle.diagnostics():map "<leader>ud"
-          Snacks.toggle.line_number():map "<leader>ul"
-          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map "<leader>uc"
-          Snacks.toggle.treesitter():map "<leader>uT"
-          Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>ub"
-          Snacks.toggle.inlay_hints():map "<leader>uh"
-          Snacks.toggle.indent():map "<leader>ug"
-          Snacks.toggle.dim():map "<leader>uD"
+          Snacks.toggle.option("spell", { name = "[s]pelling" }):map "<leader>Ts"
+          Snacks.toggle.option("wrap", { name = "[w]rap" }):map "<leader>Tw"
+          Snacks.toggle.option("relativenumber", { name = "Relative [L]ine Numbers" }):map "<leader>TL"
+          Snacks.toggle.diagnostics():map "<leader>Td"
+          Snacks.toggle.line_number():map "<leader>Tl"
+          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map "<leader>Tc"
+          Snacks.toggle.treesitter():map "<leader>TT"
+          Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>Tb"
+          Snacks.toggle.inlay_hints():map "<leader>Th"
+          Snacks.toggle.indent():map "<leader>Tg"
+          Snacks.toggle.dim():map "<leader>TD"
+          Snacks.toggle.zen():map "<leader>Tz"
+          Snacks.toggle.zoom():map "<leader>TZ"
         end,
       })
     end,

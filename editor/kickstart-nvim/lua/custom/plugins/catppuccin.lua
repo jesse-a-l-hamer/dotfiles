@@ -19,10 +19,6 @@ return {
         color = "maroon",
       },
       fidget = true,
-      indent_blankline = {
-        enabled = true,
-        scope_color = "maroon",
-      },
       mini = {
         enabled = true,
         indentscope_color = "maroon",
