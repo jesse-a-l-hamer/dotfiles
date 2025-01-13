@@ -10,8 +10,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "sahgen/blink.cmp",
-
-      -- Useful status updates for LSP.
       {
         "j-hui/fidget.nvim",
         opts = {
@@ -38,7 +36,7 @@ return {
           map("glt", require("telescope.builtin").lsp_type_definitions, "[t]ype")
           map("<leader>sD", require("telescope.builtin").lsp_document_symbols, "[D]ocument symbols")
           map("<leader>sW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace symbols")
-          map("<leader>lr", vim.lsp.buf.rename, "[r]ename")
+          map("<leader>lr", ":IncRename ", "[r]ename")
           map("<leader>la", vim.lsp.buf.code_action, "code [a]ction", { "n", "x" })
           map("glD", vim.lsp.buf.declaration, "[D]eclaration")
           local client = vim.lsp.get_client_by_id(event.data.client_id)
