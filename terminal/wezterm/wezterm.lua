@@ -7,25 +7,25 @@ local tabline = require("tabline")
 
 -- set basic configs
 local function build_base_config()
-  local config = wezterm.config_builder()
+	local config = wezterm.config_builder()
 
-  -- This is where you actually apply your config choices
+	-- This is where you actually apply your config choices
 
-  config.enable_scroll_bar = true
-  config.font = wezterm.font("{{fonts.mono}}")
+	config.enable_scroll_bar = true
+	config.font = wezterm.font("{{fonts.mono}}")
 
-  config.max_fps = 144
+	config.max_fps = 144
 
-  config.quick_select_alphabet = "arstqwfpzxcvneioluymdhgjbk"
+	config.quick_select_alphabet = "arstqwfpzxcvneioluymdhgjbk"
 
-  -- config.tab_bar_at_bottom = true
+	-- config.tab_bar_at_bottom = true
 
-  config.window_frame = { -- sets title font
-    font = wezterm.font("{{fonts.propo}}"),
-  }
-  config.window_background_opacity = 0.75
+	config.window_frame = { -- sets title font
+		font = wezterm.font("{{fonts.propo}}"),
+	}
+	config.window_background_opacity = 1.00
 
-  return config
+	return config
 end
 
 local config = build_base_config()
