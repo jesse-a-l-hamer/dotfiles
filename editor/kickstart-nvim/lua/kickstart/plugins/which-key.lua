@@ -69,6 +69,7 @@ return {
         { "<leader>l", group = "[l]anguage" },
         { "<leader>L", group = "[L]ist" },
         { "<leader>n", group = "[n]otifications" },
+        { "<leader>o", group = "[o]bsidian" },
         { "<leader>r", group = "[r]ename" },
         { "<leader>s", group = "[s]earch" },
         { "<leader>t", group = "[t]erminal" },

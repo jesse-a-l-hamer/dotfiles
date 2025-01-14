@@ -26,6 +26,7 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
       "rafamadriz/friendly-snippets",
+      "moyiz/blink-emoji.nvim",
     },
 
     -- use a release tag to download pre-built binaries
@@ -90,12 +91,19 @@ return {
           "path",
           "snippets",
           "buffer",
+          "emoji",
         },
         providers = {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
             score_offset = 100,
+          },
+          emoji = {
+            name = "Emoji",
+            module = "blink-emoji",
+            score_offset = 15,
+            opts = { insert = true },
           },
         },
       },
