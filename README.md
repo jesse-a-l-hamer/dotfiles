@@ -15,7 +15,7 @@ my software development skills.
 
 I first learned to *program* as a CS minor in undergrad, well over a decade ago.
 While I'm grateful for the education I received, one thing I found sorely lacking
-was any emphasis on the *tools of the software cratfsperson's trade*. Perhaps this
+was any emphasis on the *tools of the software craftsperson's trade*. Perhaps this
 is a consequence of having studied CS, mathematics, and statistics,
 rather than SWE, but emphasis was always on algorithms and data structures
 from a more theoretical perspective.
