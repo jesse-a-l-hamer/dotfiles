@@ -65,25 +65,26 @@ configurations I have so far messed with.
 
 > [!note] Theming and Fonts
 > After theme-hopping for several years
-([gruvbox](https://github.com/morhetz/gruvbox)
-was my go-to theme for most of those years),
-I finally settled upon [Catppuccin](https://catppuccin.com/)
-(macchiato) to theme my various. Aside from being a great color scheme,
-I love how configurable (four different variants,
-with even more "accent" colors) and *pervasive* Catppuccin is.
-There might be color schemes that I like more *in isolation*, but
-the widespread availability of official ports and
-the community's emphasis on documentation means I can give
-basically my *entire system* a consistent look and feel.
-Check out the `themes/catppuccin/` folder,
-which has several of these ports that I'm using
-throughout my system.
+> ([gruvbox](https://github.com/morhetz/gruvbox)
+> was my go-to theme for most of those years),
+> I finally settled upon [Catppuccin](https://catppuccin.com/)
+> (macchiato) to theme my various. Aside from being a great color scheme,
+> I love how configurable (four different variants,
+> with even more "accent" colors) and *pervasive* Catppuccin is.
+> There might be color schemes that I like more *in isolation*, but
+> the widespread availability of official ports and
+> the community's emphasis on documentation means I can give
+> basically my *entire system* a consistent look and feel.
+> Check out the `themes/catppuccin/` folder,
+> which has several of these ports that I'm using
+> throughout my system.
+>
 > I've also done some font-hopping, with my current favorite being
-[NerdFonts'](https://www.nerdfonts.com/) port of
-[Monaspace](https://monaspace.githubnext.com/) (called *Monaspice*).
-You can preview the font
-[here](https://www.programmingfonts.org/#monaspace-neon)
-if you're interested! (I prefer the Argon variant myself.)
+> [NerdFonts'](https://www.nerdfonts.com/) port of
+> [Monaspace](https://monaspace.githubnext.com/) (called *Monaspice*).
+> You can preview the font
+> [here](https://www.programmingfonts.org/#monaspace-neon)
+> if you're interested! (I prefer the Argon variant myself.)
 
 ### Browser
 
