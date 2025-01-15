@@ -13,49 +13,26 @@ There are many like it, but this one is mine.
 I suppose this project has its genesis it my attempts to improve
 my software development skills.
 
-My formal background is in pure mathematics, though I'm also a
-trained data scientist with now several years of experience under my belt as a
-practicing AI Scientist. I first learned to program in C++ as an undergraduate
-CS minor, thinking it might help in my career as a mathematician.
-In graduate school, my coursework exposed me to other languages:
-MATLAB (differential equations),
-R (statistics, topological data analysis),
-and eventually Python.
+I first learned to *program* as a CS minor in undergrad, well over a decade ago.
+While I'm grateful for the education I received, one thing I found sorely lacking
+was any emphasis on the *tools of the software cratfsperson's trade*. Perhaps this
+is a consequence of having studied CS, mathematics, and statistics,
+rather than SWE, but emphasis was always on algorithms and data structures
+from a more theoretical perspective.
 
-While I'm largely grateful for the education I received, one rather glaring
-omission (in hindsight, anyways) from the curriculum was any mention
-of the *tools of the trade*, so to speak. Principal emphasis was on the encoding
-of algorithms into the syntax of this-or-that language. We were of course given
-instructions on setting up a basic development environment, but the importance
-of this environment to the craft of software was, sadly, completely downplayed.
+In recent years, however, I have gained an appreciation for the importance
+of cultivating one's skill with the command line. Related to this, I have also
+learned what profound joy and reward there is in cultivating a
+well-functioning and beautiful development environment.
 
-Now, in every field, there is some highly non-linear relationship between the
-rates of acquiring new knowledge *within the field*,
-and acquiring new knowledge *of the scope of the field*.
-(The former kind of knowledge are often called the "known *knowns*",
-while the latter are the "known *unknowns*".) In other words: the more one learns
-within a field, the more one comes to appreciate how little they
-actually know within the field; and the pace at which this void of unknowns
-grows only becomes faster and faster, as one learns more within the field.
-I will further hypothesize that there are in this relationship two inflection points.
-The first occurs when the overconfidence of the novice transitions to
-the despair of one who realizes how insignificant they truly are before
-the vastness of the intellectual pursuit to which they've
-already devoted so much time. The despair is caused by the realization
-that one *cannot* know all--no matter the time or effort put in.
-Eventually (hopefully), however, this despair gives way to a serene acceptance;
-one appreciates the vastness of the unknown as the opportunity of unending
-adventure; one accepts that their lot in life is not to conquer,
-but merely to walk.
+Thus it is that I decided to take the organizing of my dotfiles more seriously
+and publish this repository.
 
-This pattern has characterized several of my learning paths, and
-software development has been no exception. I slipped into the despair late into
-graduate school, as I began searching for jobs and realizing how woefully
-unprepared I felt. I am now happy to report that I find myself in the
-midst of that second inflection point.
+I intend to continue cultivating and refining this repo indefinitely, as a garden.
 
-This repository is one that I will continually tweak and tinker with, because
-I have found that I genuinely love tinkering with and learning about computers.
+So, welcome to my garden. I hope you enjoy walking through. If nothing else,
+I hope it inspires you to cultivate your own garden, or reinvigorates a love
+for the garden that may already be in your keeping.
 
 ## Installation
 
