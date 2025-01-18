@@ -80,7 +80,11 @@ return {
 
       -- Enable the following language servers
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      local servers = {
+      --
+      -- These servers will be configured using mason-lspconfig.
+      -- Use this for servers installed via mason, or which you would like
+      -- auto-installed by mason.
+      local mason_servers = {
         lua_ls = {
           settings = {
             Lua = {
@@ -92,6 +96,11 @@ return {
             },
           },
         },
+      }
+
+      -- These servers will be configured using lspconfig.
+      -- This is useful, e.g., if configuring manually installed LSPs.
+      local lspconfig_servers = {
         basedpyright = {
           settings = {
             basedpyright = {
@@ -127,13 +136,6 @@ return {
         },
       }
 
-      -- record any LSPs which should not be managed by Mason
-      -- (e.g., because they are installed elsewhere on the system)
-      local non_mason_lsps = {
-        "basedpyright",
-        "ruff",
-      }
-
       require("mason").setup {
         ui = {
           border = "rounded",
@@ -141,9 +143,7 @@ return {
       }
 
       -- Ensure the servers and tools above are installed
-      local ensure_installed = vim.tbl_filter(function(value)
-        return not vim.list_contains(non_mason_lsps, value)
-      end, vim.tbl_keys(servers or {}))
+      local ensure_installed = vim.tbl_keys(mason_servers or {})
 
       vim.list_extend(ensure_installed, {
         "stylua", -- Used to format Lua code
@@ -155,7 +155,7 @@ return {
       require("mason-lspconfig").setup {
         handlers = {
           function(server_name)
-            local server = servers[server_name] or {}
+            local server = mason_servers[server_name] or {}
             -- This handles overriding only values explicitly passed
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
@@ -164,6 +164,11 @@ return {
           end,
         },
       }
+
+      -- finally, setup lspconfig servers
+      for server_name, server in pairs(lspconfig_servers) do
+        require("lspconfig")[server_name].setup(server)
+      end
     end,
   },
 }
