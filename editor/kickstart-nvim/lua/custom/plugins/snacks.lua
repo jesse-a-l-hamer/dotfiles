@@ -1,4 +1,5 @@
 return {
+  ---@module 'snacks'
   {
     "folke/snacks.nvim",
     priority = 1000,
