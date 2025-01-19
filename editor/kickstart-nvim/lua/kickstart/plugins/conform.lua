@@ -1,7 +1,8 @@
 return {
   { -- Autoformat
     "stevearc/conform.nvim",
-    event = { "BufWritePre" },
+    -- uncomment the following line to enable autoformat on save
+    -- event = { "BufWritePre" },
     cmd = { "ConformInfo" },
     keys = {
       {
