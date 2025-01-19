@@ -6,7 +6,10 @@ return {
     vim.cmd.colorscheme "catppuccin"
   end,
   opts = {
-    flavour = "macchiato",
+    background = {
+      light = "latte",
+      dark = "macchiato",
+    },
     dim_inactive = {
       enabled = true,
       shade = "dark",
@@ -29,5 +32,13 @@ return {
       snacks = true,
       which_key = true,
     },
+    custom_highlights = function(colors)
+      return {
+        -- globals
+        CursorLineNr = { fg = colors.maroon },
+        FloatBorder = { fg = colors.maroon },
+        Title = { fg = colors.maroon },
+      }
+    end,
   },
 }
