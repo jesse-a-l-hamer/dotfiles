@@ -52,6 +52,6 @@ vim.opt.scrolloff = 10
 
 -- Transparency options
 vim.opt.pumblend = 10 -- popup menu
-vim.opt.winblend = 10 -- floating windows
+-- vim.opt.winblend = 10 -- floating windows
 
 -- vim: ts=2 sts=2 sw=2 et

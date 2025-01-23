@@ -1,3 +1,8 @@
+local transparent_background = true
+local accent_color = "maroon"
+local dark_flavor = "macchiato"
+
+---@module 'catppuccin'
 return {
   "catppuccin/nvim",
   name = "catppuccin",
@@ -5,13 +10,14 @@ return {
   init = function()
     vim.cmd.colorscheme "catppuccin"
   end,
+  ---@type CatppuccinOptions
   opts = {
     background = {
       light = "latte",
-      dark = "macchiato",
+      dark = dark_flavor,
     },
     dim_inactive = {
-      enabled = true,
+      enabled = not transparent_background,
       shade = "dark",
       percentage = 0.15,
     },
@@ -19,25 +25,32 @@ return {
       blink_cmp = true,
       colorful_winsep = {
         enabled = true,
-        color = "maroon",
+        color = accent_color,
       },
       diffview = true,
       fidget = true,
       mason = true,
       mini = {
         enabled = true,
-        indentscope_color = "maroon",
+        indentscope_color = accent_color,
       },
       noice = true,
       snacks = true,
       which_key = true,
     },
+    -- term_colors = true,
+    transparent_background = transparent_background,
     custom_highlights = function(colors)
       return {
         -- globals
-        CursorLineNr = { fg = colors.maroon },
-        FloatBorder = { fg = colors.maroon },
-        Title = { fg = colors.maroon },
+        CursorLineNr = { fg = colors[accent_color] },
+        FloatBorder = { fg = colors[accent_color] },
+        Title = { fg = colors[accent_color] },
+        -- colorful_winsep (integration seems broken)
+        -- NvimSeparator = {
+        --   fg = colors[accent_color],
+        --   bg = transparent_background and colors.none or colors.base,
+        -- },
       }
     end,
   },
