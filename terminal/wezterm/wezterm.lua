@@ -12,7 +12,7 @@ local function build_base_config()
 	-- This is where you actually apply your config choices
 
 	config.enable_scroll_bar = true
-	config.font = wezterm.font("{{fonts.mono}}")
+	config.font = wezterm.font("{{ fonts.mono }}")
 
 	config.max_fps = 144
 
@@ -21,9 +21,9 @@ local function build_base_config()
 	-- config.tab_bar_at_bottom = true
 
 	config.window_frame = { -- sets title font
-		font = wezterm.font("{{fonts.propo}}"),
+		font = wezterm.font("{{ fonts.propo }}"),
 	}
-	config.window_background_opacity = 1.00
+	config.window_background_opacity = 0.80
 
 	return config
 end
