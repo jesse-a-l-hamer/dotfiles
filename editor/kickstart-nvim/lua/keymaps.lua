@@ -11,9 +11,6 @@ vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "[W]rite all buffers" }
 vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[q]uit buffer" })
 vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "[Q]uit all buffers (exit Neovim)" })
 
--- Diagnostic keymaps
-vim.keymap.set("n", "<leader>Lq", vim.diagnostic.setloclist, { desc = "diagnostic [q]uickfix" })
-
 -- Easier terminal mode escape
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 

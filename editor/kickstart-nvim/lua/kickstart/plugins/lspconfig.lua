@@ -30,15 +30,9 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
           end
 
-          map("gld", require("telescope.builtin").lsp_definitions, "[d]efinition")
-          map("<leader>sr", require("telescope.builtin").lsp_references, "[r]eferences")
-          map("gli", require("telescope.builtin").lsp_implementations, "[i]mplementation")
-          map("glt", require("telescope.builtin").lsp_type_definitions, "[t]ype")
-          map("<leader>sD", require("telescope.builtin").lsp_document_symbols, "[D]ocument symbols")
-          map("<leader>sW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace symbols")
-          map("<leader>lr", ":IncRename ", "[r]ename")
+          map("<leader>lrs", ":IncRename ", "[s]ymbol", { "n", "x" })
           map("<leader>la", vim.lsp.buf.code_action, "code [a]ction", { "n", "x" })
-          map("glD", vim.lsp.buf.declaration, "[D]eclaration")
+
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })

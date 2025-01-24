@@ -29,6 +29,7 @@ return {
       },
       diffview = true,
       fidget = true,
+      lsp_trouble = true,
       mason = true,
       mini = {
         enabled = true,
@@ -36,6 +37,7 @@ return {
       },
       noice = true,
       snacks = true,
+      telescope = { enabled = false },
       which_key = true,
     },
     -- term_colors = true,
@@ -46,11 +48,6 @@ return {
         CursorLineNr = { fg = colors[accent_color] },
         FloatBorder = { fg = colors[accent_color] },
         Title = { fg = colors[accent_color] },
-        -- colorful_winsep (integration seems broken)
-        -- NvimSeparator = {
-        --   fg = colors[accent_color],
-        --   bg = transparent_background and colors.none or colors.base,
-        -- },
       }
     end,
   },

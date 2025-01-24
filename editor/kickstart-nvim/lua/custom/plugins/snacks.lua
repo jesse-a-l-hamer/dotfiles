@@ -15,6 +15,7 @@ return {
       input = { enabled = true },
       lazygit = { enabled = true },
       notifier = { enabled = true },
+      picker = {},
       quickfile = { enabled = true },
       scope = { enabled = true },
       scratch = { enabled = true },
@@ -56,11 +57,11 @@ return {
         desc = "[d]elete",
       },
       {
-        "<leader>fr",
+        "<leader>lrf",
         function()
           Snacks.rename.rename_file()
         end,
-        desc = "[r]ename",
+        desc = "[f]ile",
       },
       {
         "<leader>gB",
@@ -159,6 +160,386 @@ return {
           Snacks.dashboard { example = "advanced" }
         end,
         desc = "[D]ashboard",
+      },
+      -- picker keymaps
+      {
+        "<leader>,",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Find Buffers",
+      },
+      {
+        "<leader>/",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "Grep",
+      },
+      {
+        "<leader>:",
+        function()
+          Snacks.picker.command_history()
+        end,
+        desc = "Command History",
+      },
+      {
+        "<leader><space>",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "Find Files",
+      },
+      -- find
+      {
+        "<leader>fb",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "[b]uffers",
+      },
+      {
+        "<leader>fc",
+        function()
+          Snacks.picker.files { cwd = "$HOME/dotfiles/editor/kickstart-nvim" }
+        end,
+        desc = "[c]onfig files",
+      },
+      {
+        "<leader>ff",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "[f]iles",
+      },
+      {
+        "<leader>fR",
+        function()
+          Snacks.picker.recent()
+        end,
+        desc = "[R]ecent",
+      },
+      -- git
+      {
+        "<leader>gfb",
+        function()
+          Snacks.picker "git_branches"
+        end,
+        desc = "[b]ranches",
+      },
+      {
+        "<leader>gfd",
+        function()
+          Snacks.picker.git_diff()
+        end,
+        desc = "[d]iff",
+      },
+      {
+        "<leader>gff",
+        function()
+          Snacks.picker.git_files()
+        end,
+        desc = "[f]iles",
+      },
+      {
+        "<leader>gfl",
+        function()
+          Snacks.picker.git_log()
+        end,
+        desc = "[l]og",
+      },
+      {
+        "<leader>gfc",
+        function()
+          Snacks.picker.git_log_file()
+        end,
+        desc = "[c]urrent file log",
+      },
+      {
+        "<leader>gfL",
+        function()
+          Snacks.picker.git_log_line()
+        end,
+        desc = "current [L]ine log",
+      },
+      {
+        "<leader>gfs",
+        function()
+          Snacks.picker.git_status()
+        end,
+        desc = "[s]tatus",
+      },
+      -- Grep
+      {
+        "<leader>sl",
+        function()
+          Snacks.picker.lines()
+        end,
+        desc = "[l]ines in buffer",
+      },
+      {
+        "<leader>sb",
+        function()
+          Snacks.picker.grep_buffers()
+        end,
+        desc = "[b]uffers",
+      },
+      {
+        "<leader>sg",
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = "[g]rep",
+      },
+      {
+        "<leader>sw",
+        function()
+          Snacks.picker.grep_word()
+        end,
+        desc = "[w]ord",
+        mode = { "n", "x" },
+      },
+      -- search
+      {
+        '<leader>f"',
+        function()
+          Snacks.picker.registers()
+        end,
+        desc = '["] registers',
+      },
+      {
+        "<leader>fa",
+        function()
+          Snacks.picker.autocmds()
+        end,
+        desc = "[a]utocmds",
+      },
+      {
+        "<leader>f:",
+        function()
+          Snacks.picker.command_history()
+        end,
+        desc = "[:] command history",
+      },
+      {
+        "<leader>fC",
+        function()
+          Snacks.picker.commands()
+        end,
+        desc = "[C]ommands",
+      },
+      {
+        "<leader>fd",
+        function()
+          Snacks.picker.diagnostics { filter = { buf = true } }
+        end,
+        desc = "[d]iagnostics (buffer)",
+      },
+      {
+        "<leader>fD",
+        function()
+          Snacks.picker.diagnostics()
+        end,
+        desc = "[D]iagnostics (cwd)",
+      },
+      {
+        "<leader>fh",
+        function()
+          Snacks.picker.help()
+        end,
+        desc = "[h]elp",
+      },
+      {
+        "<leader>fH",
+        function()
+          Snacks.picker.highlights()
+        end,
+        desc = "[H]ighlights",
+      },
+      {
+        "<leader>fi",
+        function()
+          Snacks.picker "icons"
+        end,
+        desc = "[i]cons",
+      },
+      {
+        "<leader>fj",
+        function()
+          Snacks.picker.jumps()
+        end,
+        desc = "[j]umps",
+      },
+      {
+        "<leader>fk",
+        function()
+          Snacks.picker.keymaps()
+        end,
+        desc = "[k]eymaps",
+      },
+      {
+        "<leader>fl",
+        function()
+          Snacks.picker.loclist()
+        end,
+        desc = "[l]ocation list",
+      },
+      {
+        "<leader>fM",
+        function()
+          Snacks.picker.man()
+        end,
+        desc = "[M]an pages",
+      },
+      {
+        "<leader>fm",
+        function()
+          Snacks.picker.marks()
+        end,
+        desc = "[m]arks",
+      },
+      {
+        "<leader>r",
+        function()
+          Snacks.picker.resume()
+        end,
+        desc = "[r]esume find/search",
+      },
+      {
+        "<leader>fq",
+        function()
+          Snacks.picker.qflist()
+        end,
+        desc = "[q]uickfix list",
+      },
+      {
+        "<leader>TC",
+        function()
+          Snacks.picker.colorschemes()
+        end,
+        desc = "[C]olorschemes",
+      },
+      {
+        "<leader>fP",
+        function()
+          Snacks.picker.projects()
+        end,
+        desc = "[P]rojects",
+      },
+      {
+        "<leader>fz",
+        function()
+          Snacks.picker.zoxide()
+        end,
+        desc = "[z]oxide projects",
+      },
+      {
+        "<leader>fu",
+        function()
+          Snacks.picker "undo"
+        end,
+        desc = "[u]ndo",
+      },
+      {
+        "<leader>fs",
+        function()
+          Snacks.picker "spelling"
+        end,
+        desc = "[s]pelling",
+      },
+      {
+        "<leader>fS",
+        function()
+          Snacks.picker.search_history()
+        end,
+        desc = "[S]earch history",
+      },
+      -- LSP
+      {
+        "<leader>lgd",
+        function()
+          Snacks.picker.lsp_definitions()
+        end,
+        desc = "[d]efinition",
+      },
+      {
+        "<leader>lgD",
+        function()
+          Snacks.picker.lsp_declarations()
+        end,
+        desc = "[D]eclaration",
+      },
+      {
+        "<leader>lsr",
+        function()
+          Snacks.picker.lsp_references()
+        end,
+        nowait = true,
+        desc = "[r]eferences",
+      },
+      {
+        "<leader>lgi",
+        function()
+          Snacks.picker.lsp_implementations()
+        end,
+        desc = "[i]mplementation",
+      },
+      {
+        "<leader>lgt",
+        function()
+          Snacks.picker.lsp_type_definitions()
+        end,
+        desc = "[t]ype",
+      },
+      {
+        "<leader>lss",
+        function()
+          Snacks.picker.lsp_symbols()
+        end,
+        desc = "[s]ymbols (document)",
+      },
+      {
+        "<leader>lsw",
+        function()
+          Snacks.picker.lsp_symbols()
+        end,
+        desc = "symbols ([w]orkspace)",
+      },
+      -- pickers
+      {
+        "<leader>fpp",
+        function()
+          Snacks.picker.pickers()
+        end,
+        desc = "[p]ickers",
+      },
+      {
+        "<leader>fpP",
+        function()
+          Snacks.picker "picker_preview"
+        end,
+        desc = "[P]reviews",
+      },
+      {
+        "<leader>fpl",
+        function()
+          Snacks.picker "picker_layouts"
+        end,
+        desc = "[l]ayouts",
+      },
+      {
+        "<leader>fpf",
+        function()
+          Snacks.picker "picker_format"
+        end,
+        desc = "[f]ormats",
+      },
+      {
+        "<leader>fpa",
+        function()
+          Snacks.picker "picker_actions"
+        end,
+        desc = "[a]ctions",
       },
     },
     init = function()
