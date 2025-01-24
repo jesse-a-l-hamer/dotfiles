@@ -176,6 +176,8 @@ In the remainder of this section, I'll highlight some of the key plugins I'm usi
   - [which-key](https://github.com/folke/which-key.nvim): keymap popup/organizer
   - [noice](https://github.com/folke/noice.nvim):
     replacement ui for messages, cmdline, and the popupmenu
+  - [trouble](https://github.com/folke/trouble.nvim):
+    handy list viewer for diagnostics, quickfixes, etc.
   - [snacks](https://github.com/folke/snacks.nvim): tons of small QoL plugins.
   I'm using just about all of the included "snacks" (modules),
   but here I'll highlight those that provide some core functionality:
@@ -184,11 +186,13 @@ In the remainder of this section, I'll highlight some of the key plugins I'm usi
       - (with `{ example = "advanced" }`)
     - [indent](https://github.com/folke/snacks.nvim/blob/main/docs/indent.md):
     indent guides & scopes
-    - [notifier](https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md)
+    - [notifier](https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md):
     pretty notification interface and history
-    - [statuscolumn](https://github.com/folke/snacks.nvim/blob/main/docs/statuscolumn.md)
+    - [picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md):
+    an amazing Telescope replacement/fuzzy finder
+    - [statuscolumn](https://github.com/folke/snacks.nvim/blob/main/docs/statuscolumn.md):
     pretty statuscolumn
-    - [zen](https://github.com/folke/snacks.nvim/blob/main/docs/zen.md)
+    - [zen](https://github.com/folke/snacks.nvim/blob/main/docs/zen.md):
     "Zen mode", for distraction-free coding
 - [blink.cmp](https://github.com/Saghen/blink.cmp): completion
 - [lualine](https://github.com/nvim-lualine/lualine.nvim): statusline
