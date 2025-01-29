@@ -1,3 +1,5 @@
+local colors = require("catppuccin.palettes").get_palette("macchiato")
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -23,17 +25,17 @@ return {
           {
             require("noice").api.status.command.get,
             cond = require("noice").api.status.command.has,
-            -- color = { fg = "#ff9e64" },
+            color = { fg = colors.peach },
           },
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,
-            -- color = { fg = "#ff9e64" },
+            color = { fg = colors.peach },
           },
           {
             require("noice").api.status.search.get,
             cond = require("noice").api.status.search.has,
-            -- color = { fg = "#ff9e64" },
+            color = { fg = colors.peach },
           },
         },
         lualine_y = {
