@@ -269,6 +269,13 @@ return {
         end,
         desc = "[s]tatus",
       },
+      {
+        "<leader>gfS",
+        function()
+          Snacks.picker.git_stash()
+        end,
+        desc = "[S]tash",
+      },
       -- Grep
       {
         "<leader>sl",
@@ -453,6 +460,20 @@ return {
           Snacks.picker.search_history()
         end,
         desc = "[S]earch history",
+      },
+      {
+        "<leader>fL",
+        function()
+          Snacks.picker "lazy"
+        end,
+        desc = "[L]azy plugin specs",
+      },
+      {
+        "<leader>fn",
+        function()
+          Snacks.picker "notifications"
+        end,
+        desc = "[n]otifications",
       },
       -- LSP
       {
