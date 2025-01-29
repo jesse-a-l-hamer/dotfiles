@@ -12,6 +12,7 @@ espanso_config = { source = "cli/espanso/config/default.yml", target = ".config/
 espanso_match = { source = "cli/espanso/match/base.yml", target = ".config/espanso/match/base.yml" }
 tealdeer = { source = "cli/tealdeer", target = ".config/tealdeer" }
 weathercrab = { source = "cli/weathercrab/wthrr.ron", target = ".config/weathercrab/wthrr.ron" }
+wiki-tui = { source = "cli/wiki-tui", target = ".config/wiki-tui" }
 yazi = { source = "cli/yazi", target = ".config/yazi" }
 
 [profiles.cli-other.dots]
