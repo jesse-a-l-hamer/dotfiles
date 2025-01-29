@@ -27,6 +27,11 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
+      "Kaiser-Yang/blink-cmp-dictionary",
+      {
+        "Kaiser-Yang/blink-cmp-git",
+        dependencies = { "nvim-lua/plenary.nvim" },
+      },
     },
 
     -- use a release tag to download pre-built binaries
@@ -90,6 +95,8 @@ return {
           "lsp",
           "path",
           "snippets",
+          "git",
+          "dictionary",
           "buffer",
           "emoji",
         },
@@ -104,6 +111,47 @@ return {
             module = "blink-emoji",
             score_offset = 15,
             opts = { insert = true },
+          },
+          dictionary = {
+            module = "blink-cmp-dictionary",
+            name = "Dict",
+            min_keyword_length = 3,
+          },
+          git = {
+            -- Because we use filetype to decide whether or not to show the items,
+            -- we can make the score higher
+            score_offset = 100,
+            module = "blink-cmp-git",
+            name = "Git",
+            -- enabled this source at the beginning to make it possible to pre-cache
+            -- at very beginning
+            enabled = true,
+            -- only show this source when filetype is gitcommit or markdown
+            should_show_items = function()
+              return vim.o.filetype == "gitcommit" or vim.o.filetype == "markdown"
+            end,
+            --- @module 'blink-cmp-git'
+            --- @type blink-cmp-git.Options
+            opts = {
+              commit = {
+                -- You may want to customize when it should be enabled
+                -- The default will enable this when `cwd` is in a git repository
+                -- enable = function() end
+                -- You may want to change the triggers
+                -- triggers = { ':' },
+              },
+              git_centers = {
+                git_hub = {
+                  -- Those below have the same fields with `commit`
+                  -- issues = {
+                  -- },
+                  -- pull_request = {
+                  -- },
+                  -- mention = {
+                  -- }
+                },
+              },
+            },
           },
         },
       },
