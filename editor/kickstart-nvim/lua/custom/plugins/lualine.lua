@@ -13,7 +13,7 @@ return {
         "lazy",
         "man",
         "mason",
-        "neo-tree",
+        -- "neo-tree",
         "nvim-dap-ui",
       },
       sections = {

@@ -10,12 +10,23 @@ return {
       bigfile = { enabled = true },
       dashboard = { example = "advanced" },
       dim = { enabled = true },
+      explorer = {
+        enabled = true,
+        replace_netrw = true,
+      },
       gitbrowse = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       lazygit = { enabled = true },
-      notifier = { enabled = true },
-      picker = {},
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+      },
+      picker = {
+        sources = {
+          explorer = {},
+        },
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scratch = { enabled = true },
@@ -26,6 +37,11 @@ return {
       win = { enabled = true },
       words = { enabled = true },
       zen = { enabled = true },
+      styles = {
+        notification = {
+          wo = { wrap = true },
+        },
+      },
     },
     keys = {
       {
@@ -189,6 +205,13 @@ return {
           Snacks.picker.files()
         end,
         desc = "Find Files",
+      },
+      {
+        "<leader>e",
+        function()
+          Snacks.picker.explorer()
+        end,
+        desc = "[e]xplorer",
       },
       -- find
       {
@@ -594,18 +617,18 @@ return {
       })
     end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = function(_, opts)
-      local function on_move(data)
-        Snacks.rename.on_rename_file(data.source, data.destination)
-      end
-      local events = require "neo-tree.events"
-      opts.event_handlers = opts.event_handlers or {}
-      vim.list_extend(opts.event_handlers, {
-        { event = events.FILE_MOVED, handler = on_move },
-        { event = events.FILE_RENAMED, handler = on_move },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   opts = function(_, opts)
+  --     local function on_move(data)
+  --       Snacks.rename.on_rename_file(data.source, data.destination)
+  --     end
+  --     local events = require "neo-tree.events"
+  --     opts.event_handlers = opts.event_handlers or {}
+  --     vim.list_extend(opts.event_handlers, {
+  --       { event = events.FILE_MOVED, handler = on_move },
+  --       { event = events.FILE_RENAMED, handler = on_move },
+  --     })
+  --   end,
+  -- },
 }

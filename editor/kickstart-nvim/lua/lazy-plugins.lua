@@ -12,7 +12,6 @@ require("lazy").setup({
   require "kickstart.plugins.debug",
   require "kickstart.plugins.lint",
   require "kickstart.plugins.autopairs",
-  require "kickstart.plugins.neo-tree",
   { import = "custom.plugins" },
 }, {
   ui = {
