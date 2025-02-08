@@ -33,11 +33,13 @@ return {
         }
       end,
       formatters_by_ft = {
+        bash = { "shfmt" },
         lua = { "stylua" },
-        python = {
-          "ruff_organize_imports",
-          "ruff_format",
-        },
+        markdown = { "prettierd", "prettier" },
+        python = { "ruff_organize_imports", "ruff_format" },
+        shell = { "shfmt" },
+        toml = { "taplo" },
+        yaml = { "yamlfmt" },
       },
     },
   },
