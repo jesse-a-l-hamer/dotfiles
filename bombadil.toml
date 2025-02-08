@@ -3,7 +3,7 @@ dotfiles_dir = "dotfiles"
 gpg_user_id = "Jesse Hamer <jesse.a.l.hamer@gmail.com>"
 
 import = [
-  { path = "browser/browser.toml" },
+  # { path = "browser/browser.toml" },
   { path = "cli/cli.toml" },
   { path = "editor/editor.toml" },
   { path = "git/git.toml" },
@@ -19,7 +19,6 @@ vars = ["vars.toml"]
 
 [profiles.desktop]
 extra_profiles = [
-  "browser-zen",
   "cli-go",
   "cli-node_js",
   "cli-rust",

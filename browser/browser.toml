@@ -1,2 +1,0 @@
-[profiles.browser-zen.dots]
-zen = { source = "browser/zen/chrome", target = ".zen/personal/chrome" }
