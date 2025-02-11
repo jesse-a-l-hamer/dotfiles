@@ -10,16 +10,6 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "sahgen/blink.cmp",
-      {
-        "j-hui/fidget.nvim",
-        opts = {
-          notification = {
-            window = {
-              winblend = 0, -- required for catppuccin compatibility
-            },
-          },
-        },
-      },
     },
     config = function()
       vim.api.nvim_create_autocmd("LspAttach", {

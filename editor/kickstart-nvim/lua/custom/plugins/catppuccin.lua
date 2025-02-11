@@ -28,7 +28,6 @@ return {
         color = accent_color,
       },
       diffview = true,
-      fidget = true,
       lsp_trouble = true,
       mason = true,
       mini = {
