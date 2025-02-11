@@ -15,6 +15,7 @@ return {
         replace_netrw = true,
       },
       gitbrowse = { enabled = true },
+      image = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       lazygit = { enabled = true },
