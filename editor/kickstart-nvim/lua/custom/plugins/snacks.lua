@@ -225,7 +225,7 @@ return {
       {
         "<leader>fc",
         function()
-          Snacks.picker.files { cwd = "$HOME/dotfiles/editor/kickstart-nvim" }
+          Snacks.picker.files { cwd = vim.fn.expand("$HOME/dotfiles/editor/kickstart-nvim") }
         end,
         desc = "[c]onfig files",
       },
