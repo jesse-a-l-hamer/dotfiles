@@ -84,6 +84,7 @@ return {
             border = "rounded",
           },
         },
+        ghost_text = { enabled = true },
       },
 
       -- Default list of enabled providers defined so that you can extend it
