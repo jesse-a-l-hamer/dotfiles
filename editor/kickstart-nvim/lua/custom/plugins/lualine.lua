@@ -53,7 +53,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "folke/trouble.nvim" },
+    dependencies = { "folke/trouble.nvim", "folke/snacks.nvim" },
     opts = function(_, opts)
       local trouble = require "trouble"
       local symbols = trouble.statusline {
@@ -70,6 +70,7 @@ return {
         symbols.get,
         cond = symbols.has,
       })
+      table.insert(opts.sections.lualine_x, Snacks.profiler.status())
     end,
   },
 }

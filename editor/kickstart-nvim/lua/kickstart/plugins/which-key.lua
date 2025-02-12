@@ -57,6 +57,7 @@ return {
         { "<leader>lx", group = "[x] Trouble", mode = { "n", "v" } },
         { "<leader>n", group = "[n]otifications" },
         { "<leader>o", group = "[o]bsidian" },
+        { "<leader>p", group = "[p]rofiler" },
         { "<leader>s", group = "[s]earch" },
         { "<leader>t", group = "[t]erminal" },
         { "<leader>T", group = "[T]oggles" },

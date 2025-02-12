@@ -21,13 +21,14 @@ return {
       lazygit = { enabled = true },
       notifier = {
         enabled = true,
-        timeout = 3000,
+        timeout = 5000,
       },
       picker = {
         sources = {
           explorer = {},
         },
       },
+      profiler = { enabled = true },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scratch = { enabled = true },
@@ -225,7 +226,7 @@ return {
       {
         "<leader>fc",
         function()
-          Snacks.picker.files { cwd = vim.fn.expand("$HOME/dotfiles/editor/kickstart-nvim") }
+          Snacks.picker.files { cwd = vim.fn.expand "$HOME/dotfiles/editor/kickstart-nvim" }
         end,
         desc = "[c]onfig files",
       },
@@ -586,6 +587,13 @@ return {
         end,
         desc = "[a]ctions",
       },
+      {
+        "<leader>ps",
+        function()
+          Snacks.profiler.scratch()
+        end,
+        desc = "[s]cratch buffer",
+      },
     },
     init = function()
       vim.api.nvim_create_autocmd("User", {
@@ -601,35 +609,23 @@ return {
           vim.print = _G.dd -- Override print to use snacks for `:=` command
 
           -- Create some toggle mappings
+          Snacks.toggle.dim():map "<leader>TD"
+          Snacks.toggle.diagnostics():map "<leader>Td"
+          Snacks.toggle.indent():map "<leader>Tg"
+          Snacks.toggle.inlay_hints():map "<leader>Th"
+          Snacks.toggle.line_number():map "<leader>Tl"
+          Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>Tb"
+          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map "<leader>Tc"
+          Snacks.toggle.option("relativenumber", { name = "Relative [L]ine Numbers" }):map "<leader>TL"
           Snacks.toggle.option("spell", { name = "[s]pelling" }):map "<leader>Ts"
           Snacks.toggle.option("wrap", { name = "[w]rap" }):map "<leader>Tw"
-          Snacks.toggle.option("relativenumber", { name = "Relative [L]ine Numbers" }):map "<leader>TL"
-          Snacks.toggle.diagnostics():map "<leader>Td"
-          Snacks.toggle.line_number():map "<leader>Tl"
-          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map "<leader>Tc"
+          Snacks.toggle.profiler():map "<leader>pp"
+          Snacks.toggle.profiler_highlights():map "<leader>ph"
           Snacks.toggle.treesitter():map "<leader>TT"
-          Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>Tb"
-          Snacks.toggle.inlay_hints():map "<leader>Th"
-          Snacks.toggle.indent():map "<leader>Tg"
-          Snacks.toggle.dim():map "<leader>TD"
           Snacks.toggle.zen():map "<leader>Tz"
           Snacks.toggle.zoom():map "<leader>TZ"
         end,
       })
     end,
   },
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   opts = function(_, opts)
-  --     local function on_move(data)
-  --       Snacks.rename.on_rename_file(data.source, data.destination)
-  --     end
-  --     local events = require "neo-tree.events"
-  --     opts.event_handlers = opts.event_handlers or {}
-  --     vim.list_extend(opts.event_handlers, {
-  --       { event = events.FILE_MOVED, handler = on_move },
-  --       { event = events.FILE_RENAMED, handler = on_move },
-  --     })
-  --   end,
-  -- },
 }
