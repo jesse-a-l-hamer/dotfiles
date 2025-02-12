@@ -60,7 +60,9 @@ return {
       end
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      -- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      -- Required when using nvim-lspconfig, until the following issue is merged:
+      -- https://github.com/neovim/nvim-lspconfig/issues/3494
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
 
       -- Enable the following language servers
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
