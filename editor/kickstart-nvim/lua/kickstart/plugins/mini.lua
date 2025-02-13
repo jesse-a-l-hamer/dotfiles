@@ -6,8 +6,8 @@ return {
 
       require("mini.ai").setup { n_lines = 500 }
 
-      require("mini.surround").setup()
-      vim.keymap.set({ "n", "x" }, "s", "<Nop>")
+      -- require("mini.surround").setup()
+      -- vim.keymap.set({ "n", "x" }, "s", "<Nop>")
     end,
   },
 }

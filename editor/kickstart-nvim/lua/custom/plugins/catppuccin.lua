@@ -28,6 +28,7 @@ return {
         color = accent_color,
       },
       diffview = true,
+      flash = true,
       lsp_trouble = true,
       mason = true,
       mini = {
