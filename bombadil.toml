@@ -22,6 +22,7 @@ extra_profiles = [
   "cli-node_js",
   "cli-rust",
   "cli-other",
+  "cli-python",
   # "editor-astro_nvim",
   "editor-kickstart_nvim",
   "git",

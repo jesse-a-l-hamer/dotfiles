@@ -20,3 +20,6 @@ aws = { source = "cli/aws", target = ".aws" }
 github-cli = { source = "cli/gh/config.yml", target = ".config/gh/config.yml" }
 lazygit = { source = "cli/lazygit", target = ".config/lazygit" }
 neofetch = { source = "cli/neofetch", target = ".config/neofetch" }
+
+[profiles.cli-python.dots]
+yt-dlp = { source = "cli/yt-dlp", target = ".config/yt-dlp" }
