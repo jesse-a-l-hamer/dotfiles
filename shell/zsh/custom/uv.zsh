@@ -1,2 +1,2 @@
-export UV_PYTHON=$(uv python find {{ py_version }})
+export UV_PYTHON=$(uv python find 3.12)
 

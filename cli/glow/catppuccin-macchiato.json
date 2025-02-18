@@ -82,7 +82,7 @@
   },
   "image_text": {
     "color": "#b7bdf8",
-    "format": {% raw -%}"Image: {{.text}} →"{%- endraw %}
+    "format": "Image: {{.text}} →"
   },
   "code": {
     "prefix": " ",

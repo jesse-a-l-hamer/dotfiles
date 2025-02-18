@@ -12,7 +12,7 @@ local function build_base_config()
 	-- This is where you actually apply your config choices
 
 	config.enable_scroll_bar = true
-	config.font = wezterm.font("{{ fonts.mono }}")
+	config.font = wezterm.font("MonaspiceAr Nerd Font Mono")
 
 	config.max_fps = 144
 
@@ -21,7 +21,7 @@ local function build_base_config()
 	-- config.tab_bar_at_bottom = true
 
 	config.window_frame = { -- sets title font
-		font = wezterm.font("{{ fonts.propo }}"),
+		font = wezterm.font("MonaspiceXe Nerd Font Propo"),
 	}
 	config.window_background_opacity = 0.80
 
@@ -30,7 +30,7 @@ end
 
 local config = build_base_config()
 
-theme.apply_to_config(config, "{{ theme.maroon }}")
+theme.apply_to_config(config, "#ee99a0")
 tabline.apply_to_config(config)
 
 return config

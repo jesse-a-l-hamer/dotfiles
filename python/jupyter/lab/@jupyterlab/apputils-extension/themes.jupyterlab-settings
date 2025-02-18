@@ -5,11 +5,11 @@
     "preferred-dark-theme": "Catppuccin Macchiato",
     "theme-scrollbars": true,
     "overrides": {
-        "code-font-family": "{{ fonts.mono }}",
+        "code-font-family": "MonaspiceAr Nerd Font Mono",
         "code-font-size": null,
-        "content-font-family": "{{ fonts.propo }}",
+        "content-font-family": "MonaspiceXe Nerd Font Propo",
         "content-font-size1": null,
-        "ui-font-family": "{{ fonts.propo }}",
+        "ui-font-family": "MonaspiceXe Nerd Font Propo",
         "ui-font-size1": null
     }
 }
