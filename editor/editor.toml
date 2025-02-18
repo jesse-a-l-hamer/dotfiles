@@ -1,13 +1,2 @@
-[profiles.editor-astro_nvim]
-vars = ["editor/astro-nvim.toml"]
-
-[profiles.editor-astro_nvim.dots]
-nvim = { source = "editor/astro-nvim", target = ".config/nvim" }
-kickstart-nvim = { source = "editor/kickstart-nvim", target = ".config/kickstart-nvim" }
-
-[profiles.editor-kickstart_nvim]
-vars = ["editor/kickstart-nvim.toml"]
-
-[profiles.editor-kickstart_nvim.dots]
-nvim = { source = "editor/kickstart-nvim", target = ".config/nvim" }
-astro-nvim = { source = "editor/astro-nvim", target = ".config/astro-nvim" }
+[profiles.editor-neovim.dots]
+nvim = { source = "editor/neovim", target = ".config/nvim" }

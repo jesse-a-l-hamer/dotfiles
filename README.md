@@ -13,9 +13,9 @@ There are many like it, but this one is mine.
 I suppose this project has its genesis it my attempts to improve
 my software development skills.
 
-I first learned to *program* as a CS minor in undergrad, well over a decade ago.
+I first learned to _program_ as a CS minor in undergrad, well over a decade ago.
 While I'm grateful for the education I received, one thing I found sorely lacking
-was any emphasis on the *tools of the software craftsperson's trade*. Perhaps this
+was any emphasis on the _tools of the software craftsperson's trade_. Perhaps this
 is a consequence of having studied CS, mathematics, and statistics,
 rather than SWE, but emphasis was always on algorithms and data structures
 from a more theoretical perspective.
@@ -39,7 +39,7 @@ for the garden that may already be in your keeping.
 I use [toml-bombadil](https://github.com/oknozor/toml-bombadil) to manage
 symlinking of my dotfiles. I highly recommend that you check it out!
 
-Assuming you've installed *toml-bombadil* and all of the [tools](#tools)
+Assuming you've installed _toml-bombadil_ and all of the [tools](#tools)
 mentioned below, you can install the dotfiles by running the following:
 
 ```sh
@@ -48,7 +48,7 @@ bombadil link -p desktop
 
 My next goal in building out this repo is to set up an `install.sh` script to make
 bootstrapping easier. At that point I will also refactor some of the dotfiles
-themselves, leveraging *toml-bombadil's* templating abilities to make them platform
+themselves, leveraging _toml-bombadil's_ templating abilities to make them platform
 agnostic.
 
 Ultimately, I'd like to have a single repository which is capable of syncing my
@@ -70,18 +70,18 @@ configurations I have so far messed with.
 > I finally settled upon [Catppuccin](https://catppuccin.com/)
 > (macchiato) to theme my various. Aside from being a great color scheme,
 > I love how configurable (four different variants,
-> with even more "accent" colors) and *pervasive* Catppuccin is.
-> There might be color schemes that I like more *in isolation*, but
+> with even more "accent" colors) and _pervasive_ Catppuccin is.
+> There might be color schemes that I like more _in isolation_, but
 > the widespread availability of official ports and
 > the community's emphasis on documentation means I can give
-> basically my *entire system* a consistent look and feel.
+> basically my _entire system_ a consistent look and feel.
 > Check out the `themes/catppuccin/` folder,
 > which has several of these ports that I'm using
 > throughout my system.
 >
 > I've also done some font-hopping, with my current favorite being
 > [NerdFonts'](https://www.nerdfonts.com/) port of
-> [Monaspace](https://monaspace.githubnext.com/) (called *Monaspice*).
+> [Monaspace](https://monaspace.githubnext.com/) (called _Monaspice_).
 > You can preview the font
 > [here](https://www.programmingfonts.org/#monaspace-neon)
 > if you're interested! (I prefer the Argon variant myself.)
@@ -98,11 +98,11 @@ configurations I have so far messed with.
 - [glow](https://github.com/charmbracelet/glow): render markdown documents with 🌈*pizazz*🌠
 - [lazygit](https://github.com/jesseduffield/lazygit): cool, easy to use TUI git-interface
 - [neofetch](https://github.com/dylanaraps/neofetch): print out a quick system
-summary with nice ascii art
+  summary with nice ascii art
 - [tealdeer](https://github.com/tealdeer-rs/tealdeer): rust-based tldr replacement;
-simple, community-driven man pages
+  simple, community-driven man pages
 - [weathercrab](https://github.com/ttytm/wthrr-the-weathercrab): rust-based
-weather app
+  weather app
 - [yazi](https://github.com/sxyazi/yazi): terminal file manager, written in rust
 
 Other noteworthy CLI tools I use whose configs do not appear here:
@@ -132,73 +132,46 @@ and if need be, I can just fire up [JupyterLab](https://jupyter.org/) in my brow
 
 When I started using Neovim, I was using the [AstroNvim](https://astronvim.com/)
 distribution, which I would still highly recommend to anybody just
-starting on their Neovim odyssey. Though AstroNvim has a lot of great stuff built-in,
-you will still find yourself wanting to tinker with it after a bit of use
-(this is simply the Neovim way, I'm afraid). The `editor/astro-nvim/` directory
-contains my AstroNvim configuration. To use this configuration, you'll need to change
-the editor profile being used in `bombadil.toml`:
-
-```toml
-# bombadil.toml
-...
-[profiles.desktop]
-extra_profiles = [
-  "browser-zen",
-  "cli-go",
-  "cli-node_js",
-  "cli-rust",
-  "cli-other",
-  # "editor-astro_nvim", <-- uncomment this line
-  "editor-kickstart_nvim", # <-- comment this line
-  "git",
-  "system-pop_os",
-  "music-youtube_music",
-  "python-3_12",
-  "shell-bash",
-  "shell-sh",
-  "shell-zsh",
-  "shell-multi",
-  "terminal-wezterm",
-]
-```
+starting on their Neovim odyssey.
 
 After a couple of months using AstroNvim, however, I decided I wanted to really
 understand how Neovim and its configuration worked. Thus, I made the switch to a
 [kickstart](https://github.com/nvim-lua/kickstart.nvim)-based config
-(actually, I'm using [kickstart-modular](https://github.com/dam9000/kickstart-modular.nvim),
-which is just a modularized fork of the original kickstart).
+(actually, I'm using [kickstart-modular](https://github.com/dam9000/kickstart-modular.nvim)).
 This config is maintained in the `editor/kickstart-nvim/` directory.
 
 In the remainder of this section, I'll highlight some of the key plugins I'm using.
 
 - [Folke](https://github.com/folke)'s plugins should be their own section
   - [Lazy](https://github.com/folke/lazy.nvim): plugin manager
+  - [flash](https://github.com/folke/flash.nvim):
+    jump around the buffer in a flash
   - [which-key](https://github.com/folke/which-key.nvim): keymap popup/organizer
   - [noice](https://github.com/folke/noice.nvim):
     replacement ui for messages, cmdline, and the popupmenu
   - [trouble](https://github.com/folke/trouble.nvim):
     handy list viewer for diagnostics, quickfixes, etc.
   - [snacks](https://github.com/folke/snacks.nvim): tons of small QoL plugins.
-  I'm using just about all of the included "snacks" (modules),
-  but here I'll highlight those that provide some core functionality:
+    I'm using just about all of the included "snacks" (modules),
+    but here I'll highlight those that provide some core functionality:
     - [dashboard](https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md):
-    aesthetic, useful landing page when entering neovim
+      aesthetic, useful landing page when entering neovim
       - (with `{ example = "advanced" }`)
     - [indent](https://github.com/folke/snacks.nvim/blob/main/docs/indent.md):
-    indent guides & scopes
+      indent guides & scopes
     - [notifier](https://github.com/folke/snacks.nvim/blob/main/docs/notifier.md):
-    pretty notification interface and history
+      pretty notification interface and history
     - [picker](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md):
-    an amazing Telescope replacement/fuzzy finder
+      an amazing Telescope replacement/fuzzy finder
     - [statuscolumn](https://github.com/folke/snacks.nvim/blob/main/docs/statuscolumn.md):
-    pretty statuscolumn
+      pretty statuscolumn
     - [zen](https://github.com/folke/snacks.nvim/blob/main/docs/zen.md):
-    "Zen mode", for distraction-free coding
+      "Zen mode", for distraction-free coding
 - [blink.cmp](https://github.com/Saghen/blink.cmp): completion
 - [lualine](https://github.com/nvim-lualine/lualine.nvim): statusline
 - [obsidian](https://github.com/epwalsh/obsidian.nvim):
-integration between the
-[Obsidian](https://obsidian.md/) note-taking app and Neovim
+  integration between the
+  [Obsidian](https://obsidian.md/) note-taking app and Neovim
 
 ### Git
 
@@ -217,11 +190,11 @@ As an AI/Data Scientist, Python is my primary language. Here are some of the too
 I enjoy using:
 
 - [uv](https://docs.astral.sh/uv/):
-a fast package manager, virtual environment manager, and tool manager
+  a fast package manager, virtual environment manager, and tool manager
 - [ruff](https://astral.sh/ruff):
-a fast linter, formatter, and language server
+  a fast linter, formatter, and language server
 - [basedpyright](https://docs.basedpyright.com/latest/):
-static type analysis
+  static type analysis
 
 ### Shell
 
@@ -230,14 +203,14 @@ Here are some of the accompanying tools I use with it:
 
 - [antigen](https://github.com/zsh-users/antigen): plugin manager
   - special mention to [Oh My Zsh](https://ohmyz.sh/),
-  which I used for some time before the switch to antigen.
-  In fact, I was only comfortable making the switch since
-  you can easily install *omz* plugins via antigen.
+    which I used for some time before the switch to antigen.
+    In fact, I was only comfortable making the switch since
+    you can easily install _omz_ plugins via antigen.
 - [starship](https://starship.rs/): shell prompt
 
 ### System
 
-Currently, I'm running [Pop!_OS](https://pop.system76.com/) (22.04),
+Currently, I'm running [Pop!\_OS](https://pop.system76.com/) (22.04),
 which I have not altered much from the default
 [System76](https://www.gnome.org/)-managed distribution.
 As such, I'm currently using [GNOME 42](https://www.gnome.org/) as my DE.
