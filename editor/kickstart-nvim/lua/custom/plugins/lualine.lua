@@ -44,6 +44,7 @@ return {
           "filetype",
           "progress",
           "location",
+          "vim.api.nvim_buf_line_count(0)",
         },
         lualine_z = {
           { "datetime", style = "%H:%M" },
