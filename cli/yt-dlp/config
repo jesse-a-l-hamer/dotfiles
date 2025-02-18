@@ -1,5 +1,3 @@
 # save videos to YouTube directory
--o ~/YouTube/%(title)s.%(ext)s
-
-# add authentication
---netrc-cmd 'gpg --decrypt ~/.config/yt-dlp/.youtube-auth.gpg'
+-P ~/YouTube
+-o %(title)s.%(ext)s
