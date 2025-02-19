@@ -1,2 +1,0 @@
-[profiles.editor-neovim.dots]
-nvim = { source = "editor/neovim", target = ".config/nvim" }

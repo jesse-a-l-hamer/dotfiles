@@ -1,2 +1,0 @@
-[profiles.terminal-wezterm.dots]
-wezterm = { source = "terminal/wezterm", target = ".config/wezterm" }
