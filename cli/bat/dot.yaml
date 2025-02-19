@@ -1,0 +1,2 @@
+links:
+  bat: "{{ dirs.base.config }}/bat"

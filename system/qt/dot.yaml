@@ -1,0 +1,2 @@
+links:
+  qt5ct: "{{ dirs.base.config }}/qt5ct"

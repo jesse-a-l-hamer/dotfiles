@@ -1,0 +1,2 @@
+links:
+  gitconfig: "{{ dirs.base.home }}/.gitconfig"

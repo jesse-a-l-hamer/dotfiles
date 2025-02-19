@@ -1,0 +1,3 @@
+links:
+  zshrc: "{{ dirs.base.home }}/.zshrc"
+  custom: "{{ dirs.base.config }}/zsh"

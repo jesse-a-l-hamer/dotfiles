@@ -1,0 +1,2 @@
+links:
+  nvim: "{{ dirs.base.config }}/nvim"

@@ -1,0 +1,2 @@
+links:
+  neofetch: "{{ dirs.base.config }}/neofetch"

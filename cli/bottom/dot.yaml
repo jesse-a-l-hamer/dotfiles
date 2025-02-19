@@ -1,0 +1,2 @@
+links:
+  bottom: "{{ dirs.base.config }}/bottom"

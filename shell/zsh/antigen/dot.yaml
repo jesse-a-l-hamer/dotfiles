@@ -1,0 +1,2 @@
+links:
+  antigenrc: "{{ dirs.base.home }}/.antigenrc"

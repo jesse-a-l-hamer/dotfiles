@@ -1,0 +1,2 @@
+links:
+  wiki-tui: "{{ dirs.base.config }}/wiki-tui"

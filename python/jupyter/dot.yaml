@@ -1,0 +1,2 @@
+links:
+  lab: "{{ dirs.base.home }}/.jupyter/lab/user-settings"

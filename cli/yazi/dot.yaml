@@ -1,0 +1,2 @@
+links:
+  yazi: "{{ dirs.base.config }}/yazi"

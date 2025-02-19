@@ -1,0 +1,2 @@
+links:
+  glow: "{{ dirs.base.config }}/glow"

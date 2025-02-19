@@ -1,0 +1,3 @@
+links:
+  starship.toml: "{{ dirs.base.config }}/starship.toml"
+  home: "{{ dirs.base.home }}/.home"

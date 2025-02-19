@@ -1,0 +1,2 @@
+links:
+  aws: "{{ dirs.base.home }}/.aws"

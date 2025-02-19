@@ -1,0 +1,4 @@
+links:
+  userChrome.css: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/userChrome.css"
+  userContent.css: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/userContent.css"
+  zen-logo-macchiato.svg: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/zen-logo-macchiato.svg"

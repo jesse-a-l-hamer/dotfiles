@@ -1,0 +1,3 @@
+links:
+  gtk-3.0: "{{ dirs.base.config }}/gtk-3.0"
+  gtk-4.0: "{{ dirs.base.config }}/gtk-4.0"

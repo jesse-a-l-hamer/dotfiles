@@ -1,3 +1,0 @@
-# save videos to YouTube directory
--P ~/YouTube
--o %(title)s.%(ext)s

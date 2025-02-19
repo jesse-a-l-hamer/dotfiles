@@ -1,0 +1,2 @@
+links:
+  wthrr.ron: "{{ dirs.base.config }}/weathercrab/wthrr.ron"

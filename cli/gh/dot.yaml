@@ -1,0 +1,2 @@
+links:
+  config.yml: "{{ dirs.base.config }}/gh/config.yml"

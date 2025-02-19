@@ -1,0 +1,3 @@
+links:
+  config_default.yml: "{{ dirs.base.config }}/espanso/config/default.yml"
+  match_base.yml: "{{ dirs.base.config }}/espanso/match/base.yml"
