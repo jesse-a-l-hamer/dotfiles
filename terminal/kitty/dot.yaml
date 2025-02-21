@@ -1,0 +1,2 @@
+links:
+  kitty: "{{ dirs.base.config }}/kitty"
