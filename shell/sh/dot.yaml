@@ -1,2 +1,0 @@
-links:
-  profile: "{{ dirs.base.home }}/.profile"
