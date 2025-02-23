@@ -1,0 +1,27 @@
+# Beryllium
+
+spacing = 3
+hide_ascii = true
+key_color = "#ee99a0"
+separator = ""
+
+[box]
+border = "rounded"
+visible = true
+
+[palette]
+glyph = "○"
+spacing = 2
+visible = true
+
+[bar]
+glyph = "○"
+hide_delimiters = true
+visible = true
+
+[box.inner_margin]
+x = 2
+y = 1
+
+[custom_ascii]
+color = "#a6da95"

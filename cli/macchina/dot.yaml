@@ -1,0 +1,2 @@
+links:
+  macchina: "{{ dirs.base.config }}/macchina"
