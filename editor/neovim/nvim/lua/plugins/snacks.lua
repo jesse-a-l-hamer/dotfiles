@@ -159,7 +159,7 @@ return {
         desc = "Neovim [N]ews",
         function()
           Snacks.win {
-            file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+            file = "/opt/nvim-linux64/share/nvim/runtime/doc/news.txt",
             width = 0.6,
             height = 0.6,
             wo = {
