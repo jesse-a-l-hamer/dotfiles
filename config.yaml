@@ -1,2 +1,7 @@
 variables:
   zen_profile: personal
+  apt: "sudo apt install"
+  cargo: "cargo install"
+  flatpak: "flatpak install"
+  npm: "npm install -g"
+  uv: "uv tool install"
