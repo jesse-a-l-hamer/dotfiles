@@ -1,11 +1,18 @@
+#!/usr/bin/zsh
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.config/zsh
 
+# source zsh/custom files
+for file in $ZSH/*.zsh; do
+  source $file
+done
+
 export DOTFILES=$HOME/dotfiles
 
 fpath=(
-  $HOME/.config/zsh/completions
+  $ZSH/completions
   $fpath
 )
 
@@ -28,10 +35,3 @@ antigen init $HOME/.antigenrc
 
 # configure fast-syntax-highlighting theme
 fast-theme --quiet XDG:catppuccin-macchiato
-
-
-# source zsh/custom files
-for file in $ZSH/*.zsh; do
-  source $file
-done
-
