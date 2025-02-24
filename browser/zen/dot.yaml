@@ -1,4 +1,8 @@
 links:
-  userChrome.css: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/userChrome.css"
-  userContent.css: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/userContent.css"
-  zen-logo-macchiato.svg: "{{ dirs.base.home }}/.zen/{{ zen_profile }}/chrome/zen-logo-macchiato.svg"
+  installs.ini: "{{ dirs.base.home }}/.zen/installs.ini"
+  profiles.ini: "{{ dirs.base.home }}/.zen/profiles.ini"
+  userChrome.css: "{{ dirs.base.home }}/.zen/{{ config.variables.zen_profile }}/chrome/userChrome.css"
+  userContent.css: "{{ dirs.base.home }}/.zen/{{ config.variables.zen_profile }}/chrome/userContent.css"
+  zen-logo-macchiato.svg: "{{ dirs.base.home }}/.zen/{{ config.variables.zen_profile }}/chrome/zen-logo-macchiato.svg"
+installs:
+  cmd: "bash <(curl -s https://updates.zen-browser.app/install.sh)"
