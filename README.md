@@ -36,30 +36,18 @@ for the garden that may already be in your keeping.
 
 ## Installation
 
-I use [toml-bombadil](https://github.com/oknozor/toml-bombadil) to manage
-symlinking of my dotfiles. I highly recommend that you check it out!
+I use [rotz](https://volllly.github.io/rotz/) to manage
+symlinking of my dotfiles, as well as installation of tools on a new system.
+I highly recommend that you check it out!
 
-Assuming you've installed _toml-bombadil_ and all of the [tools](#tools)
-mentioned below, you can install the dotfiles by running the following:
-
-```sh
-bombadil link -p desktop
-```
-
-My next goal in building out this repo is to set up an `install.sh` script to make
-bootstrapping easier. At that point I will also refactor some of the dotfiles
-themselves, leveraging _toml-bombadil's_ templating abilities to make them platform
-agnostic.
-
-Ultimately, I'd like to have a single repository which is capable of syncing my
-environment across all of my current (and future) devices.
-This way, trying out a new distro or refreshing my existing system can
-be as painless as possible.
+Assuming you've [installed rotz](https://volllly.github.io/rotz/docs/getting-started#installation),
+you can bootstrap a new system with `rotz install`. Once installation is complete,
+link the dotfiles with `rotz link`.
 
 ## Tools
 
-I have tried to organize the dotfiles into high-level groups which are as
-sensible as possible. The list below is not an exhaustive list of the tools I'm
+I have tried to organize the dotfiles into high-level groups more or less by topic.
+The list below is not an exhaustive list of the tools I'm
 currently using, but it does capture most of the key tools I use and whose
 configurations I have so far messed with.
 
@@ -68,57 +56,59 @@ configurations I have so far messed with.
 > ([gruvbox](https://github.com/morhetz/gruvbox)
 > was my go-to theme for most of those years),
 > I finally settled upon [Catppuccin](https://catppuccin.com/)
-> (macchiato) to theme my various. Aside from being a great color scheme,
+> (Macchiatowith a maroon accent 😉). Aside from being a great color scheme,
 > I love how configurable (four different variants,
 > with even more "accent" colors) and _pervasive_ Catppuccin is.
 > There might be color schemes that I like more _in isolation_, but
 > the widespread availability of official ports and
 > the community's emphasis on documentation means I can give
-> basically my _entire system_ a consistent look and feel.
-> Check out the `themes/catppuccin/` folder,
-> which has several of these ports that I'm using
-> throughout my system.
+> basically my _entire system_ a consistent look and feel. Check out the
+> Catppuccin website or [github](https://github.com/catppuccin) for all of the
+> officially maintained ports.
 >
-> I've also done some font-hopping, with my current favorite being
-> [NerdFonts'](https://www.nerdfonts.com/) port of
-> [Monaspace](https://monaspace.githubnext.com/) (called _Monaspice_).
-> You can preview the font
-> [here](https://www.programmingfonts.org/#monaspace-neon)
-> if you're interested! (I prefer the Argon variant myself.)
+> I've also done some font-hopping, with my current favorite being the
+> [Monaspace family](https://monaspace.githubnext.com/) of fonts. This is actually
+> a collection of five distinct font faces, each of which has its own voice.
+> In my own set up I'm following the pattern detailed in the Neovim plugin
+> [monaspace.nvim](https://github.com/jackplus-xyz/monaspace.nvim); for example,
+> my regular font face is Monaspace Argon, which gives a neutral, sans-serif
+> look to normal text, while I use Monaspace Radon for the italic font face,
+> which conveys a more informal, handwritten look. See the
+> [kitty terminal dotfiles](terminal/kitty/kitty/kitty.conf) for more details.
 
 ### Browser
 
-- [Zen](https://zen-browser.app/): exciting new Firefox-based browser
+- [Zen](https://zen-browser.app/): privacy- and performance-focused,
+  community-maintained, Firefox-based browser. This is my daily driver.
+- [Brave](https://brave.com): privacy- and performance-focused Chromium-based browser.
+  This is my backup browser which I keep around in case I need Chromium.
 
 ### CLI
 
 - [bat](https://github.com/sharkdp/bat): like `cat`, but better
 - [bottom](https://github.com/ClementTsang/bottom): system monitoring
+- [delta](https://github.com/dandavison/delta): rust-based git diff/merge tool
+- [dust](https://github.com/bootandy/dust): rust-based du-replacement
 - [espanso](https://github.com/espanso/espanso): text expander
+- [eza](https://github.com/eza-community/eza): rust-based ls replacement
+- [funzzy](https://github.com/cristianoliveira/funzzy): rust-based filesystem watcher
+- [fzf](https://github.com/junegunn/fzf): fuzzy-finder
 - [glow](https://github.com/charmbracelet/glow): render markdown documents with 🌈*pizazz*🌠
+- [hexyl](https://github.com/sharkdp/hexyl): rust-based hex viewer
+- [keepassxc](https://keepassxc.org/): password manager
 - [lazygit](https://github.com/jesseduffield/lazygit): cool, easy to use TUI git-interface
 - [neofetch](https://github.com/dylanaraps/neofetch): print out a quick system
   summary with nice ascii art
+- [procs](https://github.com/dalance/procs): rust-based ps replacement
+- [ripgrep (rg)](https://github.com/BurntSushi/ripgrep): rust-based grep replacement
+- [rm-improved (rip)](https://github.com/nivekuil/rip): rust-based rm replacement
 - [tealdeer](https://github.com/tealdeer-rs/tealdeer): rust-based tldr replacement;
   simple, community-driven man pages
 - [weathercrab](https://github.com/ttytm/wthrr-the-weathercrab): rust-based
   weather app
-- [yazi](https://github.com/sxyazi/yazi): terminal file manager, written in rust
-
-Other noteworthy CLI tools I use whose configs do not appear here:
-
-- [eza](https://github.com/eza-community/eza): rust-based ls replacement
-- [zoxide](https://github.com/ajeetdsouza/zoxide): rust-based cd replacement
-- [delta](https://github.com/dandavison/delta): rust-based git diff/merge tool
-- [funzzy](https://github.com/cristianoliveira/funzzy): rust-based filesystem watcher
-- [dust](https://github.com/bootandy/dust): rust-based du-replacement
-- [hexyl](https://github.com/sharkdp/hexyl): rust-based hex viewer
-- [procs](https://github.com/dalance/procs): rust-based ps replacement
-- [ripgrep (rg)](https://github.com/BurntSushi/ripgrep): rust-based grep replacement
-- [rm-improved (rip)](https://github.com/nivekuil/rip): rust-based rm replacement
 - [xsv](https://github.com/paulgirard/xsv): rust-based program for handling csv files
-- [fzf](https://github.com/junegunn/fzf): fuzzy-finder
-- [keepassxc](https://keepassxc.org/): password manager
+- [yazi](https://github.com/sxyazi/yazi): terminal file manager, written in rust
+- [zoxide](https://github.com/ajeetdsouza/zoxide): rust-based cd replacement
 
 ### Editor
 
@@ -138,11 +128,13 @@ After a couple of months using AstroNvim, however, I decided I wanted to really
 understand how Neovim and its configuration worked. Thus, I made the switch to a
 [kickstart](https://github.com/nvim-lua/kickstart.nvim)-based config
 (actually, I'm using [kickstart-modular](https://github.com/dam9000/kickstart-modular.nvim)).
-This config is maintained in the `editor/kickstart-nvim/` directory.
+This config is maintained in the `editor/neovim/` directory.
 
 In the remainder of this section, I'll highlight some of the key plugins I'm using.
 
-- [Folke](https://github.com/folke)'s plugins should be their own section
+- [Folke](https://github.com/folke)'s plugins should be their own section. (At
+  this point, I've probably all but recreated Folke's own Neovim distribution,
+  [LazyVim](https://www.lazyvim.org/).)
   - [Lazy](https://github.com/folke/lazy.nvim): plugin manager
   - [flash](https://github.com/folke/flash.nvim):
     jump around the buffer in a flash
@@ -177,13 +169,6 @@ In the remainder of this section, I'll highlight some of the key plugins I'm usi
 
 This directory just contains my basic `.gitconfig` file. Nothing too fancy.
 
-### Music
-
-I use YouTube Music, by way of [th-ch](https://github.com/th-ch/youtube-music).
-Eventually I'll try to ween myself off of the webapp-interface,
-but it works well enough for now and admits of several cool
-customizations.
-
 ### Python
 
 As an AI/Data Scientist, Python is my primary language. Here are some of the tools
@@ -217,12 +202,21 @@ As such, I'm currently using [GNOME 42](https://www.gnome.org/) as my DE.
 
 Whenever [System76](https://www.gnome.org/) releases
 [COSMIC](https://github.com/pop-os/cosmic-epoch)
-I'll switch over to that.
+I'll very likely switch over to that.
 
 Eventually I'll give [Arch](https://archlinux.org/) a try
 (the whole point of creating this repo was to encourage experimenting, after all!).
 
 ### Terminal
 
-I use [WezTerm](https://wezfurlong.org/wezterm/) as my terminal emulator. It has
-builtin multiplexing and image support, plus it's highly configurable via lua.
+For a long time, I used [WezTerm](https://wezfurlong.org/wezterm/) as my
+terminal emulator. It has builtin multiplexing and image support,
+clean font rendering, plus it's highly configurable via lua.
+
+Recently however, I decided to make the switch to
+[kitty](https://sw.kovidgoyal.net/kitty/) in order to see how it compares.
+The performativity of kitty has so far been excellent, as has its
+configurability. One of the main reasons I switched is that there seems to be
+more widespread support for kitty's image protocol, whereas the iterm2 image
+protocol implemented by WezTerm seems less well supported (at least among my
+use-cases).
