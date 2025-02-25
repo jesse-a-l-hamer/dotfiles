@@ -1,0 +1,11 @@
+BetterUnsubscribe
+Config Button
+DKIM Verifier
+EDS Calendar Integration
+keepassxc-mail
+Minimize on Close
+New Tab
+Open Image In New Tab
+Quote Colors & Collapse
+Send Later
+tbkeys-lite

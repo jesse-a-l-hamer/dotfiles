@@ -1,0 +1,2 @@
+installs:
+  cmd: "sudo {{ config.dotfiles }}/install_scripts/install-betterbird.sh"
