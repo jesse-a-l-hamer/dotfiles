@@ -111,4 +111,4 @@ echo "Removing temporary files..."
 rm -rf $TMP_DIR
 echo "$S$A Done."
 
-echo "$S$A Successfully updated neovim-nightly\!"
+echo "$S$A Successfully updated neovim-nightly!"
