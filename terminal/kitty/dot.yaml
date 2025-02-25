@@ -1,2 +1,7 @@
 links:
   kitty: "{{ dirs.base.config }}/kitty"
+installs:
+  cmd: |
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sudo sh /dev/stdin installer=nightly launch=n dest=/usr/local
+depends:
+  - /system/fonts
