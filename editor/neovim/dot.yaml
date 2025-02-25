@@ -3,6 +3,8 @@ links:
 installs:
   cmd: |
     sudo {{ config.dotfiles }}/install_scripts/neovim-nightly
-    mkdir -p "{{ dirs.base.home }}/python_venvs"
-    cp -rf {{ config.dotfiles }}/editor/neovim/providers/python {{ dirs.base.home }}/python_venvs/neovim-nightly
-    (cd {{ dirs.base.home }}/python_venvs/neovim-nightly && uv venv && source .venv/bin/activate && uv sync --python {{ config.variables.python_version }})
+    if ! [[ -d {{ dirs.base.home }}/python_venvs/neovim-nightly ]]; then
+      mkdir -p "{{ dirs.base.home }}/python_venvs"
+      cp -rf {{ config.dotfiles }}/editor/neovim/providers/python {{ dirs.base.home }}/python_venvs/neovim-nightly
+      (cd {{ dirs.base.home }}/python_venvs/neovim-nightly && uv venv && source .venv/bin/activate && uv sync --python {{ config.variables.python_version }})
+    fi

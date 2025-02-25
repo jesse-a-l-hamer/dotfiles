@@ -1,7 +1,7 @@
 [project]
 name = "neovim-nightly"
 version = "0.1.0"
-description = "Add your description here"
+description = "Environment for Neovim Nightly Python provider."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
