@@ -1,0 +1,4 @@
+installs:
+  cmd: |
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    uv python install {{ config.variables.python_version }}

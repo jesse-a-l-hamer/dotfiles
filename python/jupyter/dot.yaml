@@ -1,2 +1,6 @@
 links:
   lab: "{{ dirs.base.home }}/.jupyter/lab/user-settings"
+installs:
+  cmd: '{{ config.variables.uv }} --with catppuccin-jupyterlab --with "catppuccin[pygments]"'
+  depends:
+    - /python/uv

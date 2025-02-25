@@ -1,0 +1,4 @@
+installs:
+  cmd: "{{ config.variables.uv }} {{ name }}"
+  depends:
+    - /python/uv
