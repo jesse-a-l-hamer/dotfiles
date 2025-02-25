@@ -1,0 +1,9 @@
+links:
+  Catppuccin-Macchiato: "{{ dirs.base.home }}/.icons/Catppuccin-Macchiato"
+  Catppuccin-Red-Dark-Macchiato: "{{ dirs.base.home }}/.themes/Catppuccin-Red-Dark-Macchiato"
+  catppuccin-macchiato-maroon-cursors: "{{ dirs.base.home }}/.icons/catppuccin-macchiato-maroon-cursors"
+installs:
+  cmd: |
+    gsettings set org.gnome.desktop.interface icon-theme "Catppuccin-Macchiato"
+    gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Red-Dark-Macchiato"
+    gsettings set org.gnome.desktop.interface cursor-theme "catppuccin-macchiato-maroon-cursors"
