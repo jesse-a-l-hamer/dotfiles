@@ -1,4 +1,4 @@
 installs:
   cmd: |
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --bin --no-update-rc
+    git clone --depth 1 https://github.com/junegunn/fzf.git {{ dirs.base.home }}/.fzf
+    {{ dirs.base.home }}/.fzf/install --bin --no-update-rc

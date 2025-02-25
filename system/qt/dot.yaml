@@ -3,9 +3,9 @@ links:
 installs:
   cmd: |
     {{ config.variables.apt }} qt5ct cmake build-essential libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev extra-cmake-modules libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libkf5iconthemes-dev gettext qt3d5-dev
-    mkdir -p $HOME/package-repos && cd $HOME/package-repos
-    git clone --single-branch --depth=1 https://github.com/Luwx/Lightly.git
-    cd Lightly && mkdir build && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF ..
-    make
-    sudo make install
+    mkdir -p {{ dirs.base.home }}/package-repos
+    git clone --single-branch --depth=1 https://github.com/Luwx/Lightly.git {{ dirs.base.home }}/package-repos/Lightly
+    mkdir {{ dirs.base.home }}/package-repos/Lightly/build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -S {{ dirs.base.home }}/package-repos/Lightly -B {{ dirs.base.home }}/package-repos/Lightly/build
+    make -C {{ dirs.base.home }}/package-repos/Lightly/build
+    sudo make -C {{ dirs.base.home }}/package-repos/Lightly/build install
