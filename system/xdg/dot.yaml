@@ -1,3 +1,4 @@
 links:
   user-dirs.dirs: "{{ dirs.base.config }}/user-dirs.dirs"
   user-dirs.locale: "{{ dirs.base.config }}/user-dirs.locale"
+installs: false

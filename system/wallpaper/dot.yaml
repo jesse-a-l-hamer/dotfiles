@@ -1,2 +1,6 @@
 links:
   02-macchiato-hald04.png: "{{ dirs.base.home }}/.local/share/backgrounds/phoenix-macchiato.png"
+installs:
+  cmd: |
+    gsettings set org.gnome.desktop picture-uri "file://{{ dirs.base.home }}/.local/share/backgrounds/phoenix-macchiato.png"
+    gsettings set org.gnome.desktop picture-uri-dark "file://{{ dirs.base.home }}/.local/share/backgrounds/phoenix-macchiato.png"
