@@ -1,2 +1,2 @@
 installs:
-  cmd: "{{ config.variables.flatpak }} {{ name }}"
+  cmd: "{{ config.variables.flatpak }} {{ file_name name }}"

@@ -1,4 +1,4 @@
 installs:
-  cmd: "{{ config.variables.cargo }} {{ name }}"
+  cmd: "{{ config.variables.cargo }} {{ file_name name }}"
   depends:
     - /rust

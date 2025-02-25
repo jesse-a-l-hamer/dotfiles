@@ -1,2 +1,2 @@
 installs:
-  cmd: "{{ config.variables.apt }} {{ name }}"
+  cmd: "{{ config.variables.apt }} {{ file_name name }}"

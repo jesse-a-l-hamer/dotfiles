@@ -1,4 +1,4 @@
 installs:
-  cmd: "{{ config.variables.npm }} {{ name }}"
+  cmd: "{{ config.variables.npm }} {{ file_name name }}"
   depends:
     - /nvm/node
