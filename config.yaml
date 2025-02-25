@@ -1,8 +1,8 @@
 variables:
-  python_version: 3.12.8
   zen_profile: personal
   apt: "sudo apt install"
   cargo: "cargo install"
   flatpak: "flatpak install"
   npm: "npm install -g"
-  uv: "uv tool install"
+  python_version: 3.12.8
+  uv: "uv tool install --python 3.12.8"
