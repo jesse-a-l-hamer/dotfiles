@@ -1,0 +1,6 @@
+installs:
+  cmd: |
+    nvm install 22
+    \. "$HOME/.nvm/nvm.sh"
+  depends:
+    - /nvm
