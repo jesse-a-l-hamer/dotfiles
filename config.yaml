@@ -1,4 +1,5 @@
 variables:
+  python_version: 3.12.8
   zen_profile: personal
   apt: "sudo apt install"
   cargo: "cargo install"
