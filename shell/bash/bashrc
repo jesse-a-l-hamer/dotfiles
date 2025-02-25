@@ -141,3 +141,11 @@ eval "$(starship init bash)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */home/jessehamer/.fzf/bin* ]]; then
+    PATH="${PATH:+${PATH}:}/home/jessehamer/.fzf/bin"
+fi
+
+eval "$(fzf --bash)"
