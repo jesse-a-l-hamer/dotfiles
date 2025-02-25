@@ -3,5 +3,8 @@ links:
 installs:
   cmd: |
     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sudo sh /dev/stdin installer=nightly launch=n dest=/usr/local
+    sudo cp -f {{ config.dotfiles }}/terminal/kitty/open-kitty-here /usr/bin/open-kitty-here
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/open-kitty-here 30
+    sudo update-alternatives --set x-terminal-emulator /usr/bin/open-kitty-here
 depends:
   - /system/fonts
