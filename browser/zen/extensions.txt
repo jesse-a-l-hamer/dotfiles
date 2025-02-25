@@ -1,0 +1,11 @@
+Catppuccin for GitHub File Explorer Icons
+cookies.txt
+Firenvim
+KeePassXC-Browser
+LibRedirect
+Privacy Badger
+Refined GitHub
+Stylus
+uBlock Origin
+Vimium
+Zoom Extension
