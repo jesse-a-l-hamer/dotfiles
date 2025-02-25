@@ -1,0 +1,114 @@
+#!/bin/sh
+
+# Installs nightly release of Neovim if no installation is present.
+# Otherwise, updates an existing nightly installation to the latest release.
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Please run script with root privileges."
+    echo "Aborting."
+    exit 1
+fi
+
+BASE_URL="https://github.com/neovim/neovim/releases/download/nightly"
+RELEASE_NAME="nvim-linux-x86_64.tar.gz"
+INSTALL_NAME="nvim-nightly-linux64"
+INSTALL_DIR="/opt/$INSTALL_NAME"
+TMP_DIR="/tmp/install-nvim-nightly"
+
+A='  '
+S='     '
+F='     '
+I='     '
+W='     '
+
+if [ -d $TMP_DIR ]; then
+    echo "$W$A $TMP_DIR already exists."
+    echo "$W$A This likely indicates failed cleanup from a previous invocation of this script."
+    echo "Removing existing temporary files..."
+    rm -rf $TMP_DIR
+    echo "$S$A Done."
+fi
+echo "Making new temporary directory and setting as cwd..."
+mkdir $TMP_DIR
+cd $TMP_DIR
+echo "$S$A Done."
+
+echo "Checking if install directory exists..."
+if ! [ -d $INSTALL_DIR ]; then
+    echo "$I$A No existing install found."
+    echo "Creating empty install directory..."
+    mkdir -p $INSTALL_DIR
+    echo "$S$A Done."
+else
+    echo "$S$A Found existing installation."
+fi
+
+echo "Checking symlink..."
+if [ -d /opt/nvim-linux64 ] && ! [ -h /opt/nvim-linux64 ]; then
+    echo "$W$A A Neovim installation already exists at /opt/nvim-linux64, but it is not symlinked anywhere."
+    echo "$W$A Will continue with nightly installation, but note that another version of Neovim is likely used by default."
+elif ! [ -h /opt/nvim-linux64 ]; then
+    echo "$I$A No symlink to /opt/nvim-linux64 found."
+    echo "Creating symlink at /opt/nvim-linux64 with target $INSTALL_DIR..."
+    ln -s $INSTALL_DIR /opt/nvim-linux64
+    echo "$S$A Done."
+else
+    echo "$I$A Symlink exists."
+fi
+
+echo "Downloading latest SHA-256 hash for latest nightly release..."
+curl -sSL $BASE_URL/shasum.txt | grep $RELEASE_NAME | cut -d " " -f 1 >shasum.txt
+echo "$I$A $(cat shasum.txt)"
+
+if [ -e $INSTALL_DIR/shasum.txt ] && echo "Comparing latest version to currently installed version..." && [ $(cat shasum.txt) = $(cat $INSTALL_DIR/shasum.txt) ]; then
+    echo "$I$A Installed neovim-nightly is already up-to-date."
+    echo "Removing temporary files..."
+    rm -rf $TMP_DIR
+    echo "$S$A Done."
+    echo "Aborting..."
+    exit 2
+fi
+echo "$I$A New version exists."
+
+echo "Downloading latest nightly release tarball..."
+curl -sSLO "$BASE_URL/$RELEASE_NAME"
+echo "$S$A Done."
+
+echo "Verifying SHA-256 hash..."
+if [ $(echo $(cat shasum.txt) $RELEASE_NAME | sha256sum --check | cut -d " " -f 2) != "OK" ]; then
+    echo "$F$A Verification failed. SHA sums do not match."
+    echo "Removing temporary files..."
+    rm -rf $TMP_DIR
+    echo "$S$A Done."
+    echo "Aborting..."
+    exit 3
+fi
+echo "$S$A Done."
+
+echo "Unpacking downloaded tarball..."
+tar xzf $RELEASE_NAME
+echo "$S$A Done."
+
+echo "Removing existing installation..."
+mv -f $INSTALL_DIR .
+echo "$S$A Done."
+
+echo "Installing extracted files..."
+mv shasum.txt ${RELEASE_NAME%.tar.gz} && mv ${RELEASE_NAME%.tar.gz} $INSTALL_DIR ||
+    {
+        echo "$F$A Installation failed."
+        echo "Replacing current installation..."
+        mv -f $INSTALL_NAME $INSTALL_DIR
+        echo "$S$A Done."
+        echo "Removing temporary files..."
+        rm -rf $TMP_DIR
+        echo "Aborting..."
+        exit 4
+    }
+echo "$S$A Done."
+
+echo "Removing temporary files..."
+rm -rf $TMP_DIR
+echo "$S$A Done."
+
+echo "$S$A Successfully updated neovim-nightly\!"
