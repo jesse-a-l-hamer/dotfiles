@@ -2,3 +2,4 @@ links:
   bash_logout: "{{ dirs.base.home }}/.bash_logout"
   bash_profile: "{{ dirs.base.home }}/.bash_profile"
   bashrc: "{{ dirs.base.home }}/.bashrc"
+installs: false
