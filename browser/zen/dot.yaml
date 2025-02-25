@@ -5,4 +5,6 @@ links:
   userContent.css: "{{ dirs.base.home }}/.zen/{{ config.variables.zen_profile }}/chrome/userContent.css"
   zen-logo-macchiato.svg: "{{ dirs.base.home }}/.zen/{{ config.variables.zen_profile }}/chrome/zen-logo-macchiato.svg"
 installs:
-  cmd: "bash <(curl -s https://updates.zen-browser.app/install.sh)"
+  cmd: |
+    bash <(curl -s https://updates.zen-browser.app/install.sh)
+    (sh -c 'cd {{ dirs.base.home }}/.zen; ! [ -d {{ config.variables.zen_profile }} ] && [ -d *Default* ] && mv *Default* {{ config.variables.zen_profile }} || ! [ -d {{ config.variables.zen_profile }} ] && mkdir -p {{ config.variables.zen_profile }} || echo "Profile {{ config.variables.zen_profile }} found."')
