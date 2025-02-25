@@ -5,4 +5,3 @@ installs:
   cmd: "{{ config.variables.apt }} zsh && sudo chsh -s $(which zsh)"
 depends:
   - /shell/starship
-  - /shell/zsh/antigen
