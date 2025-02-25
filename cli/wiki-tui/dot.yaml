@@ -1,2 +1,6 @@
 links:
   wiki-tui: "{{ dirs.base.config }}/wiki-tui"
+installs:
+  cmd: "{{ config.variables.cargo }} --locked wiki-tui"
+  depends:
+    - /rust

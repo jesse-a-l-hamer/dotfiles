@@ -1,3 +1,11 @@
 links:
   config_default.yml: "{{ dirs.base.config }}/espanso/config/default.yml"
   match_base.yml: "{{ dirs.base.config }}/espanso/match/base.yml"
+installs:
+  cmd: |
+    wget https://github.com/espanso/espanso/releases/download/v2.2.1/espanso-debian-x11-amd64.deb
+    sudo apt install ./espanso-debian-x11-amd64.deb
+    espanso service register
+    espanso start
+  depends:
+    - /rust

@@ -1,2 +1,6 @@
 links:
   yazi: "{{ dirs.base.config }}/yazi"
+installs:
+  cmd: "{{ config.variables.cargo }} --locked yazi-cli yazi-fm"
+  depends:
+    - /rust
