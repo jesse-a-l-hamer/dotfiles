@@ -1,2 +1,5 @@
 links:
   fsh: "{{ dirs.base.config }}/fsh"
+installs: false
+depends:
+  - /shell/zsh/antigen
