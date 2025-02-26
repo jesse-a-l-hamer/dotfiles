@@ -2,4 +2,4 @@ installs:
   cmd: |
     sudo add-apt-repository ppa:phoerious/keepassxc
     sudo apt update
-    sudo apt install keepassxc
+    {{ config.variables.apt }} keepassxc
