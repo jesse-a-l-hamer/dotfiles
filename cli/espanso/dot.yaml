@@ -3,9 +3,11 @@ links:
   match_base.yml: "{{ dirs.base.config }}/espanso/match/base.yml"
 installs:
   cmd: |
-    wget https://github.com/espanso/espanso/releases/download/v2.2.1/espanso-debian-x11-amd64.deb
-    {{ config.variables.apt }} ./espanso-debian-x11-amd64.deb
-    [[ "$(espanso service check)" != "registered as a service" ]] || espanso service register
-    [[ "$(espanso status)" != "espanso is running" ]] || espanso start
+    if ! [[ -x $(which espanso) ]]; then
+      wget https://github.com/espanso/espanso/releases/download/v2.2.1/espanso-debian-x11-amd64.deb
+      {{ config.variables.apt }} ./espanso-debian-x11-amd64.deb
+      [[ "$(espanso service check)" != "registered as a service" ]] || espanso service register
+      [[ "$(espanso status)" != "espanso is running" ]] || espanso start
+    fi
   depends:
     - /rust
