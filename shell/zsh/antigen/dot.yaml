@@ -2,6 +2,6 @@ links:
   antigenrc: "{{ dirs.base.home }}/.antigenrc"
 installs:
   cmd: |
-    git clone https://github.com/zsh-users/antigen.git {{ dirs.base.home }}/antigen
+    git clone https://github.com/zsh-users/antigen.git {{ dirs.base.home }}/antigen || echo "Antigen already installed."
   depends:
     - /shell/zsh
