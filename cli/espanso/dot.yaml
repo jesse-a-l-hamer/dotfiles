@@ -4,7 +4,7 @@ links:
 installs:
   cmd: |
     wget https://github.com/espanso/espanso/releases/download/v2.2.1/espanso-debian-x11-amd64.deb
-    sudo apt install ./espanso-debian-x11-amd64.deb
+    {{ config.variables.apt }} ./espanso-debian-x11-amd64.deb
     espanso service register
     espanso start
   depends:
