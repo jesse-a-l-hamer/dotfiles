@@ -1,6 +1,5 @@
 installs:
   cmd: |
-    nvm install 22
-    \. "{{ dirs.base.home }}/.nvm/nvm.sh"
+    \. "{{ dirs.base.home }}/.nvm/nvm.sh" && nvm install 22
   depends:
     - /nvm
