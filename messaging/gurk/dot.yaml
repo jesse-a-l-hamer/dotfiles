@@ -1,4 +1,4 @@
 installs:
-  cmd: cargo install --locked --git https://github.com/boxdot/gurk-rs gurk
+  cmd: "{{ config.variables.cargo }} --locked --git https://github.com/boxdot/gurk-rs gurk"
   depends:
     - /rust

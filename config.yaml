@@ -1,7 +1,7 @@
 variables:
   zen_profile: personal
   apt: "sudo apt install -y"
-  cargo: "cargo install"
+  cargo: ". $HOME/.cargo/env && cargo install"
   flatpak: "flatpak install -y"
   npm: "npm install -g"
   python_version: 3.12.8
