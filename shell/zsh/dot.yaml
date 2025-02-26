@@ -2,6 +2,6 @@ links:
   zshrc: "{{ dirs.base.home }}/.zshrc"
   custom: "{{ dirs.base.config }}/zsh"
 installs:
-  cmd: "{{ config.variables.apt }} zsh && sudo chsh -s $(which zsh)"
+  cmd: "{{ config.variables.apt }} zsh && chsh -s $(which zsh)"
 depends:
   - /shell/starship
