@@ -2,7 +2,7 @@ installs:
   cmd: |
     mkdir -p {{ dirs.base.home }}/package-repos
     git clone https://github.com/githubnext/monaspace.git {{ dirs.base.home }}/package-repos/monaspace
-    {{ dirs.base.home }}/package-repos/monaspace/util/install_linux.sh
+    (cd {{ dirs.base.home }}/package-repos/monaspace && ./util/install_linux.sh)
     gsettings set org.gnome.desktop.interface font-name "Monaspace Argon Frozen Light 10"
     gsettings set org.gnome.desktop.interface document-font-name "Monaspace Xenon Frozen Light 11"
     gsettings set org.gnome.desktop.interface monospace-font-name "Monaspace Krypton Frozen Light 11"
