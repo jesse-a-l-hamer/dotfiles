@@ -4,6 +4,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=$HOME/.config/zsh
 
+export PATH="$HOME/.cargo/bin":$PATH
+
+source $HOME/.cargo/env
+
 # source zsh/custom files
 for file in $ZSH/*.zsh; do
   source $file
