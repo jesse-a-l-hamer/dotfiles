@@ -1,5 +1,6 @@
 links:
   nvim: "{{ dirs.base.config }}/nvim"
+  tool_configs/markdownlint.json: "{{ dirs.base.home }}/.markdownlintrc"
 installs:
   cmd: |
     sudo {{ config.dotfiles }}/install_scripts/neovim-nightly

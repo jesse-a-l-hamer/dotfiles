@@ -35,7 +35,7 @@ return {
       formatters_by_ft = {
         bash = { "shfmt" },
         lua = { "stylua" },
-        markdown = { "prettierd", "prettier" },
+        markdown = { "prettierd", "prettier", "markdownlint" },
         python = { "ruff_organize_imports", "ruff_format" },
         shell = { "shfmt" },
         toml = { "taplo" },
