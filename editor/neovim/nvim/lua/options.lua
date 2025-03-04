@@ -55,6 +55,12 @@ vim.opt.scrolloff = 10
 -- vim.opt.winblend = 10 -- floating windows
 
 -- diagnostics configuration
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config {
+  virtual_text = true,
+  float = {
+    border = "rounded",
+    source = "if_many",
+  },
+}
 
 -- vim: ts=2 sts=2 sw=2 et

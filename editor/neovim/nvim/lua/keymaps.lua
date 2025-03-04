@@ -14,6 +14,12 @@ vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "[Q]uit all buffers (ex
 -- Easier terminal mode escape
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- Show diagnostics under cursor
+vim.keymap.set("n", "<leader>ld", function()
+  vim.diagnostic.open_float { scope = "cursor" }
+end, { desc = "Show diagnostics at cursor" })
+vim.keymap.set("n", "<leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostics in line" })
+
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
