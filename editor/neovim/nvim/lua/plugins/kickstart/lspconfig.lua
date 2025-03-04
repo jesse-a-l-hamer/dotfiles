@@ -120,6 +120,33 @@ return {
             },
           },
         },
+        pylsp = {
+          settings = {
+            plugins = {
+              autopep8 = { enabled = false },
+              flake8 = { enabled = false },
+              jedi_completion = { enabled = false },
+              jedi_definition = { enabled = false },
+              jedi_hover = { enabled = false },
+              jedi_references = { enabled = false },
+              jedi_signature_help = { enabled = false },
+              jedi_symbols = { enabled = false },
+              mccabe = { enabled = false },
+              preload = { enabled = false },
+              pycodestyle = { enabled = false },
+              pydocstyle = { enabled = false },
+              pyflakes = { enabled = false },
+              pylint = { enabled = false },
+              rope_autoimport = {
+                enabled = true,
+                completions = { enabled = false },
+                code_actions = { enabled = true },
+              },
+              rope_completion = { enabled = false },
+              yapf = { enabled = false },
+            },
+          },
+        },
       }
 
       require("mason").setup {
