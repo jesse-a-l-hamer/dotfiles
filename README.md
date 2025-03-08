@@ -6,7 +6,7 @@ There are many like it, but this one is mine.
 
 ## Screenshots
 
-- TODO
+![Fullscreen screenshot with Zen homepage and kitty terminal running bottom and neovim](./screenshots/01.png)
 
 ## Introduction
 
