@@ -79,6 +79,7 @@ return {
             },
           },
         },
+        list = { selection = { preselect = false, auto_insert = true } },
         documentation = {
           window = {
             border = "rounded",
@@ -86,6 +87,8 @@ return {
         },
         -- ghost_text = { enabled = true },
       },
+
+      fuzzy = { implementation = "prefer_rust" },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
