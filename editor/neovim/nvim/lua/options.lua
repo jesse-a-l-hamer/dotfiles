@@ -20,7 +20,7 @@ vim.opt.tabstop = 4
 vim.opt.wrap = true
 
 vim.opt.breakindent = true
-vim.opt.showbreak = " "
+vim.opt.showbreak = ""
 
 -- Save undo history
 vim.opt.undofile = true
