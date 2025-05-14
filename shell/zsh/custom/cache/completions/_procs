@@ -48,6 +48,7 @@ _procs() {
 '--tree[Tree view]' \
 '-w[Watch mode with default interval (1s)]' \
 '--watch[Watch mode with default interval (1s)]' \
+'--json[JSON output]' \
 '--gen-config[Generate configuration sample file]' \
 '--no-header[Suppress header]' \
 '--debug[Show debug message]' \
