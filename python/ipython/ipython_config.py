@@ -1,7 +1,4 @@
 # Configuration file for ipython.
-from pygments.styles import get_style_by_name
-from pygments.util import ClassNotFound
-
 c = get_config()  # noqa
 
 # ------------------------------------------------------------------------------
@@ -670,12 +667,7 @@ c.TerminalInteractiveShell.colors = "Linux"
 ## The name or class of a Pygments style to use for syntax
 #          highlighting. To see available styles, run `pygmentize -L styles`.
 #  Default: traitlets.Undefined
-try:
-    c.TerminalInteractiveShell.highlighting_style = get_style_by_name(
-        "catppuccin-macchiato"
-    )
-except ClassNotFound as e:
-    print(f"Failed to set theme: {e}")
+c.TerminalInteractiveShell.highlighting_style = "catppuccin-macchiato"
 
 ## Override highlighting format for specific tokens
 #  Default: {}
