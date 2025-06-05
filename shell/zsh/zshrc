@@ -31,7 +31,7 @@ export ADOTDIR=$HOME/.antigen
 export ANTIGEN_LOG=$ADOTDIR/antigen.log
 
 # Define path to antigen repo
-export ANTIGEN_PATH=$HOME/package-repos/antigen
+export ANTIGEN_PATH=$HOME/repositories/antigen
 
 # source antigen and load plugins
 source $ANTIGEN_PATH/antigen.zsh
