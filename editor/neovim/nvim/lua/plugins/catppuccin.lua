@@ -36,7 +36,7 @@ return {
         indentscope_color = accent_color,
       },
       noice = true,
-      snacks = true,
+      snacks = { enabled = true, indent_scope_color = accent_color },
       telescope = { enabled = false },
       which_key = true,
     },
