@@ -58,6 +58,16 @@ fi
 
 echo "Downloading latest SHA-256 hash for latest nightly release..."
 curl -sSL $BASE_URL/shasum.txt | grep $RELEASE_NAME | cut -d " " -f 1 >shasum.txt
+if [ -z $(cat shasum.txt) ]; then
+    echo "$F$A Problem downloading SHA-256: response was empty."
+    echo "$I$A Requested Neovim release name: $RELEASE_NAME"
+    echo "$I$A Download URL: $BASE_URL/shasum.txt"
+    echo "Removing temporary files..."
+    rm -rf $TMP_DIR
+    echo "$S$A Done."
+    echo "Aborting..."
+    exit 2
+fi
 echo "$I$A $(cat shasum.txt)"
 
 if [ -e $INSTALL_DIR/shasum.txt ] && echo "Comparing latest version to currently installed version..." && [ $(cat shasum.txt) = $(cat $INSTALL_DIR/shasum.txt) ]; then
@@ -66,7 +76,7 @@ if [ -e $INSTALL_DIR/shasum.txt ] && echo "Comparing latest version to currently
     rm -rf $TMP_DIR
     echo "$S$A Done."
     echo "Aborting..."
-    exit 2
+    exit 3
 fi
 echo "$I$A New version exists."
 
@@ -81,7 +91,7 @@ if [ $(echo $(cat shasum.txt) $RELEASE_NAME | sha256sum --check | cut -d " " -f 
     rm -rf $TMP_DIR
     echo "$S$A Done."
     echo "Aborting..."
-    exit 3
+    exit 4
 fi
 echo "$S$A Done."
 
@@ -103,7 +113,7 @@ mv shasum.txt ${RELEASE_NAME%.tar.gz} && mv ${RELEASE_NAME%.tar.gz} $INSTALL_DIR
         echo "Removing temporary files..."
         rm -rf $TMP_DIR
         echo "Aborting..."
-        exit 4
+        exit 5
     }
 echo "$S$A Done."
 
