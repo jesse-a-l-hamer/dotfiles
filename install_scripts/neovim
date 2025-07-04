@@ -1,0 +1,306 @@
+#!/bin/sh
+
+# Install or update the latest stable or nightly version of Neovim.
+# ARGUMENTS:
+#   1 (Optional): one of "stable" or "nightly"; defaults to "stable"
+
+# SOURCE UTILITIES
+cd "$0/.."
+. "$PWD/utils.sh"
+
+# SET CONSTANTS
+BASE_URL="https://github.com/neovim/neovim/releases"
+RELEASE_NAME="nvim-linux-x86_64.tar.gz"
+SYMLINK="/opt/nvim-linux64"
+
+# SCRIPT-SPECIFIC CLEANUP UTILITIES
+remove_tmp_dir() {
+    echo "Removing temporary files..."
+    rm -rf "$TMP_DIR"
+    success "Done."
+}
+
+replace_existing_install() {
+    echo "Replacing existing $RELEASE_TYPE installation..."
+    mv -f $INSTALL_NAME $INSTALL_DIR
+    success "Done."
+}
+
+cleanup() {
+    echo "Cleaning up installation..."
+
+    if [ $1 -gt 0 ]; then
+        remove_tmp_dir
+    fi
+
+    if [ $1 -gt 1 ]; then
+        replace_existing_install
+    fi
+
+    success "Finished cleanup."
+}
+
+# SETUP FUNCTIONS
+parse_args() {
+    RELEASE_TYPE=$(echo $1 | tr '[:upper:]' '[:lower:]')
+
+    if [ -z "$RELEASE_TYPE" ]; then
+        warn "Release type not specified. Defaulting to latest stable release."
+        inform "Run with argument \"stable\" or \"nightly\" to specify release type."
+        RELEASE_TYPE="stable"
+    fi
+
+    if [ "$RELEASE_TYPE" != "stable" ] && [ "$RELEASE_TYPE" != "nightly" ]; then
+        fail 2 "Argument must be one of \"stable\" or \"nightly\"" "Received \"$1\"."
+    fi
+}
+
+setup_variables() {
+    parse_args "$@"
+
+    DOWNLOAD_URL="$BASE_URL/download/$RELEASE_TYPE"
+    INSTALL_NAME="nvim-$RELEASE_TYPE-linux64"
+    INSTALL_DIR="/opt/$INSTALL_NAME"
+    TMP_DIR="/tmp/install-nvim-$RELEASE_TYPE"
+}
+
+setup_tmp_dir() {
+    if [ -d "$TMP_DIR" ]; then
+        warn "$TMP_DIR already exists." \
+            "This likely indicates failed cleanup from a previous invocation of this script."
+        remove_tmp_dir
+    fi
+    echo "Making new temporary directory and setting as cwd..."
+    mkdir "$TMP_DIR"
+    cd "$TMP_DIR"
+    success "Done."
+}
+
+setup_install_dir() {
+    echo "Checking if install directory exists..."
+    if ! [ -d $INSTALL_DIR ]; then
+        inform "No existing install found."
+        echo "Creating empty install directory at $INSTALL_DIR..."
+        mkdir -p $INSTALL_DIR
+        success "Done."
+    else
+        inform "Found existing installation at $INSTALL_DIR."
+    fi
+}
+
+create_symlink() {
+    echo "Creating symlink at $SYMLINK with target $INSTALL_DIR..."
+    ln -Tsf $INSTALL_DIR $SYMLINK
+    success "Done."
+}
+
+setup_symlink() {
+    echo "Checking symlink..."
+    OVERWRITE_SYMLINK_TARGET=2
+    OVERWRITE_SYMLINK_CONTENTS=2
+    IGNORE_SYMLINK=2
+    CREATE_SYMLINK=2
+    if [ $SYMLINK -ef $INSTALL_DIR ]; then
+        inform "Symlink at $SYMLINK to $INSTALL_DIR already exists."
+        IGNORE_SYMLINK=1
+    elif [ -h $SYMLINK ]; then
+        get_consent w \
+            "Symlink exists at $SYMLINK but targets $(
+                cd $SYMLINK
+                pwd -P
+            )." \
+            "Overwrite the target of the symlink to $INSTALL_DIR?"
+        OVERWRITE_SYMLINK_TARGET=$?
+        if [ $OVERWRITE_SYMLINK_TARGET -eq 2 ]; then
+            get_consent w \
+                "Continue installation at $INSTALL_DIR without modifying target of $SYMLINK?"
+            IGNORE_SYMLINK=$?
+        fi
+    elif [ -e $SYMLINK ]; then
+        get_consent w \
+            "The path $SYMLINK already exists, but it is not a symlink." \
+            "Overwrite current contents of $SYMLINK?"
+        OVERWRITE_SYMLINK_CONTENTS=$?
+        if [ $OVERWRITE_SYMLINK_CONTENTS -eq 2 ]; then
+            get_consent w \
+                "Continue installation at $INSTALL_DIR without modifying contents of $SYMLINK?"
+            IGNORE_SYMLINK=$?
+        fi
+    else
+        get_consent i \
+            "The symlink path $SYMLINK does not currently exist."
+        "Create symlink at $SYMLINK with target $INSTALL_DIR?"
+        CREATE_SYMLINK=$?
+    fi
+
+    if [ $(expr $OVERWRITE_SYMLINK_TARGET + $OVERWRITE_SYMLINK_CONTENTS + $CREATE_SYMLINK) -lt 6 ]; then
+        create_symlink
+    elif [ $IGNORE_SYMLINK -lt 2 ]; then
+        inform "Ignoring symlink and continuing installation to $INSTALL_DIR."
+    else
+        cleanup_then_fail cleanup 1 3
+    fi
+}
+
+setup() {
+    setup_variables $@
+    setup_tmp_dir
+    setup_install_dir
+    setup_symlink
+}
+
+# CHECK HASH
+get_hash() {
+    echo "Downloading SHA-256 hash for latest $RELEASE_TYPE release..."
+    curl -sSL $DOWNLOAD_URL/shasum.txt | grep $RELEASE_NAME | cut -d " " -f 1 >shasum.txt
+    if [ -z $(cat shasum.txt) ]; then
+        get_consent w \
+            "Unable to verify hash automatically:" \
+            "Response from $DOWNLOAD_URL/shasum.txt was empty." \
+            "The correct hash (for release asset $RELEASE_NAME) should be available on:" \
+            "$BASE_URL" \
+            "Do you want to continue?"
+        CONTINUE_WITH_MANUAL_HASH=$?
+        if [ $CONTINUE_WITH_MANUAL_HASH -eq 1 ]; then
+            echo "Paste hash below:"
+            read MANUAL_HASH
+            echo ${MANUAL_HASH#sha256:} >shasum.txt
+        else
+            cleanup_then_fail cleanup 1 4
+        fi
+    fi
+    success "Obtained SHA-256 hash: $(cat shasum.txt)"
+}
+
+compare_existing_hash() {
+    EXISTING_HASH_SUCCESS=2
+    echo "Comparing latest $RELEASE_TYPE hash with existing installation's hash..."
+
+    if ! [ -e $INSTALL_DIR/shasum.txt ]; then
+        get_consent w \
+            "Unable to find hash for existing $RELEASE_TYPE release." \
+            "Continuing will download latest $RELEASE_TYPE tarball and overwrite existing installation." \
+            "Do you wish to continue?"
+        EXISTING_HASH_SUCCESS=$?
+    elif [ "$(cat shasum.txt)" = "$(cat $INSTALL_DIR/shasum.txt)" ]; then
+        get_consent i \
+            "Latest $RELEASE_TYPE hash matches existing installation's hash." \
+            "Do you wish to continue anyway?"
+        EXISTING_HASH_SUCCESS=$?
+    else
+        inform "Latest $RELEASE_TYPE hash is different from existing installation's hash."
+        EXISTING_HASH_SUCCESS=1
+    fi
+
+    if [ $EXISTING_HASH_SUCCESS -eq 2 ]; then
+        cleanup_then_fail cleanup 1 5 "Failed existing hash comparison."
+    fi
+
+    success "Existing hash comparison complete."
+}
+
+check_hash() {
+    get_hash
+    compare_existing_hash
+}
+
+# DOWNLOAD & VERIFY LATEST TARBALL
+download_tarball() {
+    echo "Downloading latest $RELEASE_TYPE release tarball from $DOWNLOAD_URL/$RELEASE_NAME..."
+    curl -sSLO "$DOWNLOAD_URL/$RELEASE_NAME"
+    DOWNLOAD_SUCCESS=$?
+
+    if [ $DOWNLOAD_SUCCESS -ne 0 ]; then
+        cleanup_then_fail cleanup 1 6 \
+            "Failed to download latest $RELEASE_TYPE tarball."
+    fi
+
+    success "Done."
+}
+
+verify_tarball_hash() {
+    echo "Verifying hash of downloaded $RELEASE_TYPE tarball..."
+    if [ $(echo $(cat shasum.txt) $RELEASE_NAME | sha256sum --check | cut -d " " -f 2) != "OK" ]; then
+        cleanup_then_fail cleanup 1 7 \
+            "Hash value of downloaded tarball does not match hash obtained above."
+    fi
+    success "Done."
+}
+
+unpack_tarball() {
+    echo "Unpacking downloaded $RELEASE_TYPE tarball..."
+    tar xzf $RELEASE_NAME
+    UNPACK_SUCCESS=$?
+
+    if [ $UNPACK_SUCCESS -ne 0 ]; then
+        cleanup_then_fail cleanup 1 8 \
+            "Failed to unpack downloaded $RELEASE_TYPE tarball."
+    fi
+
+    success "Done."
+}
+
+get_latest_tarball() {
+    download_tarball
+    verify_tarball_hash
+    unpack_tarball
+}
+
+# COMPLETE INSTALLATION
+remove_existing_install() {
+    echo "Removing existing $RELEASE_TYPE installation..."
+    mv -f $INSTALL_DIR .
+    REMOVE_EXISTING_SUCCESS=$?
+
+    if [ $REMOVE_EXISTING_SUCCESS -ne 0 ]; then
+        cleanup_then_fail cleanup 1 9 \
+            "Encountered issue trying to move $INSTALL_DIR to $(pwd)."
+    fi
+
+    success "Done."
+}
+
+move_shasum() {
+    echo "Moving downloaded hash file into extracted $RELEASE_TYPE release directory..."
+    mv shasum.txt $NEW_INSTALLATION
+    MOVE_SHASUM_SUCCESS=$?
+
+    if [ $MOVE_SHASUM_SUCCESS -ne 0 ]; then
+        cleanup_then_fail cleanup 2 10 \
+            "Encountered issue trying to move $(pwd)/shasum.txt into $NEW_INSTALLATION."
+    fi
+
+    success "Done."
+}
+
+install_extracted() {
+    echo "Installing extracted $RELEASE_TYPE release files..."
+    NEW_INSTALLATION=${RELEASE_NAME%.tar.gz}
+
+    move_shasum
+
+    echo "Moving extracted $RELEASE_TYPE release files into target installation directory."
+    mv $NEW_INSTALLATION $INSTALL_DIR
+    MOVE_EXTRACTED_SUCCESS=$?
+
+    if [ $MOVE_EXTRACTED_SUCCESS -ne 0 ]; then
+        cleanup_then_fail cleanup 2 11 \
+            "Encountered issue trying to move $NEW_INSTALLATION into $INSTALL_DIR."
+    fi
+
+    success "Installation complete."
+
+    cleanup 1
+}
+
+perform_installation() {
+    remove_existing_install
+    install_extracted
+}
+
+# SCRIPT BEGINS HERE
+check_root "$(id -u)"
+setup "$@"
+check_hash
+get_latest_tarball
+perform_installation
