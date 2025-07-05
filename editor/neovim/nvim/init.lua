@@ -22,7 +22,7 @@ end
 
 -- set Python provider environment, if found
 -- vim.g.python3_host_prog = "$HOME/python_venvs/neovim-nightly/.venv/bin/python3"
-local neovim_python = vim.fn.expand "$HOME/python_venvs/neovim-nightly/.venv/bin/python3"
+local neovim_python = vim.fn.expand "$HOME/envs/python/neovim/.venv/bin/python3"
 if vim.fn.filereadable(neovim_python) then
   vim.g.python3_host_prog = neovim_python
 end
