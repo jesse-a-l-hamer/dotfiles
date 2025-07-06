@@ -127,6 +127,10 @@
   #zen-appcontent-navbar-container {
     background-color: #e6e9ef !important;
   }
+
+  #contentAreaContextMenu menu, menuitem, menupopup {
+    color: #4c4f69 !important;
+  }
 }
 
 /* Catppuccin Macchiato Maroon userChrome.css*/
@@ -257,5 +261,9 @@
 
   #zen-appcontent-navbar-container {
     background-color: #1e2030 !important;
+  }
+
+  #contentAreaContextMenu menu, menuitem, menupopup {
+    color: #cad3f5 !important;
   }
 }
