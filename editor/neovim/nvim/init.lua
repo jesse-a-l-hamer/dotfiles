@@ -42,6 +42,9 @@ require "options"
 -- [[ Basic Keymaps ]]
 require "keymaps"
 
+-- [[ Configure LSPs ]]
+require "lsp"
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 require "lazy-bootstrap"
 

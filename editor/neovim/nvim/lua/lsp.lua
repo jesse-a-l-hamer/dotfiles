@@ -54,6 +54,7 @@ vim.lsp.enable "markdown_oxide"
 vim.lsp.enable "marksman"
 vim.lsp.enable "taplo"
 vim.lsp.enable "yamlls"
+
 vim.lsp.enable "basedpyright"
 vim.lsp.enable "ruff"
 vim.lsp.enable "pylsp"
