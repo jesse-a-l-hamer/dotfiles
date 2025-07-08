@@ -27,6 +27,15 @@ if vim.fn.filereadable(neovim_python) then
   vim.g.python3_host_prog = neovim_python
 end
 
+-- add custom filetypes
+vim.filetype.add {
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+  },
+}
+
 -- [[ Setting options ]]
 require "options"
 
