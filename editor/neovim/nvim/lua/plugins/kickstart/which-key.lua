@@ -41,6 +41,7 @@ return {
         },
       },
       spec = {
+        -- only keymap groups defined here; actual keymaps defined elsewhere
         { "<leader>b", group = "[b]uffer" },
         { "<leader>d", group = "[d]ebug" },
         { "<leader>f", group = "[f]ind" },
@@ -55,12 +56,14 @@ return {
         { "<leader>ls", group = "[s]earch", mode = { "n", "v" } },
         { "<leader>lr", group = "[r]ename", mode = { "n", "v" } },
         { "<leader>lx", group = "[x] Trouble", mode = { "n", "v" } },
+        { "<leader>p", group = "[p]rofiler" },
         { "<leader>n", group = "[n]otifications" },
         { "<leader>o", group = "[o]bsidian" },
-        { "<leader>p", group = "[p]rofiler" },
-        { "<leader>s", group = "[s]earch" },
+        { "<leader>s", group = "[s]earch", mode = { "n", "v" } },
         { "<leader>t", group = "[t]erminal" },
         { "<leader>T", group = "[T]oggles" },
+        { "<leader>To", group = "[o]ptions" },
+        { "<leader>Tp", group = "[p]rofiler" },
         { "<leader>x", group = "[x] Trouble" },
       },
       win = {
