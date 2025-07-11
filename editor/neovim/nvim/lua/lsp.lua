@@ -46,16 +46,7 @@ if vim.g.have_nerd_font then
 end
 
 -- enable lsps
-vim.lsp.enable "bashls"
-vim.lsp.enable "beancount"
-vim.lsp.enable "jinja_lsp"
-vim.lsp.enable "lua_ls"
-vim.lsp.enable "markdown_oxide"
-vim.lsp.enable "marksman"
-vim.lsp.enable "taplo"
-vim.lsp.enable "vale_ls"
-vim.lsp.enable "yamlls"
-
-vim.lsp.enable "basedpyright"
-vim.lsp.enable "ruff"
-vim.lsp.enable "pylsp"
+for _, lsp_config_file in ipairs(vim.api.nvim_get_runtime_file("after/lsp/*.lua", true)) do
+  local lsp_name = vim.fs.basename(lsp_config_file):sub(1, -(#".lua" + 1))
+  vim.lsp.enable(lsp_name)
+end
