@@ -151,16 +151,7 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         -- dynamically pick providers by treesitter node/filetype
-        default = {
-          "lazydev",
-          "lsp",
-          "path",
-          "snippets",
-          "git",
-          "buffer",
-          "emoji",
-          "dictionary",
-        },
+        default = default_sources(),
         providers = {
           lazydev = {
             name = "LazyDev",
