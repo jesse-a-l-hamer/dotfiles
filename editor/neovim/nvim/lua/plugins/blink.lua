@@ -1,17 +1,73 @@
+-- Use this function to check if the cursor is inside a comment block
+local function inside_comment_block()
+  if vim.api.nvim_get_mode().mode ~= "i" then
+    return false
+  end
+  local node_under_cursor = vim.treesitter.get_node()
+  local parser = vim.treesitter.get_parser(nil, nil, { error = false })
+  local query = vim.treesitter.query.get(vim.bo.filetype, "highlights")
+  if not parser or not node_under_cursor or not query then
+    return false
+  end
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  row = row - 1
+  for id, node, _ in query:iter_captures(node_under_cursor, 0, row, row + 1) do
+    if query.captures[id]:find "comment" then
+      local start_row, start_col, end_row, end_col = node:range()
+      if start_row <= row and row <= end_row then
+        if start_row == row and end_row == row then
+          if start_col <= col and col <= end_col then
+            return true
+          end
+        elseif start_row == row then
+          if start_col <= col then
+            return true
+          end
+        elseif end_row == row then
+          if col <= end_col then
+            return true
+          end
+        else
+          return true
+        end
+      end
+    end
+  end
+  return false
+end
+
+local default_sources = function()
+  -- put those which will be shown always
+  local result = {
+    "lazydev",
+    "lsp",
+    "path",
+    "snippets",
+    "git",
+    "buffer",
+    "emoji",
+  }
+  if
+    -- turn on dictionary in markdown or text file
+    vim.tbl_contains({ "markdown", "typst", "latex", "text" }, vim.bo.filetype)
+    -- or turn on dictionary if cursor is in the comment block
+    or inside_comment_block()
+  then
+    table.insert(result, "dictionary")
+  end
+  return result
+end
+
 return {
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     "folke/lazydev.nvim",
-    dependencies = {
-      "justinsgithub/wezterm-types",
-    },
     ft = "lua",
     opts = {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = "luvit-meta/library", words = { "vim%.uv" } },
-        { path = "wezterm-types", mods = { "wezterm" } },
       },
     },
   },
@@ -65,7 +121,7 @@ return {
           draw = { -- use mini.icons
             components = {
               kind_icon = {
-                ellipsis = false,
+                ellipsis = true,
                 text = function(ctx)
                   local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
                   return kind_icon
@@ -79,16 +135,17 @@ return {
             },
           },
         },
-        list = { selection = { preselect = false, auto_insert = true } },
+        list = { selection = { preselect = true, auto_insert = false } },
         documentation = {
           window = {
             border = "rounded",
           },
+          auto_show = true,
         },
-        -- ghost_text = { enabled = true },
+        ghost_text = { enabled = true, show_with_selection = true },
       },
 
-      fuzzy = { implementation = "prefer_rust" },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
@@ -100,9 +157,9 @@ return {
           "path",
           "snippets",
           "git",
-          "dictionary",
           "buffer",
           "emoji",
+          "dictionary",
         },
         providers = {
           lazydev = {
@@ -114,12 +171,33 @@ return {
             name = "Emoji",
             module = "blink-emoji",
             score_offset = 15,
-            opts = { insert = true },
+            opts = {
+              insert = true, -- Insert emoji (default) or complete its name
+              ---@type string|table|fun():table
+              trigger = function()
+                return { ":" }
+              end,
+            },
+            should_show_items = function()
+              return vim.tbl_contains(
+                -- Enable emoji completion only for git commits and markdown.
+                -- By default, enabled for all file-types.
+                { "gitcommit", "markdown" },
+                vim.o.filetype
+              )
+            end,
           },
           dictionary = {
             module = "blink-cmp-dictionary",
             name = "Dict",
             min_keyword_length = 3,
+            max_items = 20,
+            opts = {
+              ---@module 'blink-cmp-dictionary'
+              ---@type blink-cmp-dictionary.Options
+
+              dictionary_files = { "/usr/share/dict/words" },
+            },
           },
           git = {
             -- Because we use filetype to decide whether or not to show the items,

@@ -45,6 +45,13 @@ if vim.g.have_nerd_font then
   vim.diagnostic.config { signs = { text = diagnostic_signs } }
 end
 
+-- configure custom capabilities for all LSPs
+local capabilities = {}
+
+vim.lsp.config("*", {
+  capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
+})
+
 -- enable lsps
 for _, lsp_config_file in ipairs(vim.api.nvim_get_runtime_file("after/lsp/*.lua", true)) do
   local lsp_name = vim.fs.basename(lsp_config_file):sub(1, -(#".lua" + 1))
