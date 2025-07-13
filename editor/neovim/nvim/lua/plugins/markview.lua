@@ -11,6 +11,9 @@ return {
   opts = {
     preview = {
       icon_provider = "devicons",
+      modes = { "i", "n", "no", "c" },
+      hybrid_modes = { "i" },
+      ignore_buftypes = {},
     },
   },
 }
