@@ -46,6 +46,8 @@ local default_sources = function()
     "git",
     "buffer",
     "emoji",
+    "cmdline",
+    "omni",
   }
   if
     -- turn on dictionary in markdown or text file
@@ -88,6 +90,7 @@ return {
         "Kaiser-Yang/blink-cmp-git",
         dependencies = { "nvim-lua/plenary.nvim" },
       },
+      "xzbdmw/colorful-menu.nvim",
     },
 
     -- use a release tag to download pre-built binaries
@@ -119,6 +122,11 @@ return {
         menu = {
           border = "rounded",
           draw = {
+            columns = {
+              { "kind_icon" },
+              { "label", gap = 1 },
+              { "source_name" },
+            },
             components = {
               kind_icon = {
                 text = function(ctx)
@@ -151,7 +159,16 @@ return {
                   return hl
                 end,
               },
+              label = {
+                text = function(ctx)
+                  return require("colorful-menu").blink_components_text(ctx)
+                end,
+                highlight = function(ctx)
+                  return require("colorful-menu").blink_components_highlight(ctx)
+                end,
+              },
             },
+            treesitter = { "lsp" },
           },
         },
         list = { selection = { preselect = true, auto_insert = false } },

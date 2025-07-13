@@ -24,6 +24,7 @@ return { ---@type LazyPluginSpec
     },
     integrations = {
       blink_cmp = {
+        enabled = true,
         style = "bordered",
       },
       colorful_winsep = {
@@ -76,6 +77,8 @@ return { ---@type LazyPluginSpec
         CursorLineNr = { fg = colors[accent_color] },
         FloatBorder = { fg = colors[accent_color] },
         Title = { fg = colors[accent_color] },
+        BlinkCmpMenuBorder = { fg = colors[accent_color] },
+        BlinkCmpDocBorder = { fg = colors[accent_color] },
       }
     end,
   },
