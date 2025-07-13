@@ -88,7 +88,7 @@ return {
       or { Breakpoint = "●", BreakpointCondition = "⊜", BreakpointRejected = "⊘", LogPoint = "◆", Stopped = "⭔" }
     for type, icon in pairs(breakpoint_icons) do
       local tp = "Dap" .. type
-      local hl = (type == "Stopped") and "DapStop" or "DapBreak"
+      local hl = (vim.tbl_contains(vim.tbl_keys(package.loaded), "catppuccin") and tp) or ((type == "Stopped") and "DapStop" or "DapBreak")
       vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
     end
 
