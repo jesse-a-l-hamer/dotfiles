@@ -8,6 +8,6 @@ return {
         Comment = true,
       },
       bold_italic = {},
-    }
+    },
   },
 }
