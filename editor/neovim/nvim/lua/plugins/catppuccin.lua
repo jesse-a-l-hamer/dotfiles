@@ -61,6 +61,7 @@ return { ---@type LazyPluginSpec
       },
       noice = true,
       nvim_surround = true,
+      rainbow_delimiters = false,
       render_markdown = false,
       snacks = { enabled = true, indent_scope_color = accent_color },
       telescope = { enabled = false },
