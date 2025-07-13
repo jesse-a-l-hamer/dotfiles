@@ -6,7 +6,11 @@ return {
   dependencies = {
     "saghen/blink.cmp", -- For completion source
   },
+  ---@module 'markview'
+  ---@type markview.config
   opts = {
-    icon_provider = "mini",
+    preview = {
+      icon_provider = "devicons",
+    },
   },
 }

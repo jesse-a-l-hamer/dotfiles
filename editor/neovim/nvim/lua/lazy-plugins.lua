@@ -6,7 +6,7 @@ require("lazy").setup({
   require "plugins.kickstart.which-key",
   require "plugins.kickstart.conform",
   require "plugins.kickstart.todo-comments",
-  require "plugins.kickstart.mini",
+  -- require "plugins.kickstart.mini",
   require "plugins.kickstart.treesitter",
   require "plugins.kickstart.debug",
   require "plugins.kickstart.lint",
