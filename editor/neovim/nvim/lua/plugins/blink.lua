@@ -44,18 +44,21 @@ local default_sources = function()
     "path",
     "snippets",
     "git",
+    "conventional_commits",
     "buffer",
     "emoji",
     "cmdline",
     "omni",
+    "kitty",
+    "references",
     "ecolog",
+    "sshconfig",
+    "fonts",
+    "dap",
   }
-  if
-    -- turn on dictionary in markdown or text file
-    vim.tbl_contains({ "markdown", "typst", "latex", "text" }, vim.bo.filetype)
-    -- or turn on dictionary if cursor is in the comment block
-    or inside_comment_block()
-  then
+  if vim.tbl_contains({ "markdown", "typst", "latex", "text" }, vim.bo.filetype) then
+    vim.list_extend(result, { "dictionary", "thesaurus" })
+  elseif inside_comment_block() then
     table.insert(result, "dictionary")
   end
   return result
@@ -86,12 +89,18 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "moyiz/blink-emoji.nvim",
-      "Kaiser-Yang/blink-cmp-dictionary",
+      "archie-judd/blink-cmp-words",
       {
         "Kaiser-Yang/blink-cmp-git",
         dependencies = { "nvim-lua/plenary.nvim" },
       },
+      "disrupted/blink-cmp-conventional-commits",
       "xzbdmw/colorful-menu.nvim",
+      "garyhurtz/blink_cmp_kitty",
+      "jmbuhr/cmp-pandoc-references",
+      "bydlw98/blink-cmp-sshconfig",
+      "amarakon/nvim-cmp-fonts",
+      "rcarriga/cmp-dap",
     },
 
     -- use a release tag to download pre-built binaries
@@ -104,19 +113,8 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      -- 'default' for mappings similar to built-in completion
-      -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-      -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-      -- See the full "keymap" documentation for information on defining your own keymap.
       keymap = { preset = "default" },
-
       appearance = {
-        -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-        -- Useful for when your theme doesn't support blink.cmp
-        -- Will be removed in a future release
-        -- use_nvim_cmp_as_default = true,
-        -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = "mono",
       },
       completion = {
@@ -216,55 +214,86 @@ return {
             end,
           },
           dictionary = {
-            module = "blink-cmp-dictionary",
-            name = "Dict",
-            min_keyword_length = 3,
-            max_items = 20,
+            module = "blink-cmp-words.dictionary",
+            name = "Dictionary",
+            max_items = 10,
             opts = {
-              ---@module 'blink-cmp-dictionary'
-              ---@type blink-cmp-dictionary.Options
+              ---@module 'blink-cmp-words'
+              ---@type blink-cmp-words.source.BlinkCmpWordsOpts
 
-              dictionary_files = { "/usr/share/dict/words" },
+              score_offset = 0,
+            },
+          },
+          thesaurus = {
+            module = "blink-cmp-words.thesaurus",
+            name = "Thesaurus",
+            max_items = 5,
+            opts = {
+              ---@module 'blink-cmp-words'
+              ---@type blink-cmp-words.source.BlinkCmpWordsOpts
+
+              score_offset = 0,
             },
           },
           git = {
-            -- Because we use filetype to decide whether or not to show the items,
-            -- we can make the score higher
             score_offset = 100,
             module = "blink-cmp-git",
             name = "Git",
-            -- enabled this source at the beginning to make it possible to pre-cache
-            -- at very beginning
             enabled = true,
-            -- only show this source when filetype is gitcommit or markdown
             should_show_items = function()
               return vim.o.filetype == "gitcommit" or vim.o.filetype == "markdown"
             end,
             --- @module 'blink-cmp-git'
             --- @type blink-cmp-git.Options
+            opts = {},
+          },
+          conventional_commits = {
+            name = "Conventional Commits",
+            module = "blink-cmp-conventional-commits",
+            enabled = function()
+              return vim.o.filetype == "gitcommit"
+            end,
+            ---@module 'blink-cmp-conventional-commits'
+            ---@type blink-cmp-conventional-commits.Options
+            opts = {},
+          },
+          kitty = {
+            name = "kitty",
+            module = "blink_cmp_kitty",
+            opts = {},
+          },
+          references = {
+            name = "pandoc_references",
+            module = "cmp-pandoc-references.blink",
+          },
           ecolog = {
             name = "ecolog",
             module = "ecolog.integrations.cmp.blink_cmp",
           },
+          sshconfig = {
+            name = "SshConfig",
+            module = "blink-cmp-sshconfig",
+          },
+          fonts = {
+            name = "fonts",
+            module = "blink.compat.source",
+            score_offset = -3,
+            enabled = function()
+              return vim.o.filetype == "conf" or vim.o.filetype == "config"
+            end,
             opts = {
-              commit = {
-                -- You may want to customize when it should be enabled
-                -- The default will enable this when `cwd` is in a git repository
-                -- enable = function() end
-                -- You may want to change the triggers
-                -- triggers = { ':' },
-              },
-              git_centers = {
-                git_hub = {
-                  -- Those below have the same fields with `commit`
-                  -- issues = {
-                  -- },
-                  -- pull_request = {
-                  -- },
-                  -- mention = {
-                  -- }
-                },
-              },
+              cmp_name = "Fonts",
+            },
+          },
+          dap = {
+            name = "dap",
+            module = "blink.compat.source",
+            enabled = function()
+              return (vim.bo.buftype ~= "prompt" or require("cmp_dap").is_dap_buffer())
+                and (vim.tbl_contains({ "dap-repl", "dapui_watches", "dapui_hover" }, vim.o.filetype))
+            end,
+            opts = {
+              cmp_name = "DAP",
             },
           },
         },
