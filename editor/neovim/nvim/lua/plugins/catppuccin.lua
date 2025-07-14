@@ -79,6 +79,7 @@ return { ---@type LazyPluginSpec
         Title = { fg = colors[accent_color] },
         BlinkCmpMenuBorder = { fg = colors[accent_color] },
         BlinkCmpDocBorder = { fg = colors[accent_color] },
+        BlinkCmpSignatureHelpBorder = { fg = colors[accent_color] },
       }
     end,
   },

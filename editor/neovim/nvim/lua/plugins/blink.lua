@@ -184,6 +184,7 @@ return {
 
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
+      signature = { enabled = true },
       sources = {
         -- dynamically pick providers by treesitter node/filetype
         default = default_sources(),
