@@ -48,6 +48,7 @@ local default_sources = function()
     "emoji",
     "cmdline",
     "omni",
+    "ecolog",
   }
   if
     -- turn on dictionary in markdown or text file
@@ -241,6 +242,10 @@ return {
             end,
             --- @module 'blink-cmp-git'
             --- @type blink-cmp-git.Options
+          ecolog = {
+            name = "ecolog",
+            module = "ecolog.integrations.cmp.blink_cmp",
+          },
             opts = {
               commit = {
                 -- You may want to customize when it should be enabled
