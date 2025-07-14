@@ -167,24 +167,94 @@ return {
                 end,
               },
             },
-            treesitter = { "lsp" },
+            treesitter = { "lsp", "dap" },
           },
         },
         list = { selection = { preselect = true, auto_insert = false } },
         documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
           window = {
             border = "rounded",
+            min_width = 30,
           },
-          auto_show = true,
+          draw = function(data)
+            ---|fS
+
+            ---@type integer
+            local buf = data.window.buf
+            ---@type integer
+            local src_buf = vim.api.nvim_get_current_buf()
+
+            ---@type string[]
+            local lines = {}
+
+            if data.item and data.item.documentation then
+              lines = vim.split(data.item.documentation.value or "", "\n", { trimempty = true })
+            end
+
+            ---@type string[]
+            local details = vim.split(data.item.detail or "", "\n", { trimempty = true })
+
+            if #details > 0 then
+              table.insert(details, 1, string.format("```%s", vim.bo[src_buf].ft or ""))
+              table.insert(details, "```")
+
+              if #lines > 0 then
+                details = vim.list_extend(details, {
+                  "",
+                  "Detail: ",
+                  "--------",
+                  "",
+                })
+              end
+            end
+
+            local visible_lines = vim.list_extend(details, lines)
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, visible_lines)
+
+            if vim.g.__reg_doc ~= true then
+              vim.treesitter.language.register("markdown", "blink-cmp-documentation")
+              vim.g.__reg_doc = true
+            end
+
+            if package.loaded["markview"] then
+              local win = data.window:get_win()
+
+              if win then
+                vim.bo[buf].ft = "markdown"
+                require("markview").render(buf, { enable = true, hybrid_mode = false })
+                vim.bo[buf].ft = "blink-cmp-documentation"
+              end
+
+              vim.defer_fn(function()
+                win = data.window:get_win()
+
+                if win then
+                  vim.wo[win].signcolumn = "no"
+                end
+
+                vim.bo[buf].ft = "markdown"
+                require("markview").render(buf, { enable = true, hybrid_mode = false })
+                vim.bo[buf].ft = "blink-cmp-documentation"
+              end, 25)
+            end
+
+            ---|fE
+          end,
         },
         ghost_text = { enabled = true, show_with_selection = true },
       },
-
       fuzzy = { implementation = "prefer_rust_with_warning" },
-
-      -- Default list of enabled providers defined so that you can extend it
-      -- elsewhere in your config, without redefining it, due to `opts_extend`
       signature = { enabled = true },
+      cmdline = {
+        enabled = true,
+        keymap = { preset = "inherit" },
+      },
+      term = {
+        enabled = true,
+        sources = { "git", "conventional_commits", "buffer" },
+      },
       sources = {
         -- dynamically pick providers by treesitter node/filetype
         default = default_sources(),
