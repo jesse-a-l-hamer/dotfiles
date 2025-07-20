@@ -57,10 +57,11 @@ vim.diagnostic.config {
 }
 
 -- configure custom capabilities for all LSPs
-local capabilities = {}
+---@type table<string, lsp.ClientCapabilities>
+local custom_capabilities = {}
 
 vim.lsp.config("*", {
-  capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
+  capabilities = require("blink.cmp").get_lsp_capabilities(custom_capabilities, true),
 })
 
 -- enable lsps
