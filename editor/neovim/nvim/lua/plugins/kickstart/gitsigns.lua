@@ -1,7 +1,8 @@
+---@module 'gitsigns'
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
-    opts = {
+    opts = { ---@type Gitsigns.config
       signs = {
         add = { text = "+" },
         change = { text = "~" },
@@ -23,6 +24,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { "]h", bang = true }
           else
+            ---@diagnostic disable-next-line: param-type-mismatch
             gitsigns.nav_hunk "next"
           end
         end, { desc = "Next git [h]unk/change" })
@@ -31,6 +33,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal { "[h", bang = true }
           else
+            ---@diagnostic disable-next-line: param-type-mismatch
             gitsigns.nav_hunk "prev"
           end
         end, { desc = "Previous git [h]unk/change" })

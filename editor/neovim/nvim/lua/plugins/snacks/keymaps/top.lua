@@ -1,4 +1,5 @@
 ---@module 'lazy'
+---@module 'snacks'
 return { ---@type LazyKeysSpec[]
   {
     "<leader>N",

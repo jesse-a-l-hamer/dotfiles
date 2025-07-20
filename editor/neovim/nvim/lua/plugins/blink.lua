@@ -289,9 +289,6 @@ return {
             name = "Dictionary",
             max_items = 10,
             opts = {
-              ---@module 'blink-cmp-words'
-              ---@type blink-cmp-words.source.BlinkCmpWordsOpts
-
               score_offset = 0,
             },
           },
@@ -300,9 +297,6 @@ return {
             name = "Thesaurus",
             max_items = 5,
             opts = {
-              ---@module 'blink-cmp-words'
-              ---@type blink-cmp-words.source.BlinkCmpWordsOpts
-
               score_offset = 0,
             },
           },

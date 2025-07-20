@@ -1,5 +1,7 @@
 return {
   "catgoose/nvim-colorizer.lua",
   event = "BufReadPre",
-  opts = {},
+  ---@module 'colorizer.config'
+  opts = {
+  },
 }

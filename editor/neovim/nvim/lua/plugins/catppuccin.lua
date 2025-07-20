@@ -72,7 +72,7 @@ return { ---@type LazyPluginSpec
     -- term_colors = true,
     transparent_background = transparent_background,
     custom_highlights = function(colors)
-      return {
+      return { ---@type table<string, CtpHighlight>
         -- globals
         CursorLineNr = { fg = colors[accent_color] },
         FloatBorder = { fg = colors[accent_color] },

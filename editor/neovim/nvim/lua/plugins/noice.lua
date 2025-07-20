@@ -4,7 +4,8 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  opts = {
+  ---@module 'noice'
+  opts = { ---@type NoiceConfig
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
