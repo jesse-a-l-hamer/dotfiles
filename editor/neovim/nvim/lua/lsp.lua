@@ -35,15 +35,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- diagnostics configuration
+
 -- Change diagnostic symbols in the sign column (gutter)
+local diagnostic_signs = {}
 if vim.g.have_nerd_font then
   local signs = { ERROR = "", WARN = "", INFO = "", HINT = "" }
-  local diagnostic_signs = {}
   for type, icon in pairs(signs) do
     diagnostic_signs[vim.diagnostic.severity[type]] = icon
   end
   vim.diagnostic.config { signs = { text = diagnostic_signs } }
 end
+
+vim.diagnostic.config {
+  virtual_text = true,
+  float = {
+    border = "rounded",
+    source = "if_many",
+  },
+  signs = { text = diagnostic_signs }
+}
 
 -- configure custom capabilities for all LSPs
 local capabilities = {}
