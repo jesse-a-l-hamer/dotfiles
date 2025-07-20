@@ -68,3 +68,29 @@ for _, lsp_config_file in ipairs(vim.api.nvim_get_runtime_file("after/lsp/*.lua"
   local lsp_name = vim.fs.basename(lsp_config_file):sub(1, -(#".lua" + 1))
   vim.lsp.enable(lsp_name)
 end
+
+-- enable markview-rendered hover
+
+-- per-LSP hover overrides
+---@type table<string, hover.opts>
+local custom_hover_opts = {
+  default = {
+    border_hl = "BlinkCmpDocBorder",
+  },
+  ["^basedpyright"] = { name = " BasedPyright" },
+  ["^bashls"] = { name = "󱆃 BashLS" },
+  ["^beancount"] = { name = " BeancountLS" },
+  ["^jinja_lsp"] = { name = " JinjaLSP" },
+  ["^lua_ls"] = { name = " LuaLS" },
+  ["^markdown_oxide"] = { name = "  MarkdownOxide" },
+  ["^marksman"] = { name = "  Marksman" },
+  ["^pylsp"] = { name = " PyLSP" },
+  ["^ruff"] = { name = " Ruff" },
+  ["^taplo"] = { name = " Taplo" },
+  ["^texlab"] = { name = " Lab" },
+  ["^tinymist"] = { name = "󰙩 Tinymist" },
+  ["^vale_ls"] = { name = " ValeLS" },
+  ["^yamlls"] = { name = "YamlLS" },
+}
+
+require("util.lsp_hover").setup(custom_hover_opts)
