@@ -1,41 +1,3 @@
--- Use this function to check if the cursor is inside a comment block
-local function inside_comment_block()
-  if vim.api.nvim_get_mode().mode ~= "i" then
-    return false
-  end
-  local node_under_cursor = vim.treesitter.get_node()
-  local parser = vim.treesitter.get_parser(nil, nil, { error = false })
-  local query = vim.treesitter.query.get(vim.bo.filetype, "highlights")
-  if not parser or not node_under_cursor or not query then
-    return false
-  end
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
-  row = row - 1
-  for id, node, _ in query:iter_captures(node_under_cursor, 0, row, row + 1) do
-    if query.captures[id]:find "comment" then
-      local start_row, start_col, end_row, end_col = node:range()
-      if start_row <= row and row <= end_row then
-        if start_row == row and end_row == row then
-          if start_col <= col and col <= end_col then
-            return true
-          end
-        elseif start_row == row then
-          if start_col <= col then
-            return true
-          end
-        elseif end_row == row then
-          if col <= end_col then
-            return true
-          end
-        else
-          return true
-        end
-      end
-    end
-  end
-  return false
-end
-
 local default_sources = function()
   -- put those which will be shown always
   local result = {
@@ -49,17 +11,15 @@ local default_sources = function()
     "emoji",
     "cmdline",
     "omni",
-    "kitty",
     "references",
     "ecolog",
     "sshconfig",
     "fonts",
     "dap",
   }
-  if vim.tbl_contains({ "markdown", "typst", "latex", "text" }, vim.bo.filetype) then
-    vim.list_extend(result, { "dictionary", "thesaurus" })
-  elseif inside_comment_block() then
-    table.insert(result, "dictionary")
+  local success, node = pcall(vim.treesitter.get_node)
+  if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+    return { "buffer", "dictionary", "emoji" }
   end
   return result
 end
@@ -96,7 +56,6 @@ return {
       },
       "disrupted/blink-cmp-conventional-commits",
       "xzbdmw/colorful-menu.nvim",
-      "garyhurtz/blink_cmp_kitty",
       "jmbuhr/cmp-pandoc-references",
       "bydlw98/blink-cmp-sshconfig",
       "amarakon/nvim-cmp-fonts",
@@ -246,18 +205,42 @@ return {
         ghost_text = { enabled = true, show_with_selection = true },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        window = {
+          border = "rounded",
+          show_documentation = true,
+        },
+      },
       cmdline = {
         enabled = true,
         keymap = { preset = "inherit" },
       },
-      term = {
-        enabled = true,
-        sources = { "git", "conventional_commits", "buffer" },
-      },
       sources = {
         -- dynamically pick providers by treesitter node/filetype
-        default = default_sources(),
+        default = default_sources,
+        per_filetype = {
+          markdown = {
+            inherit_defaults = true,
+            "dictionary",
+            "thesaurus",
+          },
+          typst = {
+            inherit_defaults = true,
+            "dictionary",
+            "thesaurus",
+          },
+          latex = {
+            inherit_defaults = true,
+            "dictionary",
+            "thesaurus",
+          },
+          text = {
+            inherit_defaults = true,
+            "dictionary",
+            "thesaurus",
+          },
+        },
         providers = {
           lazydev = {
             name = "LazyDev",
@@ -322,13 +305,8 @@ return {
             ---@type blink-cmp-conventional-commits.Options
             opts = {},
           },
-          kitty = {
-            name = "kitty",
-            module = "blink_cmp_kitty",
-            opts = {},
-          },
           references = {
-            name = "pandoc_references",
+            name = "References",
             module = "cmp-pandoc-references.blink",
           },
           ecolog = {
