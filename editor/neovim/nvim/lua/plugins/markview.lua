@@ -1,3 +1,5 @@
+local presets = require "markview.presets"
+
 return {
   "OXY2DEV/markview.nvim",
   lazy = false,
@@ -11,8 +13,10 @@ return {
   opts = {
     preview = {
       icon_provider = "devicons",
-      modes = { "i", "n", "no", "c" },
-      hybrid_modes = { "i" },
+    },
+    markdown = {
+      headings = presets.headings.slanted,
+      tables = presets.tables.rounded,
     },
   },
 }
