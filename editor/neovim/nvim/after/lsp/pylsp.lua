@@ -36,6 +36,7 @@ return { ---@type vim.lsp.Config
     "Pipfile",
     ".git",
   },
+  capabilities = {},
   settings = {
     plugins = {
       autopep8 = { enabled = false },
@@ -59,6 +60,9 @@ return { ---@type vim.lsp.Config
       },
       rope_completion = { enabled = false },
       yapf = { enabled = false },
+    },
+    signature = {
+      formatter = "None",
     },
   },
 }

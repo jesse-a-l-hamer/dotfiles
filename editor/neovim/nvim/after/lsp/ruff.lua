@@ -30,6 +30,7 @@ return { ---@type vim.lsp.Config
   filetypes = { "python" },
   root_markers = { "pyproject.toml", "ruff.toml", ".ruff.toml", ".git" },
   trace = "messages",
+  capabilities = {},
   init_options = {
     settings = {
       logLevel = "debug",
