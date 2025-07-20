@@ -50,7 +50,7 @@ return {
         map("n", "<leader>gsh", gitsigns.stage_hunk, { desc = "[h]unk" })
         map("n", "<leader>grh", gitsigns.reset_hunk, { desc = "[h]unk" })
         map("n", "<leader>gsb", gitsigns.stage_buffer, { desc = "[b]uffer" })
-        map("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "[u]ndo stage hunk" })
+        map("n", "<leader>gu", gitsigns.stage_hunk, { desc = "[u]ndo stage hunk" })
         map("n", "<leader>grb", gitsigns.reset_buffer, { desc = "[b]uffer" })
         map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[p]review hunk" })
         map("n", "<leader>gdi", gitsigns.diffthis, { desc = "against [i]ndex" })
@@ -58,7 +58,7 @@ return {
           gitsigns.diffthis "@"
         end, { desc = "against last [c]ommit" })
         -- Toggles
-        map("n", "<leader>gD", gitsigns.toggle_deleted, { desc = "toggle show [D]eleted" })
+        map("n", "<leader>gD", gitsigns.preview_hunk_inline, { desc = "toggle show [D]eleted" })
       end,
     },
   },
