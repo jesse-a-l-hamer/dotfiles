@@ -3,5 +3,6 @@ return {
   event = "BufReadPre",
   ---@module 'colorizer.config'
   opts = {
+    names = false,
   },
 }
