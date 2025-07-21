@@ -182,6 +182,22 @@ return { ---@type LazyKeysSpec[]
     end,
     desc = "[n]otifications",
   },
+  {
+    "<leader>ft",
+    function()
+      ---@diagnostic disable-next-line: undefined-field
+      Snacks.picker.todo_comments()
+    end,
+    desc = "[t]odo",
+  },
+  {
+    "<leader>fT",
+    function()
+      ---@diagnostic disable-next-line: undefined-field
+      Snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
+    end,
+    desc = "[T]odo/Fix/Fixme",
+  },
   -- pickers
   {
     "<leader>fpp",
