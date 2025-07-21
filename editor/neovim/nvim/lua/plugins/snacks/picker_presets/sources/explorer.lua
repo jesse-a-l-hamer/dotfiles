@@ -1,3 +1,3 @@
 ---@module 'snacks'
-return { ---@type snacks.picker.sources.Config
+return { ---@type snacks.picker.explorer.Config
 }
