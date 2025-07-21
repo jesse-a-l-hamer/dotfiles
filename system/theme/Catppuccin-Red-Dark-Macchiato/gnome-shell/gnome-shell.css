@@ -130,7 +130,6 @@
 .app-folder-dialog .folder-name-container {
   padding: 24px 36px 0;
   spacing: 12px;
-  /* FIXME: this is to keep the label in sync with the entry */
 }
 
 .app-folder-dialog .folder-name-container .folder-name-label, .app-folder-dialog .folder-name-container .folder-name-entry {

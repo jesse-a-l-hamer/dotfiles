@@ -14,7 +14,6 @@ return {
         todo_comments.jump_prev()
       end, { desc = "Previous todo comment" })
 
-      -- TODO: other stuff
       local todo_opts = {}
       todo_comments.setup(todo_opts)
     end,

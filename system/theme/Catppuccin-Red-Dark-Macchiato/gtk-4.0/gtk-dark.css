@@ -6627,7 +6627,6 @@ flowboxchild.card:not(.category-tile) {
 
 .category-tile.card.category-work {
   padding: 1px;
-  /* FIXME: work around https://gitlab.gnome.org/GNOME/gtk/-/issues/4324 */
   color: #1c71d8;
   background-color: #fdf8d7;
   background-image: linear-gradient(rgba(239, 241, 245, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(239, 241, 245, 0.12) 1px, transparent 1px);
