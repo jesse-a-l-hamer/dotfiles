@@ -5,9 +5,13 @@ return {
     style_map = {
       bold = {},
       italic = {
+        ["@comment"] = true,
         Comment = true,
       },
-      bold_italic = {},
+      bold_italic = {
+        Type = true,
+        ["@lsp.type.comment"] = true,
+      },
     },
   },
 }
