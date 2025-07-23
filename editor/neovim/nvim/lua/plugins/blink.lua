@@ -6,7 +6,6 @@ local default_sources = function()
     "path",
     "snippets",
     "git",
-    "conventional_commits",
     "buffer",
     "emoji",
     "cmdline",
@@ -54,7 +53,6 @@ return {
         "Kaiser-Yang/blink-cmp-git",
         dependencies = { "nvim-lua/plenary.nvim" },
       },
-      "disrupted/blink-cmp-conventional-commits",
       "xzbdmw/colorful-menu.nvim",
       "jmbuhr/cmp-pandoc-references",
       "bydlw98/blink-cmp-sshconfig",
@@ -205,6 +203,7 @@ return {
         ghost_text = { enabled = true, show_with_selection = true },
       },
       fuzzy = { implementation = "prefer_rust_with_warning" },
+      -- NOTE: custom docs drawing for signature help not yet supported (2025-07-23)
       signature = {
         enabled = true,
         window = {
@@ -293,16 +292,6 @@ return {
             end,
             --- @module 'blink-cmp-git'
             --- @type blink-cmp-git.Options
-            opts = {},
-          },
-          conventional_commits = {
-            name = "Conventional Commits",
-            module = "blink-cmp-conventional-commits",
-            enabled = function()
-              return vim.o.filetype == "gitcommit"
-            end,
-            ---@module 'blink-cmp-conventional-commits'
-            ---@type blink-cmp-conventional-commits.Options
             opts = {},
           },
           references = {
