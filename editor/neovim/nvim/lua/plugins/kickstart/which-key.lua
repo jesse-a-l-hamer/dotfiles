@@ -1,9 +1,9 @@
 ---@module 'which-key'
 
 return {
-  { -- Useful plugin to show you pending keybinds.
+  {
     "folke/which-key.nvim",
-    event = "VimEnter", -- Sets the loading event to 'VimEnter'
+    event = "VimEnter",
     ---@type wk.Opts
     opts = {
       delay = 0,
@@ -58,7 +58,6 @@ return {
         { "<leader>lx", group = "[x] Trouble", mode = { "n", "v" } },
         { "<leader>p", group = "[p]rofiler" },
         { "<leader>n", group = "[n]otifications" },
-        { "<leader>o", group = "[o]bsidian" },
         { "<leader>s", group = "[s]earch", mode = { "n", "v" } },
         { "<leader>t", group = "[t]erminal" },
         { "<leader>T", group = "[T]oggles" },
