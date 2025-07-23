@@ -1,4 +1,6 @@
-return {
+---@module 'lazy'
+
+return { ---@type LazyPluginSpec
   "folke/trouble.nvim",
   specs = {
     "folke/snacks.nvim",
@@ -21,37 +23,37 @@ return {
     end,
   },
   keys = {
-    keys = {
-      {
-        "<leader>xD",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "[D]iagnostics",
-      },
-      {
-        "<leader>xd",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "[d]iagnostics (buffer)",
-      },
-      {
-        "<leader>lxs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "[s]ymbols",
-      },
-      {
-        "<leader>lxl",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "[l]sp Definitions / references / ...",
-      },
-      {
-        "<leader>xl",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "[l]ocation list",
-      },
-      {
-        "<leader>xq",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "[q]uickfix list",
-      },
+    {
+      "<leader>xD",
+      "<cmd>Trouble diagnostics toggle<cr>",
+      desc = "[D]iagnostics",
     },
+    {
+      "<leader>xd",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      desc = "[d]iagnostics (buffer)",
+    },
+    {
+      "<leader>xl",
+      "<cmd>Trouble loclist toggle<cr>",
+      desc = "[l]ocation list",
+    },
+    {
+      "<leader>xq",
+      "<cmd>Trouble qflist toggle<cr>",
+      desc = "[q]uickfix list",
+    },
+    {
+      "<leader>lxs",
+      "<cmd>Trouble symbols toggle focus=false<cr>",
+      desc = "[s]ymbols",
+    },
+    {
+      "<leader>lxl",
+      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      desc = "[l]sp Definitions / references / ...",
+    },
+  },
+  opts = { ---@type trouble.Config
   },
 }
