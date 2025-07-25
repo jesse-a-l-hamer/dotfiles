@@ -3,7 +3,7 @@
 return { ---@type LazyKeysSpec[]
   {
     "<leader>N",
-    desc = "Neovim [N]ews",
+    desc = "Neovim News",
     function()
       Snacks.win {
         file = "/opt/nvim-linux64/share/nvim/runtime/doc/news.txt",
@@ -24,21 +24,14 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.bufdelete()
     end,
-    desc = "[c]lose buffer",
-  },
-  {
-    "<leader>C",
-    function()
-      Snacks.picker.colorschemes()
-    end,
-    desc = "[C]olorschemes",
+    desc = "Close buffer",
   },
   {
     "<leader>D",
     function()
       Snacks.dashboard(require "plugins.snacks.dashboard")
     end,
-    desc = "[D]ashboard",
+    desc = "Dashboard",
   },
   {
     "<leader>,",
@@ -83,13 +76,13 @@ return { ---@type LazyKeysSpec[]
         Snacks.picker.explorer()
       end
     end,
-    desc = "[e]xplorer",
+    desc = "Explorer",
   },
   {
     "<leader>r",
     function()
       Snacks.picker.resume()
     end,
-    desc = "[r]esume find/search",
+    desc = "Resume find/search",
   },
 }

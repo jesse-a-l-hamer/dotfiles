@@ -5,28 +5,28 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.picker.lines()
     end,
-    desc = "[l]ines in buffer",
+    desc = "Lines in buffer",
   },
   {
     "<leader>sb",
     function()
       Snacks.picker.grep_buffers()
     end,
-    desc = "[b]uffers",
+    desc = "Open buffers",
   },
   {
-    "<leader>sg",
+    "<leader>ss",
     function()
       Snacks.picker.grep()
     end,
-    desc = "[g]rep",
+    desc = "Current working directory",
   },
   {
     "<leader>sw",
     function()
       Snacks.picker.grep_word()
     end,
-    desc = "[w]ord",
+    desc = "Current word (in cwd)",
     mode = { "n", "x" },
   },
 }

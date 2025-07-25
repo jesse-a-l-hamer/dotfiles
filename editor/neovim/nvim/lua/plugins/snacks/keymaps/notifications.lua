@@ -5,13 +5,13 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.notifier.show_history()
     end,
-    desc = "[h]istory",
+    desc = "History",
   },
   {
     "<leader>nd",
     function()
       Snacks.notifier.hide()
     end,
-    desc = "[d]ismiss",
+    desc = "Dismiss",
   },
 }

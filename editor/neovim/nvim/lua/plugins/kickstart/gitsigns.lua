@@ -27,7 +27,7 @@ return {
             ---@diagnostic disable-next-line: param-type-mismatch
             gitsigns.nav_hunk "next"
           end
-        end, { desc = "Next git [h]unk/change" })
+        end, { desc = "Next git hunk/change" })
 
         map("n", "[h", function()
           if vim.wo.diff then
@@ -36,29 +36,29 @@ return {
             ---@diagnostic disable-next-line: param-type-mismatch
             gitsigns.nav_hunk "prev"
           end
-        end, { desc = "Previous git [h]unk/change" })
+        end, { desc = "Previous git hunk/change" })
 
         -- Actions
         -- visual mode
         map("v", "<leader>gsh", function()
           gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end, { desc = "[h]unk" })
+        end, { desc = "Hunk" })
         map("v", "<leader>grh", function()
           gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
-        end, { desc = "[h]unk" })
+        end, { desc = "Hunk" })
         -- normal mode
-        map("n", "<leader>gsh", gitsigns.stage_hunk, { desc = "[h]unk" })
-        map("n", "<leader>grh", gitsigns.reset_hunk, { desc = "[h]unk" })
-        map("n", "<leader>gsb", gitsigns.stage_buffer, { desc = "[b]uffer" })
-        map("n", "<leader>gu", gitsigns.stage_hunk, { desc = "[u]ndo stage hunk" })
-        map("n", "<leader>grb", gitsigns.reset_buffer, { desc = "[b]uffer" })
-        map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[p]review hunk" })
-        map("n", "<leader>gdi", gitsigns.diffthis, { desc = "against [i]ndex" })
+        map("n", "<leader>gsh", gitsigns.stage_hunk, { desc = "Hunk" })
+        map("n", "<leader>grh", gitsigns.reset_hunk, { desc = "Hunk" })
+        map("n", "<leader>gsb", gitsigns.stage_buffer, { desc = "Buffer" })
+        map("n", "<leader>gu", gitsigns.stage_hunk, { desc = "Unstage hunk" })
+        map("n", "<leader>grb", gitsigns.reset_buffer, { desc = "Buffer" })
+        map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "Preview hunk" })
+        map("n", "<leader>gdi", gitsigns.diffthis, { desc = "Against index" })
         map("n", "<leader>gdc", function()
           gitsigns.diffthis "@"
-        end, { desc = "against last [c]ommit" })
+        end, { desc = "Against last commit" })
         -- Toggles
-        map("n", "<leader>gD", gitsigns.preview_hunk_inline, { desc = "toggle show [D]eleted" })
+        map("n", "<leader>gD", gitsigns.preview_hunk_inline, { desc = "Toggle show deleted" })
       end,
     },
   },

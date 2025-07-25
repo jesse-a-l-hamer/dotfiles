@@ -6,8 +6,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
     end
 
-    map("<leader>lrs", ":IncRename ", "[s]ymbol", { "n", "x" })
-    map("<leader>la", vim.lsp.buf.code_action, "code [a]ction", { "n", "x" })
+    map("<leader>lrs", ":IncRename ", "Symbol", { "n", "x" })
+    map("<leader>la", vim.lsp.buf.code_action, "Code action", { "n", "x" })
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -53,7 +53,7 @@ vim.diagnostic.config {
     border = "rounded",
     source = "if_many",
   },
-  signs = { text = diagnostic_signs }
+  signs = { text = diagnostic_signs },
 }
 
 -- configure custom capabilities for all LSPs

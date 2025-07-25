@@ -1,24 +1,17 @@
 ---@module 'lazy'
 return { ---@type LazyKeysSpec[]
   {
-    "<leader>bs",
+    "<leader>St",
     function()
       Snacks.scratch()
     end,
-    desc = "[s]cratch",
+    desc = "Toggle scratch buffer",
   },
   {
-    "<leader>bS",
+    "<leader>Sl",
     function()
       Snacks.scratch.select()
     end,
-    desc = "[S]elect scratch",
-  },
-  {
-    "<leader>bd",
-    function()
-      Snacks.bufdelete()
-    end,
-    desc = "[d]elete",
+    desc = "Open scratch buffer from list",
   },
 }

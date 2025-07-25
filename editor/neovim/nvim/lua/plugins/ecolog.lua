@@ -53,7 +53,7 @@ return {
     load_shell = {
       enabled = true,
       override = false,
-      transform = function(key, value)
+      transform = function(_, value)
         return "[shell] " .. value
       end,
     },

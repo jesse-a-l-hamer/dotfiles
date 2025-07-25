@@ -3,13 +3,13 @@
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Dismiss active search HL" })
 
 -- Easy write/quit shortcuts
-vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "[w]rite buffer" })
-vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "[W]rite all buffers" })
-vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "[q]uit buffer" })
-vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "[Q]uit all buffers (exit Neovim)" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Write buffer" })
+vim.keymap.set("n", "<leader>W", "<cmd>wa<CR>", { desc = "Write all buffers" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>Q", "<cmd>qa<CR>", { desc = "Quit Neovim" })
 
 -- Easier terminal mode escape
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -20,17 +20,11 @@ vim.keymap.set("n", "<leader>ld", function()
 end, { desc = "Show diagnostics at cursor" })
 vim.keymap.set("n", "<leader>lD", vim.diagnostic.open_float, { desc = "Show diagnostics in line" })
 
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Focus left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Focus right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 -- Keybinds to make window resizing easier.
 vim.keymap.set("n", "<C-Up>", "<Cmd>resize -2<CR>", { desc = "Resize split up" })

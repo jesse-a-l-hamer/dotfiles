@@ -24,34 +24,34 @@ return { ---@type LazyPluginSpec
   },
   keys = {
     {
-      "<leader>xD",
+      "<leader>tD",
       "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "[D]iagnostics",
+      desc = "Workspace diagnostics",
     },
     {
-      "<leader>xd",
+      "<leader>td",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "[d]iagnostics (buffer)",
+      desc = "Buffer diagnostics",
     },
     {
-      "<leader>xl",
+      "<leader>tl",
       "<cmd>Trouble loclist toggle<cr>",
-      desc = "[l]ocation list",
+      desc = "Location list",
     },
     {
-      "<leader>xq",
+      "<leader>tq",
       "<cmd>Trouble qflist toggle<cr>",
-      desc = "[q]uickfix list",
+      desc = "Quickfix list",
     },
     {
-      "<leader>lxs",
-      "<cmd>Trouble symbols toggle focus=false<cr>",
-      desc = "[s]ymbols",
+      "<leader>ts",
+      "<cmd>Trouble symbols toggle focus=false win.position=right<cr>",
+      desc = "Symbols",
     },
     {
-      "<leader>lxl",
+      "<leader>tL",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      desc = "[l]sp Definitions / references / ...",
+      desc = "LSP Definitions / references / ...",
     },
   },
   opts = { ---@type trouble.Config

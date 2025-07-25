@@ -5,182 +5,182 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.picker.buffers()
     end,
-    desc = "[b]uffers",
+    desc = "Buffers",
   },
   {
     "<leader>fc",
     function()
       Snacks.picker.files { cwd = vim.fn.stdpath "config" }
     end,
-    desc = "[c]onfig files",
+    desc = "Config files",
+  },
+  {
+    "<leader>fC",
+    function()
+      Snacks.picker.colorschemes()
+    end,
+    desc = "Colorschemes",
   },
   {
     "<leader>ff",
     function()
       Snacks.picker.files()
     end,
-    desc = "[f]iles",
+    desc = "Files",
   },
   {
     "<leader>fR",
     function()
       Snacks.picker.recent()
     end,
-    desc = "[R]ecent",
+    desc = "Recent files",
   },
   {
     '<leader>f"',
     function()
       Snacks.picker.registers()
     end,
-    desc = '["] registers',
+    desc = "Registers",
   },
   {
     "<leader>fa",
     function()
       Snacks.picker.autocmds()
     end,
-    desc = "[a]utocmds",
+    desc = "Autocmds",
   },
   {
     "<leader>f:",
     function()
-      Snacks.picker.command_history()
-    end,
-    desc = "[:] command history",
-  },
-  {
-    "<leader>fC",
-    function()
       Snacks.picker.commands()
     end,
-    desc = "[C]ommands",
+    desc = "Commands",
   },
   {
     "<leader>fd",
     function()
       Snacks.picker.diagnostics { filter = { buf = true } }
     end,
-    desc = "[d]iagnostics (buffer)",
+    desc = "Diagnostics (buffer)",
   },
   {
     "<leader>fD",
     function()
       Snacks.picker.diagnostics()
     end,
-    desc = "[D]iagnostics (cwd)",
+    desc = "Diagnostics (cwd)",
   },
   {
     "<leader>fh",
     function()
       Snacks.picker.help()
     end,
-    desc = "[h]elp",
+    desc = "Help",
   },
   {
     "<leader>fH",
     function()
       Snacks.picker.highlights()
     end,
-    desc = "[H]ighlights",
+    desc = "Highlights",
   },
   {
     "<leader>fi",
     function()
       Snacks.picker "icons"
     end,
-    desc = "[i]cons",
+    desc = "Icons",
   },
   {
     "<leader>fj",
     function()
       Snacks.picker.jumps()
     end,
-    desc = "[j]umps",
+    desc = "Jumps",
   },
   {
     "<leader>fk",
     function()
       Snacks.picker.keymaps()
     end,
-    desc = "[k]eymaps",
+    desc = "Keymaps",
   },
   {
     "<leader>fl",
     function()
       Snacks.picker.loclist()
     end,
-    desc = "[l]ocation list",
+    desc = "Location list",
   },
   {
     "<leader>fM",
     function()
       Snacks.picker.man()
     end,
-    desc = "[M]an pages",
+    desc = "Man pages (system)",
   },
   {
     "<leader>fm",
     function()
       Snacks.picker.marks()
     end,
-    desc = "[m]arks",
+    desc = "Marks",
   },
   {
     "<leader>fq",
     function()
       Snacks.picker.qflist()
     end,
-    desc = "[q]uickfix list",
+    desc = "Quickfix list",
+  },
+  {
+    "<leader>fp",
+    function()
+      Snacks.picker "lazy"
+    end,
+    desc = "Lazy plugin specs",
   },
   {
     "<leader>fP",
     function()
       Snacks.picker.projects()
     end,
-    desc = "[P]rojects",
+    desc = "Projects",
   },
   {
     "<leader>fz",
     function()
       Snacks.picker.zoxide()
     end,
-    desc = "[z]oxide projects",
+    desc = "zoxide projects",
   },
   {
     "<leader>fu",
     function()
       Snacks.picker "undo"
     end,
-    desc = "[u]ndo",
+    desc = "Undo",
   },
   {
     "<leader>fs",
     function()
       Snacks.picker "spelling"
     end,
-    desc = "[s]pelling",
+    desc = "Spelling",
   },
   {
     "<leader>fS",
     function()
       Snacks.picker.search_history()
     end,
-    desc = "[S]earch history",
-  },
-  {
-    "<leader>fL",
-    function()
-      Snacks.picker "lazy"
-    end,
-    desc = "[L]azy plugin specs",
+    desc = "Search history",
   },
   {
     "<leader>fn",
     function()
       Snacks.picker "notifications"
     end,
-    desc = "[n]otifications",
+    desc = "Notifications",
   },
   {
     "<leader>ft",
@@ -188,7 +188,7 @@ return { ---@type LazyKeysSpec[]
       ---@diagnostic disable-next-line: undefined-field
       Snacks.picker.todo_comments()
     end,
-    desc = "[t]odo",
+    desc = "Todo comments (all)",
   },
   {
     "<leader>fT",
@@ -196,7 +196,7 @@ return { ---@type LazyKeysSpec[]
       ---@diagnostic disable-next-line: undefined-field
       Snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
     end,
-    desc = "[T]odo/Fix/Fixme",
+    desc = "Todo comments (TODO / FIX / FIXME)",
   },
   -- pickers
   {
@@ -204,35 +204,35 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.picker.pickers()
     end,
-    desc = "[p]ickers",
+    desc = "Pickers",
   },
   {
     "<leader>fpP",
     function()
       Snacks.picker "picker_preview"
     end,
-    desc = "[P]reviews",
+    desc = "Previews",
   },
   {
     "<leader>fpl",
     function()
       Snacks.picker "picker_layouts"
     end,
-    desc = "[l]ayouts",
+    desc = "Layouts",
   },
   {
     "<leader>fpf",
     function()
       Snacks.picker "picker_format"
     end,
-    desc = "[f]ormats",
+    desc = "Formats",
   },
   {
     "<leader>fpa",
     function()
       Snacks.picker "picker_actions"
     end,
-    desc = "[a]ctions",
+    desc = "Actions",
   },
   {
     "<leader>f.",

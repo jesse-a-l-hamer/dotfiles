@@ -5,6 +5,6 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.profiler.scratch()
     end,
-    desc = "[c]onfigure profiler picker",
+    desc = "Configure profiler picker",
   },
 }

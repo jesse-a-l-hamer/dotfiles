@@ -5,28 +5,28 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.picker.lsp_definitions()
     end,
-    desc = "[d]efinition",
+    desc = "Definition",
   },
   {
     "<leader>lgD",
     function()
       Snacks.picker.lsp_declarations()
     end,
-    desc = "[D]eclaration",
+    desc = "Declaration",
   },
   {
     "<leader>lgi",
     function()
       Snacks.picker.lsp_implementations()
     end,
-    desc = "[i]mplementation",
+    desc = "Implementation",
   },
   {
     "<leader>lgt",
     function()
       Snacks.picker.lsp_type_definitions()
     end,
-    desc = "[t]ype",
+    desc = "Type",
   },
   -- rename
   {
@@ -34,7 +34,7 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.rename.rename_file()
     end,
-    desc = "[f]ile",
+    desc = "File",
   },
   -- search
   {
@@ -43,20 +43,20 @@ return { ---@type LazyKeysSpec[]
       Snacks.picker.lsp_references()
     end,
     nowait = true,
-    desc = "[r]eferences",
+    desc = "References",
   },
   {
     "<leader>lss",
     function()
       Snacks.picker.lsp_symbols()
     end,
-    desc = "[s]ymbols (document)",
+    desc = "Document Symbols",
   },
   {
     "<leader>lsw",
     function()
-      Snacks.picker.lsp_symbols()
+      Snacks.picker.lsp_workspace_symbols()
     end,
-    desc = "symbols ([w]orkspace)",
+    desc = "Workspace Symbols",
   },
 }

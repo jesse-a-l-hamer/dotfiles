@@ -1,11 +1,12 @@
 ---@module 'lazy'
+---@module 'snacks'
 return { ---@type LazyKeysSpec[]
   {
     "<leader>gB",
     function()
       Snacks.gitbrowse()
     end,
-    desc = "[B]rowse",
+    desc = "Browse Repository",
     mode = { "n", "v" },
   },
   {
@@ -13,28 +14,28 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.git.blame_line()
     end,
-    desc = "[b]lame line",
+    desc = "Blame line",
   },
   {
-    "<leader>gf",
+    "<leader>ggf",
     function()
       Snacks.lazygit.log_file()
     end,
-    desc = "Lazygit current [f]ile history",
+    desc = "File commit log",
   },
   {
-    "<leader>gg",
+    "<leader>ggg",
     function()
       Snacks.lazygit()
     end,
-    desc = "Lazy[g]it",
+    desc = "Open Lazygit",
   },
   {
-    "<leader>gl",
+    "<leader>ggl",
     function()
       Snacks.lazygit.log()
     end,
-    desc = "Lazygit [l]og (cwd)",
+    desc = "Repo commit log",
   },
   -- find
   {
@@ -42,55 +43,55 @@ return { ---@type LazyKeysSpec[]
     function()
       Snacks.picker "git_branches"
     end,
-    desc = "[b]ranches",
+    desc = "Branches",
   },
   {
     "<leader>gfd",
     function()
       Snacks.picker.git_diff()
     end,
-    desc = "[d]iff",
+    desc = "Diff",
   },
   {
     "<leader>gff",
     function()
       Snacks.picker.git_files()
     end,
-    desc = "[f]iles",
+    desc = "Files",
   },
   {
     "<leader>gfl",
     function()
       Snacks.picker.git_log()
     end,
-    desc = "[l]og",
+    desc = "Log",
   },
   {
     "<leader>gfc",
     function()
       Snacks.picker.git_log_file()
     end,
-    desc = "[c]urrent file log",
+    desc = "Current file log",
   },
   {
     "<leader>gfL",
     function()
       Snacks.picker.git_log_line()
     end,
-    desc = "current [L]ine log",
+    desc = "Current line log",
   },
   {
     "<leader>gfs",
     function()
       Snacks.picker.git_status()
     end,
-    desc = "[s]tatus",
+    desc = "Status",
   },
   {
     "<leader>gfS",
     function()
       Snacks.picker.git_stash()
     end,
-    desc = "[S]tash",
+    desc = "Stash",
   },
 }
