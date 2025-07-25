@@ -234,4 +234,19 @@ return { ---@type LazyKeysSpec[]
     end,
     desc = "[a]ctions",
   },
+  {
+    "<leader>f.",
+    function()
+      Snacks.picker.buffers {
+        hidden = true,
+        filter = {
+          filter = function(item, _)
+            return item.file and vim.startswith(item.file, "term://")
+          end,
+        },
+        title = "Open Terminals",
+      }
+    end,
+    desc = "Open Terminals",
+  },
 }
