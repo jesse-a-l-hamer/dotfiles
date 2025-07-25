@@ -20,6 +20,13 @@ return { ---@type LazyKeysSpec[]
     end,
   },
   {
+    "<leader>c",
+    function()
+      Snacks.bufdelete()
+    end,
+    desc = "[c]lose buffer",
+  },
+  {
     "<leader>C",
     function()
       Snacks.picker.colorschemes()
