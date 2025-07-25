@@ -1,0 +1,2 @@
+links:
+  ttdl: "{{ dirs.base.config }}/ttdl"
