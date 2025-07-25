@@ -59,11 +59,12 @@ return {
         { "<leader>p", group = "[p]rofiler" },
         { "<leader>n", group = "[n]otifications" },
         { "<leader>s", group = "[s]earch", mode = { "n", "v" } },
-        { "<leader>t", group = "[t]erminal" },
         { "<leader>T", group = "[T]oggles" },
         { "<leader>To", group = "[o]ptions" },
         { "<leader>Tp", group = "[p]rofiler" },
         { "<leader>x", group = "[x] Trouble" },
+        { "<leader>t", group = "terminal" },
+        { "<leader>tn", group = "new" },
       },
       win = {
         border = "rounded",
