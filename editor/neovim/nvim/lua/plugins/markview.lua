@@ -13,6 +13,13 @@ return {
   opts = {
     preview = {
       icon_provider = "devicons",
+      filetypes = {
+        "markdown",
+        "quarto",
+        "rmd",
+        "typst", -- filetypes up to here are the defaults
+        "snacks_notif_history",
+      },
     },
     markdown = {
       headings = presets.headings.slanted,
