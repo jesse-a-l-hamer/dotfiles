@@ -9,6 +9,8 @@ return { ---@type snacks.dashboard.Config
       { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
       { icon = " ", key = "S", desc = "Restore Session", section = "session" },
       { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+      { icon = " ", key = "g", desc = "Lazygit", action = ":lua Snacks.lazygit()" },
+      { icon = " ", key = "G", desc = "Github", action = ":lua Snacks.gitbrowse()" },
       { icon = " ", key = "q", desc = "Quit", action = ":qa" },
     },
   },
