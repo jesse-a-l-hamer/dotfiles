@@ -1,4 +1,5 @@
 ---@module 'lazy'
+---@module 'snacks'
 return { ---@type LazyKeysSpec[]
   {
     "<leader>fb",
@@ -245,6 +246,13 @@ return { ---@type LazyKeysSpec[]
           end,
         },
         title = "Open Terminals",
+        confirm = function(_, item)
+          vim
+            .tbl_filter(function(t)
+              return t.buf == item.buf
+            end, Snacks.terminal.list())[1]
+            :show()
+        end,
       }
     end,
     desc = "Open Terminals",
