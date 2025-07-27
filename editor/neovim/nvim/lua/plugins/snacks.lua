@@ -96,8 +96,8 @@ return { ---@type LazyPluginSpec
         _G.dd = function(...)
           Snacks.debug.inspect(...)
         end
-        _G.bt = function()
-          Snacks.debug.backtrace()
+        _G.bt = function(msg, opts)
+          Snacks.debug.backtrace(msg, opts)
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
