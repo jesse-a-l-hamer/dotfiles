@@ -65,7 +65,9 @@ return {
         { "<leader>To", group = "Options" },
         { "<leader>Tp", group = "Profiler" },
         { "<leader>.", group = "Terminal" },
-        { "<leader>.n", group = "New" },
+        { "<leader>.f", group = "Floating" },
+        { "<leader>.v", group = "Vertical split" },
+        { "<leader>.h", group = "Horizontal split" },
       },
       win = {
         border = "rounded",
