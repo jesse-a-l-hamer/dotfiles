@@ -39,6 +39,7 @@ return {
         python = { "ruff_organize_imports", "ruff_format" },
         shell = { "shfmt" },
         toml = { "taplo" },
+        typst = { "typstyle" },
         yaml = { "yamlfmt" },
       },
     },
