@@ -1,8 +1,8 @@
 installs:
   cmd: |
     mkdir -p {{ dirs.base.home }}/.local/share/fonts/NerdFonts/VictorMono
-    (cd {{ dirs.base.download }} && curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/VictorMono.tar.xz)
-    (cd {{ dirs.base.home }}/.local/share/fonts/NerdFonts/VictorMono && tar xf {{ dirs.base.download }}/VictorMono.tar.xz)
+    (cd {{ dirs.base.home }}/Downloads && curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/VictorMono.tar.xz)
+    (cd {{ dirs.base.home }}/.local/share/fonts/NerdFonts/VictorMono && tar xf {{ dirs.base.home }}/Downloads/VictorMono.tar.xz && rm {{ dirs.base.home }}/Downloads/VictorMono.tar.xz)
     gsettings set org.gnome.desktop.interface font-name "VictorMono Nerd Font Propo Regular 10"
     gsettings set org.gnome.desktop.interface document-font-name "Liberation Serif Regular 11"
     gsettings set org.gnome.desktop.interface monospace-font-name "VictorMono Nerd Font Regular 11"
