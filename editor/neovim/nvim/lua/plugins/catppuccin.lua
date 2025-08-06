@@ -1,4 +1,4 @@
-local transparent_background = true
+local transparent_background = false
 local accent_color = "maroon"
 local dark_flavor = "macchiato"
 
@@ -22,6 +22,7 @@ return { ---@type LazyPluginSpec
       shade = "dark",
       percentage = 0.15,
     },
+    auto_integrations = true,
     integrations = {
       blink_cmp = {
         enabled = true,
