@@ -74,24 +74,10 @@ end
 
 -- per-LSP hover overrides
 ---@type table<string, hover.opts>
-local custom_hover_opts = {
+local custom_hover_opts = vim.tbl_deep_extend("force", {
   default = {
     border_hl = "BlinkCmpDocBorder",
   },
-  ["^basedpyright"] = { name = " BasedPyright" },
-  ["^bashls"] = { name = "󱆃 BashLS" },
-  ["^beancount"] = { name = " BeancountLS" },
-  ["^jinja_lsp"] = { name = " JinjaLSP" },
-  ["^lua_ls"] = { name = " LuaLS" },
-  ["^markdown_oxide"] = { name = "  MarkdownOxide" },
-  ["^marksman"] = { name = "  Marksman" },
-  ["^pylsp"] = { name = " PyLSP" },
-  ["^ruff"] = { name = " Ruff" },
-  ["^taplo"] = { name = " Taplo" },
-  ["^texlab"] = { name = " Lab" },
-  ["^tinymist"] = { name = "󰙩 Tinymist" },
-  ["^vale_ls"] = { name = " ValeLS" },
-  ["^yamlls"] = { name = "YamlLS" },
-}
+}, vim.g.lsp_client_info) -- defined in plugins/blink_cmp.lua
 
 require("util.lsp_hover").setup(custom_hover_opts)

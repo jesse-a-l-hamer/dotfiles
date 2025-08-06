@@ -23,6 +23,23 @@ local default_sources = function()
   return result
 end
 
+vim.g.lsp_client_info = {
+  ["^basedpyright"] = { name = " BasedPyright" },
+  ["^bashls"] = { name = "󱆃 BashLS" },
+  ["^beancount"] = { name = " BeancountLS" },
+  ["^jinja_lsp"] = { name = " JinjaLSP" },
+  ["^lua_ls"] = { name = " LuaLS" },
+  ["^markdown_oxide"] = { name = "  MarkdownOxide" },
+  ["^marksman"] = { name = "  Marksman" },
+  ["^pylsp"] = { name = " PyLSP" },
+  ["^ruff"] = { name = " Ruff" },
+  ["^taplo"] = { name = " Taplo" },
+  ["^texlab"] = { name = " Lab" },
+  ["^tinymist"] = { name = "󰙩 Tinymist" },
+  ["^vale_ls"] = { name = " ValeLS" },
+  ["^yamlls"] = { name = "YamlLS" },
+}
+
 return {
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -175,10 +192,36 @@ return {
               vim.g.__reg_doc = true
             end
 
+            local footer = nil
+            if data.item.source_id == "lsp" then
+              footer = {
+                { "╼ ", "BlinkCmpDocBorder" },
+                { "  LSP/Docs", "BlinkCmpDocBorder" },
+                { " ╾", "BlinkCmpDocBorder" },
+              }
+              local lsp_client_info = vim.g.lsp_client_info
+              for k, v in pairs(lsp_client_info) do
+                if string.match(data.item.client_name, k) then
+                  footer[2][1] = v.name
+                end
+              end
+            end
+
             if package.loaded["markview"] then
               local win = data.window:get_win()
 
               if win then
+                vim.wo[win].conceallevel = 3
+                if footer then
+                  vim.api.nvim_win_set_config(
+                    win,
+                    vim.tbl_deep_extend("force", vim.api.nvim_win_get_config(win), {
+                      footer = footer,
+                      footer_pos = "right",
+
+                    })
+                  )
+                end
                 vim.bo[buf].ft = "markdown"
                 require("markview").render(buf, { enable = true, hybrid_mode = false })
                 vim.bo[buf].ft = "blink-cmp-documentation"
@@ -189,6 +232,16 @@ return {
 
                 if win then
                   vim.wo[win].signcolumn = "no"
+                  vim.wo[win].conceallevel = 3
+                  if footer then
+                    vim.api.nvim_win_set_config(
+                      win,
+                      vim.tbl_deep_extend("force", vim.api.nvim_win_get_config(win), {
+                        footer = footer,
+                        footer_pos = "right",
+                      })
+                    )
+                  end
                 end
 
                 vim.bo[buf].ft = "markdown"
