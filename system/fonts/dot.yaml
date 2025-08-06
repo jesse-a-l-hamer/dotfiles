@@ -1,8 +1,8 @@
 installs:
   cmd: |
-    mkdir -p {{ dirs.base.home }}/package-repos
-    git clone https://github.com/githubnext/monaspace.git {{ dirs.base.home }}/package-repos/monaspace
-    (cd {{ dirs.base.home }}/package-repos/monaspace && ./util/install_linux.sh)
-    gsettings set org.gnome.desktop.interface font-name "Monaspace Argon Frozen Light 10"
-    gsettings set org.gnome.desktop.interface document-font-name "Monaspace Xenon Frozen Light 11"
-    gsettings set org.gnome.desktop.interface monospace-font-name "Monaspace Krypton Frozen Light 11"
+    mkdir -p {{ dirs.base.home }}/.local/share/fonts/NerdFonts/VictorMono
+    (cd {{ dirs.base.download }} && curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/VictorMono.tar.xz)
+    (cd {{ dirs.base.home }}/.local/share/fonts/NerdFonts/VictorMono && tar xf {{ dirs.base.download }}/VictorMono.tar.xz)
+    gsettings set org.gnome.desktop.interface font-name "VictorMono Nerd Font Propo Regular 10"
+    gsettings set org.gnome.desktop.interface document-font-name "Liberation Serif Regular 11"
+    gsettings set org.gnome.desktop.interface monospace-font-name "VictorMono Nerd Font Regular 11"

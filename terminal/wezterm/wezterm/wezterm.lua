@@ -12,7 +12,7 @@ local function build_base_config()
 	-- This is where you actually apply your config choices
 
 	config.enable_scroll_bar = true
-	config.font = wezterm.font("Monaspace Argon Frozen", { weight = "Light" })
+	config.font = wezterm.font("VictorMono Nerd Font", { weight = "Regular" })
 
 	config.max_fps = 144
 
@@ -21,7 +21,7 @@ local function build_base_config()
 	-- config.tab_bar_at_bottom = true
 
 	config.window_frame = { -- sets title font
-		font = wezterm.font("Monaspace Xenon Frozen"),
+		font = wezterm.font("VictorMono Nerd Font Propo"),
 	}
 	config.window_background_opacity = 0.80
 

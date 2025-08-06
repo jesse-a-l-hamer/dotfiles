@@ -66,15 +66,13 @@ configurations I have so far messed with.
 > Catppuccin website or [github](https://github.com/catppuccin) for all of the
 > officially maintained ports.
 >
-> I've also done some font-hopping, with my current favorite being the
-> [Monaspace family](https://monaspace.githubnext.com/) of fonts. This is actually
-> a collection of five distinct font faces, each of which has its own voice.
-> In my own set up I'm following the pattern detailed in the Neovim plugin
-> [monaspace.nvim](https://github.com/jackplus-xyz/monaspace.nvim); for example,
-> my regular font face is Monaspace Argon, which gives a neutral, sans-serif
-> look to normal text, while I use Monaspace Radon for the italic font face,
-> which conveys a more informal, handwritten look. See the
-> [kitty terminal dotfiles](terminal/kitty/kitty/kitty.conf) for more details.
+> As to fonts, I've currently settled on [Victor Mono](https://rubjo.github.io/victor-mono/),
+> after a long trial period with the [Monaspace family](https://monaspace.githubnext.com/) of fonts.
+> If you're feeling adventurous, I do recommend giving Monaspace a try: it's
+> essentially 5 distinct font faces in a single family, which you can mix-and-match in
+> interesting ways (see e.g., [monaspace.nvim](https://github.com/jackplus-xyz/monaspace.nvim)).
+> Unfortulately, Monaspace has some rendering issues when using Kitty as your terminal,
+> which I eventually got tired of looking at.
 
 ### Browser
 

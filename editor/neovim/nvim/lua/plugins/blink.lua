@@ -24,20 +24,20 @@ local default_sources = function()
 end
 
 vim.g.lsp_client_info = {
-  ["^basedpyright"] = { name = " BasedPyright" },
+  ["^basedpyright"] = { name = "  BasedPyright" },
   ["^bashls"] = { name = "󱆃 BashLS" },
-  ["^beancount"] = { name = " BeancountLS" },
-  ["^jinja_lsp"] = { name = " JinjaLSP" },
-  ["^lua_ls"] = { name = " LuaLS" },
+  ["^beancount"] = { name = "  BeancountLS" },
+  ["^jinja_lsp"] = { name = "  JinjaLSP" },
+  ["^lua_ls"] = { name = "  LuaLS" },
   ["^markdown_oxide"] = { name = "  MarkdownOxide" },
   ["^marksman"] = { name = "  Marksman" },
-  ["^pylsp"] = { name = " PyLSP" },
-  ["^ruff"] = { name = " Ruff" },
-  ["^taplo"] = { name = " Taplo" },
-  ["^texlab"] = { name = " Lab" },
-  ["^tinymist"] = { name = "󰙩 Tinymist" },
-  ["^vale_ls"] = { name = " ValeLS" },
-  ["^yamlls"] = { name = "YamlLS" },
+  ["^pylsp"] = { name = "  PyLSP" },
+  ["^ruff"] = { name = "  Ruff" },
+  ["^taplo"] = { name = "  Taplo" },
+  ["^texlab"] = { name = "  Lab" },
+  ["^tinymist"] = { name = " Tinymist" },
+  ["^vale_ls"] = { name = "  ValeLS" },
+  ["^yamlls"] = { name = " YamlLS" },
 }
 
 return {
